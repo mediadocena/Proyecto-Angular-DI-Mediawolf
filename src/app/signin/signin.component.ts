@@ -1,18 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+ 
+  constructor(private http:HttpClient) {
 
-  constructor() { }
+   }
+  datos:[any]=[{}];
   mail: String;
   pass1:String;
   pass2:String;
+  //Método que recupera datos de la api, para pintarlos en una variable:
+  //TO-DO: Crear servicios para interactuar con la api usando este método de ejemplo:
+ /*  getData(){
+    this.http.get('http://localhost:3000/api/users').subscribe(
+      (response)=>{
+      const aux:[any]=[{}];
+      aux.push(response);
+      console.log(aux);
+      aux.forEach(element => {
+        this.datos=(element);
+      });
+    },(error) => console.log('error'));
+    console.log(this.datos);
+   }*/
   ngOnInit() {
-    
+    //this.getData();
   }
   submit(){
     //TODO - Comprobar mail
