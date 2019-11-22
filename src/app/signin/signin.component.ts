@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserServiceService } from '../Services/user-service.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -9,11 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class SigninComponent implements OnInit {
  
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private userservice:UserServiceService) {
 
    }
   datos:[any]=[{}];
   mail: String;
+  username:String;
   pass1:String;
   pass2:String;
   //Método que recupera datos de la api, para pintarlos en una variable:
@@ -34,7 +36,17 @@ export class SigninComponent implements OnInit {
     //this.getData();
   }
   submit(){
-    //TODO - Comprobar mail
+
+    let tmp = {
+      realm : 'user',
+      username : this.username,
+      password : this.pass1,
+      email : this.mail,
+      emailVerified : false
+    }
+
+    this.userservice.postUser(tmp);
+    /*/TODO - Comprobar mail
     let emailTemp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(emailTemp.test(String(this.mail).toLowerCase())){
       if(this.pass1==this.pass2){
@@ -46,7 +58,7 @@ export class SigninComponent implements OnInit {
     }else{
       //Mostrar mensaje de error (mail)
       alert('Email no válido');
-    }
+    }*/
     
   }
 
