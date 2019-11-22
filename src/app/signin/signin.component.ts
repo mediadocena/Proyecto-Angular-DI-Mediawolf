@@ -18,7 +18,7 @@ export class SigninComponent implements OnInit {
   pass2:String;
   //Método que recupera datos de la api, para pintarlos en una variable:
   //TO-DO: Crear servicios para interactuar con la api usando este método de ejemplo:
- /*  getData(){
+ /* getData(){
     this.http.get('http://localhost:3000/api/users').subscribe(
       (response)=>{
       const aux:[any]=[{}];
