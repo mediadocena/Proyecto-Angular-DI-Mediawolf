@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserServiceService } from '../Services/user-service.service';
+import { UserServiceService } from '../../Services/user-service.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -36,7 +36,6 @@ export class SigninComponent implements OnInit {
     //this.getData();
   }
   submit(){
-
     let tmp = {
       realm : 'user',
       username : this.username,
