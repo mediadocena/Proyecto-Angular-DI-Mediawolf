@@ -17,6 +17,8 @@ export class UserServiceService {
         localStorage.setItem('token',JSON.stringify(response));
         console.log('Correct login');
         //JSON.parse() para convertir el string almacenado en un JSON.
-      },(error) => console.log('error'));
+      },(error) => 
+      console.log('error',error.error.error.message),//Conseguir el mensaje del error
+      ); 
   }
 }
