@@ -2,7 +2,7 @@
 <header>
   <div class="col">
 
-<nav class="navbar navbar-dark bg-info navbar-expand-lg rounded">
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark black lighten-1 rounded">
     <a class="navbar-brand" href="#">Mediawolf</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -33,12 +33,14 @@
           </span>
         </div>
         <div *ngSwitchCase="true">
-            <span class="navbar-text ">
-                <a routerLink="/User" routerLinkActive="active">
-                  <img class="rounded-circle img-fluid icono" 
-                  src="https://images.wallpaperscraft.com/image/deer_art_vector_134088_1920x1080.jpg" alt="">
-                </a>
-              </span>
+          <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item avatar">
+              <a class="nav-link p-0" href="#">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                  alt="avatar image" height="35">
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
