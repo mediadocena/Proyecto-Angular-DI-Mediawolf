@@ -21,20 +21,6 @@ export class LoginComponent implements OnInit {
   }
   submit(){
     this.userService.loginUser(this.user);
-    
-    let miPrimeraPromise = new Promise((resolve, reject) => {
-      resolve("Abemus Login");
-      
-   });
-
-  miPrimeraPromise.then((successMessage) => {
-    let usert = JSON.parse(localStorage.getItem('token')).id;
-    let userid=JSON.parse(localStorage.getItem('token')).userId;
-    console.log('UserToken:',usert,'\n userid:',userid);
-    window.location.reload();
-   
-  });
-   
-  }
-
+  
+ }
 }
