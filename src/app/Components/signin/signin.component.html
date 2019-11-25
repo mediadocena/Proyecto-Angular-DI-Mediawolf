@@ -1,10 +1,18 @@
 <br>
-<div class="col rounded mx-auto " style="width: 900px;">
-    <div class="row capa border border-black">
-      <div class="col-8">
-        <h1>Sign In</h1>
-        <form>
-            <div class="form-group">
+<!--Subscripción-->
+<br>
+<div class="container">
+<div class="row">
+<div class="col-1">
+
+</div>
+<!-- Material form subscription -->
+<div class="col-10">
+<!-- Default form subscription -->
+<form class=" text-white capa border border-danger p-5">
+    <h1 class="text-white">Sign in</h1>
+<div class="form-group">
+  
               <label for="exampleInputEmail1">Email address</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="mail" [ngModelOptions]="{standalone: true}">
             </div>
@@ -21,7 +29,10 @@
                 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" [(ngModel)]="pass2" [ngModelOptions]="{standalone: true}">
             </div>
             <button type="submit" class="btn btn-primary mb-1" (click)='submit()'>Submit</button>
-          </form>
-        </div>
-    </div>
+    </form>
+    <!-- Default form subscription -->
 </div>
+</div>
+<br>
+<br>
+    <!-- subscripción -->
