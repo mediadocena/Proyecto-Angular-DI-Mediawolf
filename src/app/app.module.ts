@@ -9,6 +9,7 @@ import { SigninComponent } from './Components/signin/signin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
+import { UserComponent } from './Components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginComponent } from './Components/login/login.component';
     BodyComponent,
     FooterComponent,
     SigninComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

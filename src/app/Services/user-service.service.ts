@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,6 @@ export class UserServiceService {
       (response)=>{console.log('okay')},(error) => console.log('error'));
   }
   loginUser(user){
-
     this.http.post('http://localhost:3000/api/users/login',user).subscribe(
       (response)=>{
         localStorage.setItem('token',JSON.stringify(response));

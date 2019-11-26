@@ -4,6 +4,7 @@ import { BodyComponent } from './Components/body/body.component';
 import { SigninComponent } from './Components/signin/signin.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HeaderComponent } from './Components/header/header.component';
+import { UserComponent } from './Components/user/user.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,8 @@ const routes: Routes = [
   {path: 'SignIn', component: SigninComponent//canActivate:[AuthGuardService]
 },
   {path:'LogIn',component:LoginComponent
+},
+  {path:'User',component:UserComponent
 },
   {path: '', redirectTo: '/Home',pathMatch: 'full'}
 ];
