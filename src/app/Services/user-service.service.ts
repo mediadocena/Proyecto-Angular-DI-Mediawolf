@@ -13,15 +13,17 @@ export class UserServiceService {
       (response)=>{console.log('okay')},(error) => console.log('error'));
   }
   loginUser(user){
-    return this.http.post('http://localhost:3000/api/users/login',user).subscribe(
+
+    this.http.post('http://localhost:3000/api/users/login',user).subscribe(
       (response)=>{
         localStorage.setItem('token',JSON.stringify(response));
         console.log('Correct login');
         window.location.reload();
         //JSON.parse() para convertir el string almacenado en un JSON.
-      },(error) => 
-      console.log('error',error.error.error.message),//Conseguir el mensaje del error
+      },(error) => {
+        console.log('error',error.error.error.message)
+        alert('Usuario o contraseña incorrectos')
+      }
       ); 
-      
   }
 }
