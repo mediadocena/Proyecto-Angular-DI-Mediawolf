@@ -132,7 +132,6 @@
 <br>
 <div class="col" *ngFor="let noticia of noticias;">
   <div class="row capa border border-dark rounded">
-   <a (click)="savenoticia({noticia.id})">
     <div class="mx-auto">
       <img src="{{noticia.img}}" class="rounded float-left img-fluid iconoticias" alt="">
     </div>
@@ -141,7 +140,6 @@
       <h3>{{noticia.subtitulo}}</h3>
       <p>{{noticia.cuerpo}}</p>
     </div>
-   </a>
   </div>
   <br>
 </div>

@@ -20,8 +20,8 @@ export class BodyComponent implements OnInit {
   )
    
   }
-  savenoticia(id){
+  /*savenoticia(id){
     this.noticiasService.saveId(id);
-  }
+  }*/
 
 }

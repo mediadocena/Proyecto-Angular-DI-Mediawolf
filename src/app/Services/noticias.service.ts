@@ -22,12 +22,12 @@ export class NoticiasService {
    getNoticias(){
      return this.http.get('http://localhost:3000/api/noticias')
       }
-    saveId(id){
+    /*saveId(id){
       localStorage.setItem('noticia',id);
     }
     getId(){
       var id = localStorage.getItem('noticia');
       localStorage.removeItem('noticia');
       return id;
-    }
+    }*/
 }
