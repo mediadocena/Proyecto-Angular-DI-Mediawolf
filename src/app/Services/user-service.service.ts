@@ -24,4 +24,15 @@ export class UserServiceService {
       }
       ); 
   }
+  logoutUser(alcachofa:any){
+    console.log(JSON.parse(alcachofa).id);
+    this.http.post(`http://localhost:3000/api/users/logout?access_token=`+JSON.parse(alcachofa).id, null).subscribe(
+      (response)=>{
+       
+        localStorage.removeItem('token');
+        console.log('okay');
+        window.location.reload();
+    },
+    (error) => console.log('error'));
+  }
 }
