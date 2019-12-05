@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
 import { UserComponent } from './Components/user/user.component';
 import { NoticiaComponent } from './Components/noticia/noticia.component';
+import { ListanoticiasComponent } from './Components/listanoticias/listanoticias.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NoticiaComponent } from './Components/noticia/noticia.component';
     SigninComponent,
     LoginComponent,
     UserComponent,
-    NoticiaComponent
+    NoticiaComponent,
+    ListanoticiasComponent
   ],
   imports: [
     BrowserModule,

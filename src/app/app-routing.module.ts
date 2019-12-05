@@ -6,6 +6,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { UserComponent } from './Components/user/user.component';
 import { NoticiaComponent } from './Components/noticia/noticia.component';
+import { ListanoticiasComponent } from './Components/listanoticias/listanoticias.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,8 @@ const routes: Routes = [
   {path:'User',component:UserComponent
 },
   {path:'Noticias',component:NoticiaComponent
+},
+  {path:'ListaNoticias',component:ListanoticiasComponent
 },
   {path: '', redirectTo: '/Home',pathMatch: 'full'}
 ];

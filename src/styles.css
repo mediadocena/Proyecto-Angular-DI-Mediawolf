@@ -25,3 +25,20 @@ html,body{
     min-width: 270px;
     max-width: 270px;
 }
+.iconocartas{
+    min-height: 350px;
+    max-height:350px;
+    min-width: 650px;
+    max-width: 650px;
+}
+.iconoredes{
+    min-height: 25px;
+    max-height:25px;
+    min-width: 25px;
+    max-width: 25px;
+}
+.centrado{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
