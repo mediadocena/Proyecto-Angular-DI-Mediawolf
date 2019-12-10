@@ -18,7 +18,14 @@ export class NoticiasService {
       map( this.crearArreglo ),
       delay(0)
     );
-      }
+    }
+
+    getNoticiaPorId(id){
+      return this.http.get('http://localhost:3000/api/noticias').pipe(
+       map( this.crearArreglo ),
+       delay(0)
+     );
+       }
 
       private crearArreglo( noticiaOBJ: object ) {
 
@@ -27,7 +34,6 @@ export class NoticiasService {
         Object.keys( noticiaOBJ ).forEach( key => {
     
           const noticia:Noticia = noticiaOBJ[key];
-          noticia.id = key;
     
           noticias.push( noticia );
         });
