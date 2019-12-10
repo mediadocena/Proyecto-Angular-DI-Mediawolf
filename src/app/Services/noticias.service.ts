@@ -27,12 +27,19 @@ export class NoticiasService {
         Object.keys( noticiaOBJ ).forEach( key => {
     
           const noticia:Noticia = noticiaOBJ[key];
-          noticia.id = key;
+          
     
           noticias.push( noticia );
         });
         return noticias;
       }
+  getNoticiasId(ident){
+    let a = localStorage.getItem('token')
+    let token = JSON.parse(a).id;
+    console.log(a)
+    console.log(token)
+    return this.http.get(`http://localhost:3000/api/noticias/${ident}?access_token=${token}`);
+  }
     saveId(id){
       this.id=id;
     }
