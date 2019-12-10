@@ -9,12 +9,9 @@ import { NoticiasService } from 'src/app/Services/noticias.service';
 export class NoticiaComponent implements OnInit {
 
   constructor(private noticiaService:NoticiasService) { }
-  titulo;
-  subtitulo;
-  img;
-  id = this.noticiaService.getId();
+  id;
   ngOnInit() {
-    
+    this.id=this.noticiaService.getId();
   }
 
 }

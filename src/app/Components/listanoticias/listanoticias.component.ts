@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NoticiasService } from 'src/app/Services/noticias.service';
+import { Noticia } from 'src/app/Models/NoticiasModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listanoticias',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListanoticiasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private noticia:NoticiasService, private router:Router) { }
+
+  noticias:Noticia[]=[];
 
   ngOnInit() {
+    this.noticia.getNoticias().subscribe((data)=>{
+      this.noticias=data
+    },(error)=>{
+      console.log('algo ha fallado')
+    })
+  }
+
+  iranoticia(id){
+    this.noticia.saveId(id);
+    this.router.navigate(['/Noticias'])
   }
 
 }

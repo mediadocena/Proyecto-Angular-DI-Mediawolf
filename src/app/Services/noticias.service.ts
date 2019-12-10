@@ -10,7 +10,9 @@ export class NoticiasService {
   constructor(private http:HttpClient) {
 
    }
+
    public id;
+
    getNoticias(){
      return this.http.get('http://localhost:3000/api/noticias').pipe(
       map( this.crearArreglo ),
