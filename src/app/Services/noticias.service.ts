@@ -10,6 +10,9 @@ export class NoticiasService {
   constructor(private http:HttpClient) {
 
    }
+
+   public id;
+
    getNoticias(){
      return this.http.get('http://localhost:3000/api/noticias').pipe(
       map( this.crearArreglo ),
@@ -30,12 +33,10 @@ export class NoticiasService {
         });
         return noticias;
       }
-    /*saveId(id){
-      localStorage.setItem('noticia',id);
+    saveId(id){
+      this.id=id;
     }
     getId(){
-      var id = localStorage.getItem('noticia');
-      localStorage.removeItem('noticia');
-      return id;
-    }*/
+      return this.id;
+    }
 }
