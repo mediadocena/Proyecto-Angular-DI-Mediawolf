@@ -34,10 +34,7 @@ export class NoticiasService {
         Object.keys( noticiaOBJ ).forEach( key => {
     
           const noticia:Noticia = noticiaOBJ[key];
-<<<<<<< HEAD
-=======
           
->>>>>>> 01f7aff1623a142d597fcb056d1966e4f3f47f36
     
           noticias.push( noticia );
         });
