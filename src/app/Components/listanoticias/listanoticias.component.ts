@@ -13,7 +13,7 @@ export class ListanoticiasComponent implements OnInit {
   constructor(private noticia:NoticiasService, private router:Router) { }
 
   noticias:Noticia[]=[];
-
+  p:number=1;
   ngOnInit() {
     this.noticia.getNoticias().subscribe((data)=>{
       this.noticias=data
@@ -28,5 +28,8 @@ export class ListanoticiasComponent implements OnInit {
     this.noticia.saveId(id);
     this.router.navigate(['/Noticias'])
   }
-
+  pageChanged($event){
+    console.log($event)
+    this.p= $event;
+  }
 }

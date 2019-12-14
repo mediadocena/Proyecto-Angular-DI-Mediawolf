@@ -1,6 +1,9 @@
 <br>
 <div class="col">
-    <div *ngFor = "let noticia of noticias">
+    <div *ngFor = "let noticia of noticias | paginate: { id: 'listaNoticias',
+    itemsPerPage: pageSize,
+    currentPage: p,
+    totalItems: total }">
         <div class="col">
             <div class="row capa border border-dark rounded" (click)="iranoticia(noticia.id)">
                 <div class="mx-auto">
@@ -16,4 +19,17 @@
         <br>
     </div>
 </div>
+<pagination-controls  id="listaNoticias"
+                      (pageChange)="pageChanged($event)"
+                      (pageBoundsCorrection)="pageChanged($event)"
+                      maxSize="9"
+                      directionLinks="true"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Previous"
+                      nextLabel="Next"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="page"
+                      screenReaderCurrentLabel="You're on page">
+</pagination-controls>
   
