@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from 'src/app/Services/noticias.service';
 import { Noticia } from 'src/app/Models/NoticiasModel';
 import { Router } from '@angular/router';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @Component({
   selector: 'app-listanoticias',
