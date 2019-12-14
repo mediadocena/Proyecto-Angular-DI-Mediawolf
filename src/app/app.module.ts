@@ -13,7 +13,6 @@ import { UserComponent } from './Components/user/user.component';
 import { NoticiaComponent } from './Components/noticia/noticia.component';
 import { ListanoticiasComponent } from './Components/listanoticias/listanoticias.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +31,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
