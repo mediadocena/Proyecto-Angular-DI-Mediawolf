@@ -35,4 +35,9 @@ export class UserServiceService {
     },
     (error) => console.log('error'));
   }
+  /*tokenCaducado(){
+    var token = localStorage.getItem('token');
+    var isExpiredToken = false;
+    if(token.)
+  }*/
 }
