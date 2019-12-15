@@ -9,7 +9,7 @@
                 <h1 style="color:rgb(255, 255, 255)">{{noticia.titulo}}</h1>
                 <br>
                 <div class="row">
-                    <div class="mx-auto"><img class="img-fluid" src={{noticia.img}}></div>
+                    <div class="mx-auto"><img class="img-fluid" src="{{noticia.img}}"></div>
                 </div>
                 <br>
                 <h2 style="color: #ffffff">{{noticia.subtitulo}}</h2>
@@ -18,20 +18,29 @@
           </div>
     </div>
       <br>
-      <div class="container noticiascss"><div class="row"> <div class="col-1"></div><div class="col-10"><h1 style="color:rgb(255, 255, 255)">Comentarios</h1></div></div></div>
+      <div class="container noticiascss">
+        <div class="row">
+        <div class="col-1">
+
+        </div>
+        <div class="col-10">
+          <h1 style="color:rgb(255, 255, 255)">Comentarios</h1>
+        </div>
+      </div>
+    </div>
       <br>
-      <div >
-          <div class="container noticiascss">
+      <div>
+          <div class="container noticiascss" *ngFor="let comen of comentarios">
             <br>
               <div class="row">
-                <div class="col-1"><img src={{comentario.icono}} class="rounded-circle z-depth-0"
+                <div class="col-1"><img src="{{comen.icono}}" class="rounded-circle z-depth-0"
                   data-toggle="dropdown" alt="avatar image" height="35"></div>
                 <div class="col-10">
                   
                   <div class="row">
-                  <h2 style="color: #ffffff">{{comentario.nick}}</h2>
+                  <h2 style="color: #ffffff">{{comen.nick}}</h2>
                   <br>
-                  <p style="color:rgb(255, 255, 255)">{{comentario.cuerpo}}</div>
+                  <p style="color:rgb(255, 255, 255)">{{comen.cuerpo}}</div>
                   </div>
               </div>
             </div>
