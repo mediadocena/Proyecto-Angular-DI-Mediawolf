@@ -33,7 +33,9 @@ export class UserServiceService {
         console.log('okay');
         window.location.reload();
     },
-    (error) => console.log('error'));
+    (error) => {console.log('error')
+    localStorage.removeItem('token')
+    window.location.reload()});
   }
   /*tokenCaducado(){
     var token = localStorage.getItem('token');
