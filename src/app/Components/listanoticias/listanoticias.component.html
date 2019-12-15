@@ -1,7 +1,7 @@
 <br>
 <div class="col">
     <div *ngFor = "let noticia of noticias | paginate: { id: 'listaNoticias',
-    itemsPerPage: pageSize,
+    itemsPerPage: 10,
     currentPage: p,
     totalItems: total }">
         <div class="col">
