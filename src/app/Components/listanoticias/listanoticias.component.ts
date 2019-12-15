@@ -16,10 +16,12 @@ export class ListanoticiasComponent implements OnInit {
   p:number=1;
   ngOnInit() {
     this.noticia.getNoticias().subscribe((data)=>{
-      this.noticias=data
+      this.noticias=data;
+      console.log(this.noticias[0].id)
     },(error)=>{
       console.log('algo ha fallado')
     })
+
   }
 
   iranoticia(id){

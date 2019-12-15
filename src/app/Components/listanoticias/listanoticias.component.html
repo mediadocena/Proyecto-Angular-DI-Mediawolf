@@ -5,20 +5,23 @@
     currentPage: p,
     totalItems: total }">
         <div class="col">
-            <div class="row capa border border-dark rounded" (click)="iranoticia(noticia.id)">
+            <a routerLink="/Noticias/{{noticia.id}}">
+            <div class="row capa border border-dark rounded">
                 <div class="mx-auto">
                     <img src="{{noticia.img}}" class="rounded float-left img-fluid iconoticias" alt="">
                 </div>
                 <div class="col text-white">
                     <h1>{{noticia.titulo}}</h1>
-                    <h3>{{noticia.subtitulo}}</h3>
+                    <h3>{{noticia.id}}</h3>
                     <p>{{noticia.cuerpo}}</p>
                 </div>
             </div>
+        </a>
         </div>
         <br>
     </div>
 </div>
+<div class="capa">
 <pagination-controls  id="listaNoticias"
                       (pageChange)="pageChanged($event)"
                       (pageBoundsCorrection)="pageChanged($event)"
@@ -32,4 +35,4 @@
                       screenReaderPageLabel="page"
                       screenReaderCurrentLabel="You're on page">
 </pagination-controls>
-  
+</div>

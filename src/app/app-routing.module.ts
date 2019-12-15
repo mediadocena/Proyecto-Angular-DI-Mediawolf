@@ -18,7 +18,7 @@ const routes: Routes = [
 },
   {path:'User',component:UserComponent
 },
-  {path:'Noticias',component:NoticiaComponent
+  {path:'Noticias/:id',component:NoticiaComponent
 },
   {path:'ListaNoticias',component:ListanoticiasComponent
 },
