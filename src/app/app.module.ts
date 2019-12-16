@@ -7,12 +7,14 @@ import { BodyComponent } from './Components/body/body.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { SigninComponent } from './Components/signin/signin.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
 import { UserComponent } from './Components/user/user.component';
 import { NoticiaComponent } from './Components/noticia/noticia.component';
 import { ListanoticiasComponent } from './Components/listanoticias/listanoticias.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxEditorModule } from 'ngx-editor';
+import { TooltipModule } from 'ngx-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxEditorModule,
+    TooltipModule.forRoot()
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

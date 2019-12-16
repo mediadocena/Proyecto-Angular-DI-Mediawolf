@@ -21,11 +21,13 @@
       <div class="container noticiascss">
         <div class="row">
         <div class="col-1">
-
         </div>
         <div class="col-10">
           <h1 style="color:rgb(255, 255, 255)">Comentarios</h1>
+          <div class="row"><app-ngx-editor style="background-color: white;" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor></div>
+          <br>
         </div>
+        <div class="float-right"><button class="btn btn-success" type="button">¡Comenta!</button></div>
       </div>
     </div>
       <br>
