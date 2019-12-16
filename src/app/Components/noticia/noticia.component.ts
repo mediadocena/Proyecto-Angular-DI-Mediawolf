@@ -27,7 +27,6 @@ export class NoticiaComponent implements OnInit {
     },(error)=>{
       console.log('Error al obtener la noticia');
     });
-
   }
 
   
