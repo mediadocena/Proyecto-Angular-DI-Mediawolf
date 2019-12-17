@@ -40,6 +40,12 @@ export class NoticiasService {
         });
         return noticias;
       }
+
+      updateNoticia(id,noticia){
+        let token = JSON.parse(localStorage.getItem(`token`)).id;
+        return this.http.put(`http://localhost:3000/api/noticias/${id}?access_token=${token}`,noticia);
+
+      }
     saveId(id){
       this.id=id;
     }

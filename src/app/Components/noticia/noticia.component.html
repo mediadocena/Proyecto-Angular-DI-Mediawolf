@@ -26,10 +26,14 @@
           <h1 style="color:rgb(255, 255, 255)">Comentarios</h1>
           <div class="row">
             <div *ngIf="this.isButtonVisible">
-              <div style="background-color: #ffffff;"><app-ngx-editor style="background-color: white;" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor></div>
+              <div style="background-color: #ffffff;">
+                <app-ngx-editor style="background-color: white;" 
+                [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="comentarioW">
+                </app-ngx-editor>
+              </div>
               <br>
               <br>
-              <button class="btn btn-success" type="button">Publicar</button>
+              <button class="btn btn-success" type="button" (click)="Publicar()">Publicar</button>
             </div>
           </div>
           <br>

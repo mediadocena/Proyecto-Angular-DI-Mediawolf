@@ -11,6 +11,13 @@ export class UserServiceService {
     this.http.post('http://localhost:3000/api/users',data).subscribe(
       (response)=>{console.log('okay')},(error) => console.log('error'));
   }
+  obtenerUsuario(){
+    let local = JSON.parse(localStorage.getItem('token'));
+    let id = local.userId;
+    let token = local.id;
+    console.log(token);
+    return this.http.get(`http://localhost:3000/api/users/${id}?access_token=${token}`)
+  }
   loginUser(user){
     this.http.post('http://localhost:3000/api/users/login',user).subscribe(
       (response)=>{
