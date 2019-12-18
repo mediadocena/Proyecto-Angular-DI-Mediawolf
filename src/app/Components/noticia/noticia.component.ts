@@ -56,7 +56,6 @@ export class NoticiaComponent implements OnInit {
       }
      
       this.noticiaService.updateNoticia(this.noticia.id,dummy).subscribe((response)=>{
-
       },(error)=>{
         console.log(`error al actualizar noticia`),
         console.log(dummy)
