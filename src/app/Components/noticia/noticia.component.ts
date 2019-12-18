@@ -16,6 +16,7 @@ export class NoticiaComponent implements OnInit {
     private router:ActivatedRoute,
     private user:UserServiceService) { }
   id;
+  p:number=1;
   idu;
   noticia:Noticia; 
   comentarios:[Comentarios];
@@ -77,6 +78,10 @@ export class NoticiaComponent implements OnInit {
       console.log(`error al actualizar noticia`),
       console.log(this.noticia);
     });
+  }
+  pageChanged($event){
+    console.log($event)
+    this.p= $event;
   }
 
 }

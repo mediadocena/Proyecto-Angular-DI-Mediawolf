@@ -43,7 +43,10 @@
     </div>
       <br>
       <div>
-          <div class="container noticiascss" *ngFor="let comen of comentarios; let i = index">
+          <div class="container noticiascss" *ngFor="let comen of comentarios | paginate: { id: 'listaComentarios',
+          itemsPerPage: 5,
+          currentPage: p,
+          totalItems: total } let i = index; ">
             <br>
               <div class="row">
                 <div class="col-1"><img src="{{comen.icono}}" class="rounded-circle z-depth-0"
@@ -58,6 +61,21 @@
                     <button class="btn btn-danger" type="button" (click)="Eliminar(i)">X</button>
                   </div>
               </div>
+            </div>
+            <div class="container noticiascss color-text">
+              <pagination-controls  id="listaComentarios"
+                      (pageChange)="pageChanged($event)"
+                      (pageBoundsCorrection)="pageChanged($event)"
+                      maxSize="9"
+                      directionLinks="true"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Previous"
+                      nextLabel="Next"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="page"
+                      screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
             </div>
             <br>
       </div>
