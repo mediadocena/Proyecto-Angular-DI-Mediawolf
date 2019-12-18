@@ -3,6 +3,7 @@ export class Comentarios{
     numero:number;
     icono:string;
     cuerpo:string;
+    iduser:string;
     constructor(){
         
     }

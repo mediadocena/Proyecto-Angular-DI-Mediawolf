@@ -16,10 +16,13 @@ export class NoticiaComponent implements OnInit {
     private router:ActivatedRoute,
     private user:UserServiceService) { }
   id;
+  idu;
   noticia:Noticia; 
   comentarios:[Comentarios];
   comentarioW;
    ngOnInit() {
+    this.idu = JSON.parse(localStorage.getItem('token')).userId;
+    console.log('JAKSndñojasbfo',JSON.parse(localStorage.getItem('token')).userId)
     this.id= this.router.snapshot.paramMap.get('id');
     /*this.noticiaService.getId();*/
     this.noticiaService.getNoticiaPorId(this.id).subscribe((data:Noticia)=>{
@@ -31,6 +34,7 @@ export class NoticiaComponent implements OnInit {
     },(error)=>{
       console.log('Error al obtener la noticia');
     });
+   
   }
 
   Publicar(){
@@ -44,6 +48,7 @@ export class NoticiaComponent implements OnInit {
       nick = datos.username;
       comen.nick = nick;
       comen.icono = icono;
+      comen.iduser= datos.id;
       comen.cuerpo = this.comentarioW;
       this.noticia.comentarios.push(comen);
       dummy={
@@ -64,6 +69,14 @@ export class NoticiaComponent implements OnInit {
       console.log('No se ha podido recuperar el usuario');
     });
     
+  }
+  Eliminar(id){
+    this.noticia.comentarios.splice(id,1);
+    this.noticiaService.updateNoticia(this.noticia.id,this.noticia).subscribe((response)=>{
+    },(error)=>{
+      console.log(`error al actualizar noticia`),
+      console.log(this.noticia);
+    });
   }
 
 }
