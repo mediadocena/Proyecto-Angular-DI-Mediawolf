@@ -22,23 +22,28 @@
         <div class="row">
         <div class="col-1">
         </div>
-        <div class="col-9">
+        <div class="col-7">
           <h1 style="color:rgb(255, 255, 255)">Comentarios</h1>
-          <div class="row">
-            <div *ngIf="this.isButtonVisible">
-              <div style="background-color: #ffffff;">
-                <app-ngx-editor style="background-color: white;" 
-                [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="comentarioW">
-                </app-ngx-editor>
-              </div>
-              <br>
-              <br>
-              <button class="btn btn-success" type="button" (click)="Publicar()">Publicar</button>
-            </div>
-          </div>
           <br>
         </div>
-        <div class=" col-1 float-right"><button class="btn btn-success" type="button" (click)="this.isButtonVisible = !this.isButtonVisible">¡Comenta!</button></div>
+        <div class="col-1"><button class="btn btn-success" type="button" (click)="this.isButtonVisible = !this.isButtonVisible">¡Comenta!</button></div>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+          <div *ngIf="this.isButtonVisible">
+            <br>
+            <div style="background-color: #ffffff;">
+              <app-ngx-editor style="background-color: white;" 
+              [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="comentarioW">
+              </app-ngx-editor>
+            </div>
+            <br>
+            <br>
+            <button class="btn btn-success" type="button" (click)="Publicar()">Publicar</button>
+          </div>
+        </div>
+        <div class="col-1"></div>
       </div>
     </div>
       <br>
@@ -51,7 +56,7 @@
               <div class="row">
                 <div class="col-1"><img src="{{comen.icono}}" class="rounded-circle z-depth-0"
                   data-toggle="dropdown" alt="avatar image" height="35"></div>
-                <div class="col-10">
+                <div class="col-7">
                   
                   <div class="row">
                     <div><h2 style="color: #ffffff">{{comen.nick}}</h2>
