@@ -14,7 +14,11 @@ export class BodyComponent implements OnInit {
   noticias:Noticia[] = [];
   comentario:Comentarios[];
   ngOnInit() {
-    this.noticiasService.getNoticias().subscribe((data) => { 
+    this.getNoticias();
+    
+  }
+  getNoticias(){
+    this.noticiasService.getNoticias().subscribe((data) =>{
       this.noticias=data;
       this.comentario = this.noticias[1].comentarios
       console.log(this.noticias)
@@ -24,8 +28,8 @@ export class BodyComponent implements OnInit {
       console.error(error);
     }
   )
-   
   }
+
   /*savenoticia(id){
     this.noticiasService.saveId(id);
   }*/

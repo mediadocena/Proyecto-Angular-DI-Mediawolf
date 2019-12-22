@@ -1,0 +1,48 @@
+
+    <div class="row">
+        <div class="col-1">
+
+        </div>
+        <div class="col-10 capa text-white">
+            <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link active" (click)="cambiarOpcion('cuenta')">Cuenta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" (click)="cambiarOpcion('foro')">Foro</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" (click)="cambiarOpcion('ayuda')">Ayuda</a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-1">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+
+        </div>
+        <div [ngSwitch]="opcion">
+            <div *ngSwitchCase="'cuenta'">
+                <div class="col-10 capa text-white mx-auto">
+                    <h1>Opciones de la cuenta</h1>
+                </div>
+            </div>
+            <div *ngSwitchCase="'foro'">
+                <div class="col-10 capa text-white mx-auto">
+                    <h1>Opciones del foro</h1>
+                </div>
+            </div>
+            <div *ngSwitchCase="'ayuda'">
+                <div class="col-10 capa text-white mx-auto">
+                    <h1>Ayuda</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+    </div>

@@ -15,6 +15,11 @@ import { ListanoticiasComponent } from './Components/listanoticias/listanoticias
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxEditorModule } from 'ngx-editor';
 import { TooltipModule } from 'ngx-bootstrap';
+import { SettingsComponent } from './Components/settings/settings.component';
+import { ForoCategoriasComponent } from './Components/foro-categorias/foro-categorias.component';
+import { AuthService } from './Services/auth.service';
+import { AuthGuardService } from './Services/auth-guard.service';
+import { RoleGuardService } from './Services/role-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +30,9 @@ import { TooltipModule } from 'ngx-bootstrap';
     LoginComponent,
     UserComponent,
     NoticiaComponent,
-    ListanoticiasComponent
+    ListanoticiasComponent,
+    SettingsComponent,
+    ForoCategoriasComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,11 @@ import { TooltipModule } from 'ngx-bootstrap';
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuardService,
+    RoleGuardService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
