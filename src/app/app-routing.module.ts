@@ -11,6 +11,10 @@ import { SettingsComponent } from './Components/settings/settings.component';
 import { ForoCategoriasComponent } from './Components/foro-categorias/foro-categorias.component';
 import { AuthGuardService } from './Services/auth-guard.service';
 import { IsloggedService } from './Services/islogged.service';
+import { RoleGuardService } from './Services/role-guard.service';
+import { AuthService } from './Services/auth.service';
+import { CrearpostComponent } from './Components/crearpost/crearpost.component';
+import { CrearnoticiaComponent } from './Components/crearnoticia/crearnoticia.component';
 
 
 const routes: Routes = [
@@ -29,6 +33,12 @@ const routes: Routes = [
   {path:'Settings',component:SettingsComponent,canActivate:[AuthGuardService]
 },
 {path:'ForoCategorias',component:ForoCategoriasComponent
+},
+{path:'CrearNoticia',component:CrearnoticiaComponent,canActivate:[RoleGuardService],data: { 
+  expectedRole: '"admin"'
+} 
+},
+{path:'CrearPost',component:CrearpostComponent,canActivate:[AuthGuardService]
 },
   {path: '', redirectTo: '/Home',pathMatch: 'full'}
 ];

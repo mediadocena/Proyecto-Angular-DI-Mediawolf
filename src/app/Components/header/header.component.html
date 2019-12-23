@@ -46,9 +46,10 @@
                 <a class="dropdown-item" href="/User">Mi perfil</a>
                 <a class="dropdown-item" href="/Settings">Ajustes</a>
                 <a class="dropdown-item" (click)='delogin()'>Log out</a>
-                  <div *ngIf='rol == "user"'>
-                    <a class="dropdown-item" href="#" >Publicar noticia</a>
+                  <div *ngIf='rol == "admin"'>
+                    <a class="dropdown-item" href="CrearNoticia" >Publicar noticia</a>
                   </div>
+                    <a class="dropdown-item" href="CrearPost" >Crear Post</a>
               </div>
               </div>
             </li>

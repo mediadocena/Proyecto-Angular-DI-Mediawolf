@@ -20,6 +20,8 @@ import { ForoCategoriasComponent } from './Components/foro-categorias/foro-categ
 import { AuthService } from './Services/auth.service';
 import { AuthGuardService } from './Services/auth-guard.service';
 import { RoleGuardService } from './Services/role-guard.service';
+import { CrearnoticiaComponent } from './Components/crearnoticia/crearnoticia.component';
+import { CrearpostComponent } from './Components/crearpost/crearpost.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { RoleGuardService } from './Services/role-guard.service';
     NoticiaComponent,
     ListanoticiasComponent,
     SettingsComponent,
-    ForoCategoriasComponent
+    ForoCategoriasComponent,
+    CrearnoticiaComponent,
+    CrearpostComponent
   ],
   imports: [
     BrowserModule,

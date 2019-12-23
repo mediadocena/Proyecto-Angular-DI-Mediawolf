@@ -23,6 +23,7 @@ export class UserServiceService {
       (response)=>{
         localStorage.setItem('token',JSON.stringify(response));
         console.log('Correct login');
+        this.guardarRol();
         window.location.reload();
         //JSON.parse() para convertir el string almacenado en un JSON.
       },(error) => {
@@ -31,12 +32,23 @@ export class UserServiceService {
       }
       ); 
   }
+  guardarRol(){
+    let local = JSON.parse(localStorage.getItem('token'));
+    let id = local.userId;
+    let token = local.id;
+    let datos;
+    this.http.get(`http://localhost:3000/api/users/${id}?access_token=${token}`).subscribe((data)=>{
+       datos = data;
+       localStorage.setItem('rol',JSON.stringify(datos.rol));
+    });
+  }
   logoutUser(alcachofa:any){
     console.log(JSON.parse(alcachofa).id);
     this.http.post(`http://localhost:3000/api/users/logout?access_token=`+JSON.parse(alcachofa).id, null).subscribe(
       (response)=>{
        
         localStorage.removeItem('token');
+        localStorage.removeItem('rol');
         console.log('okay');
         window.location.reload();
     },

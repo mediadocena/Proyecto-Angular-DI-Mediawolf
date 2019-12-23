@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-import { 
-  Router,
-  CanActivate,
-  ActivatedRouteSnapshot
-} from '@angular/router';
+import { Router,CanActivate,ActivatedRouteSnapshot} from '@angular/router';
 import { AuthService } from './auth.service';
-import decode from 'jwt-decode';
 import { UserServiceService } from './user-service.service';
 @Injectable()
 export class RoleGuardService implements CanActivate {
@@ -13,23 +8,17 @@ export class RoleGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot): boolean {
    //Capturamos el rol esperado desde datos en el modulo de rutas
     const expectedRole = route.data.expectedRole;
-    const token = localStorage.getItem('token');
     //Hacemos las comprobaciones del rol:
-    let userrol;
-    let auth:boolean = false;
-    let datos
-    this.user.obtenerUsuario().subscribe((data)=>{
-     datos = data;
-     userrol = datos.rol;
-     if (
-      !this.auth.isAuthenticated() || 
-      userrol.role !== expectedRole
-    ) {
-      this.router.navigate(['login']);
+    let userrol = localStorage.getItem('rol');
+    let auth:boolean;
+    if (!this.auth.isAuthenticated() || userrol != expectedRole) {
+      console.log('guard',expectedRole,userrol)
       auth = false;
+      this.router.navigate(['Home']);
+    }else{
+      auth = true;
     }
-    auth = true;
-  },(error)=> console.log('Ha ocurrido un error al autentificar'));
+  console.log(auth)
   return auth;
   }
 }

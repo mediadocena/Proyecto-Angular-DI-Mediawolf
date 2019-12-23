@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
     }else{
       this.logged=false;
     }
+    this.role();
   }
   delogin(){
     var a = localStorage.getItem('token');
