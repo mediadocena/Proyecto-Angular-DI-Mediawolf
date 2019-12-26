@@ -1,3 +1,4 @@
+<div class="col">
 <div class="row">
     <div class="col-6">
         <div style="background-color: #ffffff;">
@@ -8,11 +9,13 @@
           <button class="btn btn-primary" type="button">Publicar Noticia</button>
     </div>
     <div class="col-6">
-       <h1>PreVisualizacion de Noticia</h1>
        <div class="container noticiascss">
+        <h1 class="text-white">PreVisualizacion de Noticia</h1>
+        <br>
         <div class="row" class="text-white">
-            <p [(innerHTML)]=nuevanoticia></p>
+            <p [innerHTML]="nuevanoticia | safe: 'html'"></p>
         </div>
       </div>
     </div>
+</div>
 </div>

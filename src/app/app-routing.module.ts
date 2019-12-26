@@ -35,7 +35,7 @@ const routes: Routes = [
 {path:'ForoCategorias',component:ForoCategoriasComponent
 },
 {path:'CrearNoticia',component:CrearnoticiaComponent,canActivate:[RoleGuardService],data: { 
-  expectedRole: '"admin"'
+  expectedRole: 'admin'
 } 
 },
 {path:'CrearPost',component:CrearpostComponent,canActivate:[AuthGuardService]

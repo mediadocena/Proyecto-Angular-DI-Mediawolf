@@ -16,16 +16,19 @@ export class NoticiaComponent implements OnInit {
     private router:ActivatedRoute,
     private user:UserServiceService) { }
   id;
+  auth:boolean;
   p:number=1;
   idu;
   noticia:Noticia; 
   comentarios:[Comentarios];
   comentarioW;
    ngOnInit() {
+    this.Obtener();
+    this.isAuth();
+  }
+  Obtener(){
     this.idu = JSON.parse(localStorage.getItem('token')).userId;
-    console.log('JAKSndñojasbfo',JSON.parse(localStorage.getItem('token')).userId)
     this.id= this.router.snapshot.paramMap.get('id');
-    /*this.noticiaService.getId();*/
     this.noticiaService.getNoticiaPorId(this.id).subscribe((data:Noticia)=>{
     this.noticia = data;
     this.comentarios = this.noticia.comentarios;
@@ -35,10 +38,19 @@ export class NoticiaComponent implements OnInit {
     },(error)=>{
       console.log('Error al obtener la noticia');
     });
-   
   }
-
+  isAuth(){
+    console.log(this.idu)
+    if(this.idu){
+      this.auth=true;
+    }else{
+      this.auth=false;
+    }
+  }
   Publicar(){
+    if(this.comentarioW==""||this.comentarioW== undefined||this.comentarioW==null){
+      alert('No es posible introducir comentarios vacios');
+    }else{
     let icono,nick,datos;
     let dummy;
     let comen:Comentarios= new Comentarios();
@@ -60,7 +72,7 @@ export class NoticiaComponent implements OnInit {
         cuerpo:this.noticia.cuerpo,
         comentarios:this.comentarios
       }
-     
+      this.comentarioW="";
       this.noticiaService.updateNoticia(this.noticia.id,dummy).subscribe((response)=>{
       },(error)=>{
         console.log(`error al actualizar noticia`),
@@ -69,7 +81,7 @@ export class NoticiaComponent implements OnInit {
     },(error)=>{
       console.log('No se ha podido recuperar el usuario');
     });
-    
+  }
   }
   Eliminar(id){
     this.noticia.comentarios.splice(id,1);

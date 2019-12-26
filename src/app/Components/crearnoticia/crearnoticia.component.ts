@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-crearnoticia',
@@ -7,8 +8,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class CrearnoticiaComponent implements OnInit {
 
-  constructor() { }
-  nuevanoticia;
+  constructor(private sanitizer:DomSanitizer) { }
+  nuevanoticia='Preview Noticia...'; 
   ngOnInit() {
   }
 

@@ -1,1 +1,26 @@
-<p>crearpost works!</p>
+    <div class="col">
+        <div class="capa">
+        <form >
+            <h1 class=" text-white">Crear Post</h1>
+            <div class="form-group text-white col-6">
+              <label for="titulo">Titulo</label>
+              <input type="text" class="form-control" id="tituloid" placeholder="Un titulo...">
+            </div>
+            <div class="form-group col-3 text-white">
+                <label for="Categoria">Categoria</label>
+                <select class="form-control" id="categoriaid">
+                  <option>Videojuegos</option>
+                  <option>Tecnología</option>
+                  <option>Off-topic</option>
+                </select>
+              </div>
+              <br>
+          </form>
+          <div class="col-6 centered" style="background-color: #ffffff;">
+            <app-ngx-editor style="background-color: white;" 
+            [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="cuerpoPost">
+            </app-ngx-editor>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
