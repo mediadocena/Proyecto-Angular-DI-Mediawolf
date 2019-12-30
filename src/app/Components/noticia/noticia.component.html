@@ -13,7 +13,7 @@
                 </div>
                 <br>
                 <h2 style="color: #ffffff">{{noticia.subtitulo}}</h2>
-                <p style="color:rgb(255, 255, 255)">{{noticia.cuerpo}}</div>
+                <p class="text-white"[innerHTML]="noticia.cuerpo | safe: 'html'"></p>
             </div>
           </div>
     </div>
