@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Noticia } from '../Models/NoticiasModel';
 import { map, delay } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class NoticiasService {
 
-  constructor(private http:HttpClient) {
+  constructor(private router:Router,private http:HttpClient) {
 
    }
 
@@ -20,8 +21,14 @@ export class NoticiasService {
     );
     }
     postNoticias(noticia){
+      let id;
+      let data;
       this.http.post('http://localhost:3000/api/noticias',noticia).subscribe((response)=>{
         alert('Noticia Subida')
+        data = response;
+        id = data.id;
+        console.log(id, data);
+        this.router.navigate(['Noticias/'+id]);
       },(err)=>{
         alert('Error al subir la noticia')
       });
