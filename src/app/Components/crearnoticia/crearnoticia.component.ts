@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-crearnoticia',
@@ -7,9 +8,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class CrearnoticiaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
   nuevanoticia;
+  noticia;
   ngOnInit() {
   }
-
+  
+  sanitizeStyle(unsafeStyle: string): SafeStyle {
+    return this.sanitizer.bypassSecurityTrustStyle(unsafeStyle);
+  }
 }
