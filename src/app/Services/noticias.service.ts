@@ -19,6 +19,13 @@ export class NoticiasService {
       delay(0)
     );
     }
+    postNoticias(noticia){
+      this.http.post('http://localhost:3000/api/noticias',noticia).subscribe((response)=>{
+        alert('Noticia Subida')
+      },(err)=>{
+        alert('Error al subir la noticia')
+      });
+    }0
 
     getNoticiaPorId(id){
     let a = localStorage.getItem('token')

@@ -1,18 +1,36 @@
-<div class="row">
+<div class="col">
+<div class="row capa">
     <div class="col-6">
+      <h1 class="text-white">Titulo</h1>
+      <input type="text" placeholder="Un titulo ..."[(ngModel)]="titulo"/>
+      <br>
+      <h2 class="text-white">Subtitulo</h2>
+      <input type="text" placeholder="Un subtitulo ..." [(ngModel)]="subtitulo">
+      <br>
+      <h2 class="text-white">Categoría</h2>
+      <select name="categoria"  id="cat" (ngModel)="categoria">
+        <option>Videojuegos</option>
+        <option>Tecnologia</option>
+        <option>Offtopic</option>
+      </select>
+      <h2 class="text-white">Cuerpo</h2>
         <div style="background-color: #ffffff;">
             <app-ngx-editor style="background-color: white;" 
-            [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="nuevanoticia">
+            [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="cuerpo">
             </app-ngx-editor>
           </div>
-          <button class="btn btn-primary" type="button">Publicar Noticia</button>
+          <button class="btn btn-primary" (click)="publicar()"type="button">Publicar Noticia</button>
     </div>
     <div class="col-6">
-       <h1>PreVisualizacion de Noticia</h1>
        <div class="container noticiascss">
+        <h1 class="text-white">Previsualizacion de Noticia</h1>
+        <br>
         <div class="row" class="text-white">
-            <div [(innerHTML)]=nuevanoticia></div>
+            <p [innerHTML]="titulo | safe: 'html'"></p>
+            <p [innerHTML]="subtitulo | safe: 'html'"></p>
+            <p [innerHTML]="cuerpo | safe: 'html'"></p>
         </div>
       </div>
     </div>
+</div>
 </div>

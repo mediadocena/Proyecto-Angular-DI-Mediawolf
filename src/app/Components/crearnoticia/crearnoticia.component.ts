@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
+import { NoticiasService } from 'src/app/Services/noticias.service';
 
 @Component({
   selector: 'app-crearnoticia',
@@ -8,13 +9,21 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 })
 export class CrearnoticiaComponent implements OnInit {
 
-  constructor(private sanitizer: DomSanitizer) { }
-  nuevanoticia;
-  noticia;
+  constructor(private sanitizer:DomSanitizer,private noticia:NoticiasService) { }
+  cuerpo='Preview Noticia ...'; 
+  titulo="Un titulo";
+  subtitulo="Un subtitulo";
+  categoria="Videojuegos";
   ngOnInit() {
   }
-  
-  sanitizeStyle(unsafeStyle: string): SafeStyle {
-    return this.sanitizer.bypassSecurityTrustStyle(unsafeStyle);
+  publicar(){
+    let noticia = {
+      titulo:this.titulo,
+      subtitulo:this.subtitulo,
+      categoria:this.categoria,
+      cuerpo:this.cuerpo
+    }
+    this.noticia.postNoticias(noticia);
   }
+
 }

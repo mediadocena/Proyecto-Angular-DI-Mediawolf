@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CrearpostComponent implements OnInit {
 
   constructor() { }
-
+  cuerpoPost="Algo de texto...";
   ngOnInit() {
   }
 

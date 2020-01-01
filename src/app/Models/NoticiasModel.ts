@@ -16,8 +16,17 @@ export class Noticia{
         this.cuerpo=cuerpo;
         this.comentarios=comentarios;
     }
-    devolverArray(){
-    return this.comentarios;
+    devolverNoticia(){
+        let data ={
+            categoria:this.categoria,
+            titulo:this.titulo,
+            subtitulo:this.subtitulo,
+            img:this.img,
+            cuerpo:this.cuerpo,
+            comentarios:this.comentarios,
+            id:this.id
+        }
+    return data;
     }
 
 }

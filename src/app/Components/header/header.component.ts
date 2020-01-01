@@ -12,25 +12,37 @@ export class HeaderComponent implements OnInit {
   constructor(private userService:UserServiceService,private auth:AuthService) { }
   logged:boolean;
   rol;
+  icono;
   ngOnInit() {
+   this.inicio();
+  }
+
+  inicio(){
+    this.role();
     if(localStorage.getItem('token')==null){
       this.logged=false;
     }else if(this.auth.isAuthenticated()){
+      this.obtenerIcono();
       this.logged=true;
     }else{
       this.logged=false;
     }
-    this.role();
+  }
+  obtenerIcono(){
+    let dato;
+    this.userService.obtenerUsuario().subscribe((data)=>{
+      dato = data;
+      this.icono=dato.icono;
+    },(error)=>{
+      console.log('ha ocurrido un error al obtener datos')
+    });
   }
   delogin(){
     var a = localStorage.getItem('token');
     this.userService.logoutUser(a);
   }
   role(){
-    this.userService.obtenerUsuario().subscribe((data)=>{
-      this.rol = data;
-      this.rol = this.rol.rol;
-    });
+    this.rol = JSON.parse(localStorage.getItem('rol'));
   }
   
 

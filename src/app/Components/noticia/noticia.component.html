@@ -13,7 +13,7 @@
                 </div>
                 <br>
                 <h2 style="color: #ffffff">{{noticia.subtitulo}}</h2>
-                <p style="color:rgb(255, 255, 255)">{{noticia.cuerpo}}</div>
+                <p class="text-white"[innerHTML]="noticia.cuerpo | safe: 'html'"></p>
             </div>
           </div>
     </div>
@@ -34,11 +34,14 @@
           <div *ngIf="this.isButtonVisible">
             <br>
             <!--WISIWIG-->
-            <div style="background-color: #ffffff;">
+            <div *ngIf="auth == true" style="background-color: #ffffff;">
               <app-ngx-editor style="background-color: white;" 
               [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="comentarioW">
               </app-ngx-editor>
-            </div>
+            </div >
+            <div *ngIf="auth == false" class="text-white">
+              <h2>Oooops, parece que no estas logeado!</h2>
+            </div >
             <br>
             <br>
             <button class="btn btn-success" type="button" (click)="Publicar()">Publicar</button>

@@ -22,6 +22,7 @@ import { AuthGuardService } from './Services/auth-guard.service';
 import { RoleGuardService } from './Services/role-guard.service';
 import { CrearnoticiaComponent } from './Components/crearnoticia/crearnoticia.component';
 import { CrearpostComponent } from './Components/crearpost/crearpost.component';
+import { SafePipe } from './Pipes/safe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { CrearpostComponent } from './Components/crearpost/crearpost.component';
     SettingsComponent,
     ForoCategoriasComponent,
     CrearnoticiaComponent,
-    CrearpostComponent
+    CrearpostComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

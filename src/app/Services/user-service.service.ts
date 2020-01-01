@@ -9,7 +9,8 @@ export class UserServiceService {
 
   postUser(data:{}){
     this.http.post('http://localhost:3000/api/users',data).subscribe(
-      (response)=>{console.log('okay')},(error) => console.log('error'));
+      (response)=>{console.log('okay')},(error) =>
+      alert('Error, por favor asegurese de que los datos introducidos son válidos'));
   }
   obtenerUsuario(){
     let local = JSON.parse(localStorage.getItem('token'));
