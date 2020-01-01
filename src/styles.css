@@ -1,19 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 html,body{
     background-image: url("assets/fondo.png");
-    height: 100%;
-    
 }
 
 .capa{
     background-color: hsla(0, 0%, 0%, 0.40);
 }
 .footer{
-    background-color: darkcyan;
-   /* position: fixed;
+    position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;*/
+    width: 100%;
+    text-align: center;
 }
 .icono{
     max-height:50px;

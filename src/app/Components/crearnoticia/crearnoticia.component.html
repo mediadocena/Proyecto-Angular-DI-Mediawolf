@@ -19,7 +19,7 @@
           </select>
           <h2 class="text-white">Cuerpo</h2>
             <div style="background-color: #ffffff;">
-                <app-ngx-editor style="background-color: white;" 
+                <app-ngx-editor  [config]="config" style="background-color: white;" 
                 [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="cuerpo">
                 </app-ngx-editor>
               </div>
