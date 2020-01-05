@@ -3,7 +3,7 @@
     <div *ngFor = "let noticia of noticias | paginate: { id: 'listaNoticias',
     itemsPerPage: 10,
     currentPage: p,
-    totalItems: total }">
+    totalItems: total } let i = index;">
         <div class="col">
             <a routerLink="/Noticias/{{noticia.id}}">
             <div class="row capa border border-dark rounded">
@@ -15,8 +15,12 @@
                     <h3>{{noticia.subtitulo}}</h3>
                     <!--<p>{{noticia.cuerpo}}</p>-->
                 </div>
+                
             </div>
         </a>
+        <div *ngIf='rol=="admin"'>
+            <button class="btn btn-danger" type="button" (click)="Eliminar(i)">X</button>
+        </div>
         </div>
         <br>
     </div>

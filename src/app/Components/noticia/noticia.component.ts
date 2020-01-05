@@ -15,10 +15,11 @@ export class NoticiaComponent implements OnInit {
   constructor(private noticiaService:NoticiasService,
     private router:ActivatedRoute,
     private user:UserServiceService) { }
-  id;
+  id = this.router.snapshot.paramMap.get('id');
   auth:boolean;
   p:number=1;
   idu;
+  isButtonVisible:boolean = false;
   noticia:Noticia; 
   comentarios:[Comentarios];
   comentarioW;
@@ -28,11 +29,10 @@ export class NoticiaComponent implements OnInit {
   }
   Obtener(){
     this.idu = JSON.parse(localStorage.getItem('token')).userId;
-    this.id= this.router.snapshot.paramMap.get('id');
     this.noticiaService.getNoticiaPorId(this.id).subscribe((data:Noticia)=>{
     this.noticia = data;
     this.comentarios = this.noticia.comentarios;
-      console.log(this.noticia)
+      console.log('AAAAAAAAAAAAAAAAAAA',this.noticia)
       console.log(this.comentarios)
       console.log(data)
     },(error)=>{

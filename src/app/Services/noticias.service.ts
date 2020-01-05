@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 export class NoticiasService {
 
   constructor(private router:Router,private http:HttpClient) {
-
+    this.token = JSON.parse(localStorage.getItem(`token`)).id;
    }
-
+   token;
    public id;
 
    getNoticias(){
@@ -35,10 +35,10 @@ export class NoticiasService {
     }0
 
     getNoticiaPorId(id){
-    let a = localStorage.getItem('token')
-    let token = JSON.parse(a).id;
-      return this.http.get(`http://localhost:3000/api/noticias/${id}?access_token=${token}`);
-       }
+  
+     //return this.http.get(`http://localhost:3000/api/noticias/${id}?access_token=${this.token}`);
+       return this.http.get(`http://127.0.0.1:5000/noticiasId?_id=${id}`);
+    }
 
        
       private crearArreglo( noticiaOBJ: object ) {
@@ -56,14 +56,15 @@ export class NoticiasService {
       }
 
       updateNoticia(id,noticia){
-        let token = JSON.parse(localStorage.getItem(`token`)).id;
-        return this.http.put(`http://localhost:3000/api/noticias/${id}?access_token=${token}`,noticia);
-
+        return this.http.put(`http://localhost:3000/api/noticias/${id}?access_token=${this.token}`,noticia);
       }
     saveId(id){
       this.id=id;
     }
     getId(){
       return this.id;
+    }
+    deleteNoticia(id){
+      return this.http.delete(`http://localhost:3000/api/noticias/${id}?access_token=${this.token}`,id);
     }
 }

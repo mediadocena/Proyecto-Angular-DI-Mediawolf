@@ -17,7 +17,7 @@ import { CrearpostComponent } from './Components/crearpost/crearpost.component';
 import { CrearnoticiaComponent } from './Components/crearnoticia/crearnoticia.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'Home', component: BodyComponent
 },
   {path: 'SignIn', component: SigninComponent, canActivate:[IsloggedService]

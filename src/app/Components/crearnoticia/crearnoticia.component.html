@@ -11,6 +11,9 @@
           <h2 class="text-white">Subtitulo</h2>
           <input type="text" placeholder="Un subtitulo ..." [(ngModel)]="subtitulo">
           <br>
+          <h2 class="text-white">Imagen</h2>
+          <input type="text" placeholder="Url" [(ngModel)]="img">
+          <br>
           <h2 class="text-white">Categoría</h2>
           <select name="categoria"  id="cat" [(ngModel)]="categoria">
             <option selected>Videojuegos</option>
@@ -33,6 +36,7 @@
              <div class="row" class="text-white">
                  <p [innerHTML]="titulo | safe: 'html'"></p>
                  <p [innerHTML]="subtitulo | safe: 'html'"></p>
+                 <img [src]="img"/>
                  <p [innerHTML]="cuerpo | safe: 'html'"></p>
              </div>
            </div>

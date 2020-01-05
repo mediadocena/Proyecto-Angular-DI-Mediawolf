@@ -13,6 +13,7 @@ export class CrearnoticiaComponent implements OnInit {
 
   constructor(private sanitizer:DomSanitizer,private noticia:NoticiasService) { }
   cuerpo=""; 
+  img="";
   titulo="";
   subtitulo="";
   categoria="Videojuegos";
@@ -20,7 +21,7 @@ export class CrearnoticiaComponent implements OnInit {
     "editable": true,
     "spellcheck": true,
     "height": "auto",
-    "minHeight": "950",
+    "minHeight": "250",
     "width": "auto",
     "minWidth": "0",
     "translate": "yes",
@@ -36,13 +37,14 @@ export class CrearnoticiaComponent implements OnInit {
         ["paragraph", "blockquote", "removeBlockquote", "horizontalLine", "orderedList", "unorderedList"],
         ["link", "unlink", "image", "video"]
     ]
-}
+};
   ngOnInit() {
   }
   publicar(){
     let noticia = {
       titulo:this.titulo,
       subtitulo:this.subtitulo,
+      img:this.img,
       categoria:this.categoria,
       cuerpo:this.cuerpo,
       comentarios:[]
