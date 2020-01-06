@@ -12,7 +12,10 @@
           <input type="text" placeholder="Un subtitulo ..." [(ngModel)]="subtitulo">
           <br>
           <h2 class="text-white">Imagen</h2>
-          <input type="text" placeholder="Url" [(ngModel)]="img">
+           <input #imageInput
+         type="file"
+         accept="image/*"
+         (change)="processFile(imageInput)">
           <br>
           <h2 class="text-white">Categoría</h2>
           <select name="categoria"  id="cat" [(ngModel)]="categoria">

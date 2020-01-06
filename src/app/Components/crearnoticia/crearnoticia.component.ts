@@ -3,6 +3,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { NoticiasService } from 'src/app/Services/noticias.service';
 import { Comentarios } from 'src/app/Models/ComentariosModel';
 import { Router } from '@angular/router';
+import { ImagenesService } from 'src/app/Services/imagenes.service';
+class ImageSnippet {
+  constructor(public src: string, public file: File) {}
+}
 
 @Component({
   selector: 'app-crearnoticia',
@@ -11,10 +15,10 @@ import { Router } from '@angular/router';
 })
 export class CrearnoticiaComponent implements OnInit {
 
-  constructor(private sanitizer:DomSanitizer,private noticia:NoticiasService) { }
+  constructor(private imageService:ImagenesService,private sanitizer:DomSanitizer,private noticia:NoticiasService) { }
   cuerpo=""; 
-  img="";
   titulo="";
+  file;
   subtitulo="";
   categoria="Videojuegos";
   config = {
@@ -38,18 +42,38 @@ export class CrearnoticiaComponent implements OnInit {
         ["link", "unlink", "image", "video"]
     ]
 };
+selectedFile: ImageSnippet;
   ngOnInit() {
   }
   publicar(){
     let noticia = {
       titulo:this.titulo,
       subtitulo:this.subtitulo,
-      img:this.img,
+      img:`http://localhost:3000/api/images/images/download`,
       categoria:this.categoria,
       cuerpo:this.cuerpo,
       comentarios:[]
     }
     this.noticia.postNoticias(noticia);
-  }
+  }/*
+  processFile(imageInput: any) {
+    var file: File = imageInput.files[0];
+    var reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      this.imageService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+        
+        },
+        (err) => {
+        
+        })
+    });
+
+    reader.readAsDataURL(file);
+  }*/
 
 }
