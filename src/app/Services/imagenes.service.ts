@@ -13,7 +13,7 @@ export class ImagenesService {
     const formData = new FormData();
     formData.append('image', image);
 
-    return this.http.post('http://localhost:3000/api/images/images', formData);
+    return this.http.post('http://localhost:3000/api/images/images/upload', formData);
   }
 
 }

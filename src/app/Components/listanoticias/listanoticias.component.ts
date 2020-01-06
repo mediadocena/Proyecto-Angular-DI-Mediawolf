@@ -19,7 +19,7 @@ export class ListanoticiasComponent implements OnInit {
   ngOnInit() {
     this.noticia.getNoticias().subscribe((data)=>{
       this.noticias=data;
-      console.log(this.noticias[0].id)
+      console.log(this.noticias)
     },(error)=>{
       console.log('algo ha fallado')
     })

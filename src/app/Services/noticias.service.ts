@@ -15,7 +15,7 @@ export class NoticiasService {
    public id;
 
    getNoticias(){
-     return this.http.get('http://localhost:3000/api/noticias').pipe(
+     return this.http.get('http://127.0.0.1:5000/noticias').pipe(
       map( this.crearArreglo ),
       delay(0)
     );
@@ -48,7 +48,6 @@ export class NoticiasService {
         Object.keys( noticiaOBJ ).forEach( key => {
     
           const noticia:Noticia = noticiaOBJ[key];
-          
     
           noticias.push( noticia );
         });

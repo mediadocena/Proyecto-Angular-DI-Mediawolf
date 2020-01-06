@@ -5,7 +5,7 @@ import { Comentarios } from 'src/app/Models/ComentariosModel';
 import { Router } from '@angular/router';
 import { ImagenesService } from 'src/app/Services/imagenes.service';
 class ImageSnippet {
-  constructor(public src: string, public file: File) {}
+  constructor(public src: string, public file: File,public name) {}
 }
 
 @Component({
@@ -18,7 +18,6 @@ export class CrearnoticiaComponent implements OnInit {
   constructor(private imageService:ImagenesService,private sanitizer:DomSanitizer,private noticia:NoticiasService) { }
   cuerpo=""; 
   titulo="";
-  file;
   subtitulo="";
   categoria="Videojuegos";
   config = {
@@ -42,6 +41,7 @@ export class CrearnoticiaComponent implements OnInit {
         ["link", "unlink", "image", "video"]
     ]
 };
+imagename;
 selectedFile: ImageSnippet;
   ngOnInit() {
   }
@@ -49,21 +49,27 @@ selectedFile: ImageSnippet;
     let noticia = {
       titulo:this.titulo,
       subtitulo:this.subtitulo,
-      img:`http://localhost:3000/api/images/images/download`,
+      img:`${this.imagename}`,
       categoria:this.categoria,
       cuerpo:this.cuerpo,
       comentarios:[]
     }
     this.noticia.postNoticias(noticia);
-  }/*
+  }
   processFile(imageInput: any) {
+    /*Object.defineProperty(imageInput.files[0], 'name', {
+      writable: true,
+      value: `${this.titulo}-icnoticia`
+    });*/
+    this.imagename =`http://localhost:3000/api/images/images/download/${imageInput.files[0].name}`;
+    console.log(imageInput.files[0].name)
     var file: File = imageInput.files[0];
+    
     var reader = new FileReader();
 
     reader.addEventListener('load', (event: any) => {
 
-      this.selectedFile = new ImageSnippet(event.target.result, file);
-
+      this.selectedFile = new ImageSnippet(event.target.result, file,`${this.titulo}-icnoticia`);
       this.imageService.uploadImage(this.selectedFile.file).subscribe(
         (res) => {
         
@@ -74,6 +80,6 @@ selectedFile: ImageSnippet;
     });
 
     reader.readAsDataURL(file);
-  }*/
+  }
 
 }
