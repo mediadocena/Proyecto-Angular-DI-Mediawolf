@@ -38,13 +38,21 @@
               <app-ngx-editor style="background-color: white;" 
               [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="comentarioW">
               </app-ngx-editor>
+              <br>
+            <br>
+            <button class="btn btn-success" type="button" (click)="Publicar()">Publicar</button>
+            <br>
             </div >
             <div *ngIf="auth == false" class="text-white">
               <h2>Oooops, parece que no estas logeado!</h2>
+              <br>
+            <br>
+            <a routerLink="/LogIn" routerLinkActive="active">
+              <button class="btn btn-primary" type="button">Logeate!</button>
+            </a>
+            <br>
             </div >
-            <br>
-            <br>
-            <button class="btn btn-success" type="button" (click)="Publicar()">Publicar</button>
+            
           </div>
         </div>
         <div class="col-1"></div>

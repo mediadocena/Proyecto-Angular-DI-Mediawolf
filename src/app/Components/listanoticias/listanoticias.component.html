@@ -1,7 +1,7 @@
 <br>
 <div class="col">
     <div *ngFor = "let noticia of noticias | paginate: { id: 'listaNoticias',
-    itemsPerPage: 10,
+    itemsPerPage: tpp,
     currentPage: p
     } let i = index;">
         <div class="col">
@@ -18,7 +18,7 @@
             </div>
         </a>
         <div *ngIf='rol=="admin"'>
-            <button class="btn btn-danger" type="button" (click)="Eliminar(i)">X</button>
+            <button class="btn btn-danger" type="button" (click)="Eliminar(p*tpp+i-tpp)">X</button>
         </div>
         </div>
         <br>

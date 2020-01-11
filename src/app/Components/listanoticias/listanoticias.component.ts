@@ -16,6 +16,7 @@ export class ListanoticiasComponent implements OnInit {
   noticias:Noticia[]=[];
   p:number=1;
   rol;
+  tpp = 10;
   ngOnInit() {
     this.noticia.getNoticias().subscribe((data)=>{
       this.noticias=data;
@@ -41,9 +42,11 @@ export class ListanoticiasComponent implements OnInit {
   }
   Eliminar(id){
     let noticiaid = this.noticias[id].id;
+    console.log(this.noticias[id].titulo);
+    console.log(noticiaid);
     this.noticia.deleteNoticia(noticiaid).subscribe((response)=>{
       alert('Noticia Eliminada');
-      window.location.reload();
+      //window.location.reload();
     },(err)=>alert('error al eliminar la noticia'));
   }
 }

@@ -20,9 +20,9 @@ export class NoticiaComponent implements OnInit {
       }
     }
   id;
-  //auth:boolean;
+  auth:boolean;
   p:number=1;
-  idu="none";
+  idu="";
   isButtonVisible:boolean = false;
   noticia:Noticia; 
   total;
@@ -33,7 +33,7 @@ export class NoticiaComponent implements OnInit {
       this.id = event.id;
      });
     this.Obtener();
-   // this.isAuth();
+    this.isAuth();
    console.log(this.idu);
   }
   Obtener(){
@@ -48,14 +48,14 @@ export class NoticiaComponent implements OnInit {
       console.log('Error al obtener la noticia');
     });
   }
-  /*isAuth(){
+  isAuth(){
     console.log(this.idu)
     if(this.idu){
       this.auth=true;
     }else{
       this.auth=false;
     }
-  }*/
+  }
   Publicar(){
     if(this.comentarioW==""||this.comentarioW== undefined||this.comentarioW==null){
       alert('No es posible introducir comentarios vacios');
