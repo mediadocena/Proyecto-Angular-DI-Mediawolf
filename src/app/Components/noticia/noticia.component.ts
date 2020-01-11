@@ -19,6 +19,27 @@ export class NoticiaComponent implements OnInit {
       this.idu = JSON.parse(localStorage.getItem('token')).userId;
       }
     }
+    config = {
+      "editable": true,
+      "spellcheck": true,
+      "height": "auto",
+      "minHeight": "250",
+      "width": "auto",
+      "minWidth": "0",
+      "translate": "yes",
+      "enableToolbar": true,
+      "showToolbar": true,
+      "placeholder": "Enter text here...",
+      "imageEndPoint": "",
+      "toolbar": [
+          ["bold", "italic", "underline", "strikeThrough", "superscript", "subscript"],
+          ["fontName", "fontSize", "color"],
+          ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull", "indent", "outdent"],
+          ["cut", "copy", "delete", "removeFormat", "undo", "redo"],
+          ["paragraph", "blockquote", "removeBlockquote", "horizontalLine", "orderedList", "unorderedList"],
+          ["link", "unlink", "image", "video"]
+      ]
+  };
   id;
   auth:boolean;
   p:number=1;

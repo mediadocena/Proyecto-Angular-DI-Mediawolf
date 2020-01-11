@@ -34,8 +34,8 @@
           <div *ngIf="this.isButtonVisible">
             <br>
             <!--WISIWIG-->
-            <div *ngIf="auth == true" style="background-color: #ffffff;">
-              <app-ngx-editor style="background-color: white;" 
+            <div class="text-white"*ngIf="auth == true" style="background-color: hsla(0, 0%, 0%, 0.40);">
+              <app-ngx-editor [config]="config" style="background-color: hsla(0, 0%, 0%, 0.40);" 
               [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="comentarioW">
               </app-ngx-editor>
               <br>

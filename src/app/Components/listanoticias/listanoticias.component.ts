@@ -46,7 +46,11 @@ export class ListanoticiasComponent implements OnInit {
     console.log(noticiaid);
     this.noticia.deleteNoticia(noticiaid).subscribe((response)=>{
       alert('Noticia Eliminada');
-      //window.location.reload();
+      window.location.reload();
     },(err)=>alert('error al eliminar la noticia'));
+  }
+
+  Modificar(id){
+    this.router.navigate(['/ModificarNoticia/'+id]);
   }
 }

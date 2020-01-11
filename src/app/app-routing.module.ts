@@ -15,6 +15,7 @@ import { RoleGuardService } from './Services/role-guard.service';
 import { AuthService } from './Services/auth.service';
 import { CrearpostComponent } from './Components/crearpost/crearpost.component';
 import { CrearnoticiaComponent } from './Components/crearnoticia/crearnoticia.component';
+import { ModificarnoticiaComponent } from './Components/modificarnoticia/modificarnoticia.component';
 
 
 export const routes: Routes = [
@@ -39,6 +40,8 @@ export const routes: Routes = [
 } 
 },
 {path:'CrearPost',component:CrearpostComponent,canActivate:[AuthGuardService]
+},
+{path:'ModificarNoticia/:id',component:ModificarnoticiaComponent,canActivate:[AuthGuardService]
 },
   {path: '', redirectTo: '/Home',pathMatch: 'full'}
 ];

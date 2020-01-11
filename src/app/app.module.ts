@@ -23,6 +23,7 @@ import { RoleGuardService } from './Services/role-guard.service';
 import { CrearnoticiaComponent } from './Components/crearnoticia/crearnoticia.component';
 import { CrearpostComponent } from './Components/crearpost/crearpost.component';
 import { SafePipe } from './Pipes/safe.pipe';
+import { ModificarnoticiaComponent } from './Components/modificarnoticia/modificarnoticia.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { SafePipe } from './Pipes/safe.pipe';
     ForoCategoriasComponent,
     CrearnoticiaComponent,
     CrearpostComponent,
-    SafePipe
+    SafePipe,
+    ModificarnoticiaComponent
   ],
   imports: [
     BrowserModule,
