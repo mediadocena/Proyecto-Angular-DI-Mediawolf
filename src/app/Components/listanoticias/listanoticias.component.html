@@ -2,8 +2,8 @@
 <div class="col">
     <div *ngFor = "let noticia of noticias | paginate: { id: 'listaNoticias',
     itemsPerPage: 10,
-    currentPage: p,
-    totalItems: total } let i = index;">
+    currentPage: p
+    } let i = index;">
         <div class="col">
             <a routerLink="/Noticias/{{noticia.id}}">
             <div class="row capa border border-dark rounded">

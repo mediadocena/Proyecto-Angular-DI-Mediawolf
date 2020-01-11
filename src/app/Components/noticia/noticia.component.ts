@@ -14,24 +14,33 @@ export class NoticiaComponent implements OnInit {
 
   constructor(private noticiaService:NoticiasService,
     private router:ActivatedRoute,
-    private user:UserServiceService) { }
-  id = this.router.snapshot.paramMap.get('id');
-  auth:boolean;
+    private user:UserServiceService) {
+      if(JSON.parse(localStorage.getItem('token'))!=null){
+      this.idu = JSON.parse(localStorage.getItem('token')).userId;
+      }
+    }
+  id;
+  //auth:boolean;
   p:number=1;
-  idu;
+  idu="none";
   isButtonVisible:boolean = false;
   noticia:Noticia; 
+  total;
   comentarios:[Comentarios];
   comentarioW;
    ngOnInit() {
+    this.router.params.subscribe(event => {
+      this.id = event.id;
+     });
     this.Obtener();
-    this.isAuth();
+   // this.isAuth();
+   console.log(this.idu);
   }
   Obtener(){
-    this.idu = JSON.parse(localStorage.getItem('token')).userId;
     this.noticiaService.getNoticiaPorId(this.id).subscribe((data:Noticia)=>{
     this.noticia = data;
     this.comentarios = this.noticia.comentarios;
+    this.total = this.comentarios.length;
       console.log('AAAAAAAAAAAAAAAAAAA',this.noticia)
       console.log(this.comentarios)
       console.log(data)
@@ -39,14 +48,14 @@ export class NoticiaComponent implements OnInit {
       console.log('Error al obtener la noticia');
     });
   }
-  isAuth(){
+  /*isAuth(){
     console.log(this.idu)
     if(this.idu){
       this.auth=true;
     }else{
       this.auth=false;
     }
-  }
+  }*/
   Publicar(){
     if(this.comentarioW==""||this.comentarioW== undefined||this.comentarioW==null){
       alert('No es posible introducir comentarios vacios');

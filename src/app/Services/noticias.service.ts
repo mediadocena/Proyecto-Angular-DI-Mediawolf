@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class NoticiasService {
 
   constructor(private router:Router,private http:HttpClient) {
+    if(JSON.parse(localStorage.getItem(`token`))!=null){
     this.token = JSON.parse(localStorage.getItem(`token`)).id;
+    }
    }
    token;
    public id;

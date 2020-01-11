@@ -30,7 +30,7 @@ export class ListanoticiasComponent implements OnInit {
     console.log(this.noticias[1].id)
     console.log(id);
     this.noticia.saveId(id);
-    this.router.navigate(['/Noticias'])
+    this.router.navigate([`/Noticias/${id}`]);
   }
   pageChanged($event){
     console.log($event)
