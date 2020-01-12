@@ -34,7 +34,7 @@ export class NoticiasService {
       },(err)=>{
         alert('Error al subir la noticia')
       });
-    }0
+    }
 
     getNoticiaPorId(id){
   
@@ -56,8 +56,9 @@ export class NoticiasService {
         return noticias;
       }
 
-      updateNoticia(id,noticia){
-        return this.http.put(`http://localhost:3000/api/noticias/${id}?access_token=${this.token}`,noticia);
+      updateNoticia(/*id,*/noticia){
+        //return this.http.put(`http://localhost:3000/api/noticias/${id}?access_token=${this.token}`,noticia);
+        return this.http.put('http://127.0.0.1:5000/noticias', noticia)
       }
     saveId(id){
       this.id=id;

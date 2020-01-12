@@ -42,6 +42,7 @@ export class ModificarnoticiaComponent implements OnInit {
     ]
 };
 id;
+comentarios:[Comentarios];
 imagename;
 selectedFile: ImageSnippet;
   ngOnInit() {
@@ -53,20 +54,24 @@ selectedFile: ImageSnippet;
       this.subtitulo=data.subtitulo;
       this.titulo=data.titulo;
       this.categoria=data.categoria;
+      this.comentarios=data.comentarios;
+      this.imagename=data.img;
     })
     
 
   }
   publicar(){
     let noticia = {
+      _id:this.id,
       titulo:this.titulo,
       subtitulo:this.subtitulo,
       img:`${this.imagename}`,
       categoria:this.categoria,
       cuerpo:this.cuerpo,
-      comentarios:[]
+      comentarios:this.comentarios
     }
-    this.noticia.postNoticias(noticia);
+    console.log(noticia);
+    this.noticia.updateNoticia(noticia).subscribe();
   }
   processFile(imageInput: any) {
     /*Object.defineProperty(imageInput.files[0], 'name', {

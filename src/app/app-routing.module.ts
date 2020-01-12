@@ -41,7 +41,9 @@ export const routes: Routes = [
 },
 {path:'CrearPost',component:CrearpostComponent,canActivate:[AuthGuardService]
 },
-{path:'ModificarNoticia/:id',component:ModificarnoticiaComponent,canActivate:[AuthGuardService]
+{path:'ModificarNoticia/:id',component:ModificarnoticiaComponent,canActivate:[RoleGuardService],data: { 
+  expectedRole: 'admin'
+} 
 },
   {path: '', redirectTo: '/Home',pathMatch: 'full'}
 ];

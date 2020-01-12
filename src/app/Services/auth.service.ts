@@ -4,7 +4,8 @@ export class AuthService {
   constructor() {}
   
   public isAuthenticated(): boolean {
-    const token = JSON.parse(localStorage.getItem('token'));
+    if (localStorage.getItem('token') != null) {
+      const token = JSON.parse(localStorage.getItem('token'));
     //Fecha de creación del token (UTF)
     let fecha = new Date(JSON.stringify(token.created));
     let fechaExp:Date = new Date();
@@ -13,10 +14,15 @@ export class AuthService {
     let hoy:Date = new Date();
     if(hoy > fechaExp){
       console.log('token caducado');
+      localStorage.removeItem('token');
+      localStorage.removeItem('rol');
       return false;
     }else{
-      console.log('token dentro de fecha')
-      return true
+      console.log('token dentro de fecha');
+      return true;
+    }
+    } else {
+      return false;
     }
   }
 }

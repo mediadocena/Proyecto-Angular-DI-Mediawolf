@@ -9,8 +9,11 @@ export class RoleGuardService implements CanActivate {
    //Capturamos el rol esperado desde datos en el modulo de rutas
     const expectedRole = route.data.expectedRole;
     //Hacemos las comprobaciones del rol:
-    let userrol = JSON.parse(localStorage.getItem('rol'));
+    let userrol;
     let auth:boolean;
+    if (this.auth.isAuthenticated()) {
+      userrol = JSON.parse(localStorage.getItem('rol'));
+    }
     if (!this.auth.isAuthenticated() || userrol != expectedRole) {
       console.log('guard',expectedRole,userrol)
       auth = false;
