@@ -91,10 +91,11 @@ export class NoticiaComponent implements OnInit {
       nick = datos.username;
       comen.nick = nick;
       comen.icono = icono;
-      comen.iduser= datos.id;
+      comen.id= datos.id;
       comen.cuerpo = this.comentarioW;
       this.noticia.comentarios.push(comen);
       dummy={
+        _id:this.id,
         categoria:this.noticia.categoria,
         titulo:this.noticia.titulo,
         subtitulo:this.noticia.subtitulo,
@@ -102,8 +103,9 @@ export class NoticiaComponent implements OnInit {
         cuerpo:this.noticia.cuerpo,
         comentarios:this.comentarios
       }
+      console.log(dummy)
       this.comentarioW="";
-      this.noticiaService.updateNoticia(this.noticia.id,dummy).subscribe((response)=>{
+      this.noticiaService.updateNoticia(dummy).subscribe((response)=>{
       },(error)=>{
         console.log(`error al actualizar noticia`),
         console.log(dummy)
@@ -115,7 +117,7 @@ export class NoticiaComponent implements OnInit {
   }
   Eliminar(id){
     this.noticia.comentarios.splice(id,1);
-    this.noticiaService.updateNoticia(this.noticia.id,this.noticia).subscribe((response)=>{
+    this.noticiaService.updateNoticia(this.noticia).subscribe((response)=>{
     },(error)=>{
       console.log(`error al actualizar noticia`),
       console.log(this.noticia);

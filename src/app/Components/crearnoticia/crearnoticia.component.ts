@@ -50,7 +50,7 @@ selectedFile: ImageSnippet;
       titulo:this.titulo,
       subtitulo:this.subtitulo,
       img:`${this.imagename}`,
-      categoria:this.categoria,
+      categoria: this.categoria,
       cuerpo:this.cuerpo,
       comentarios:[]
     }

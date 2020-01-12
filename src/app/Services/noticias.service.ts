@@ -25,12 +25,10 @@ export class NoticiasService {
     postNoticias(noticia){
       let id;
       let data;
-      this.http.post('http://localhost:3000/api/noticias',noticia).subscribe((response)=>{
+      this.http.post('http://127.0.0.1:5000/noticias',noticia).subscribe((response)=>{
         alert('Noticia Subida')
-        data = response;
-        id = data.id;
-        console.log(id, data);
-        this.router.navigate(['Noticias/'+id]);
+        this.getNoticias().subscribe((data)=>{
+        })
       },(err)=>{
         alert('Error al subir la noticia')
       });
