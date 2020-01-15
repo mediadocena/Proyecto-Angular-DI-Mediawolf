@@ -7,7 +7,7 @@ export class Noticia{
     img:string;
     cuerpo:string;
     comentarios:[Comentarios];
-    id:string;
+    _id:string;
     constructor(categoria?,titulo?,subtitulo?,img?,cuerpo?,comentarios?){
         this.categoria=categoria;
         this.titulo=titulo;
@@ -24,7 +24,7 @@ export class Noticia{
             img:this.img,
             cuerpo:this.cuerpo,
             comentarios:this.comentarios,
-            id:this.id
+            id:this._id
         }
     return data;
     }
