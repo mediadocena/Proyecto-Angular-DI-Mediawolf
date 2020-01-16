@@ -9,14 +9,9 @@ export class ImagenesService {
 
   constructor(private http:HttpClient) { }
 
-  public uploadImage(image: File,name:string){
-    const formData = new FormData();
-    formData.append('image', image);
-    let data = {
-      file: formData,
-      name: name
-    }
-    return this.http.post('http://localhost:3000/api/images/FileUpload',data);
+  public uploadImage(image:any, name:string){ 
+    console.log(image, name);
+    return this.http.post(`http://localhost:3000/api/images/FileUpload`,{file:image,name:name});
   }
 
 }

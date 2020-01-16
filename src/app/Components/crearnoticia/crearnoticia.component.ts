@@ -41,7 +41,7 @@ export class CrearnoticiaComponent implements OnInit {
         ["link", "unlink", "image", "video"]
     ]
 };
-imagename;
+imagename="";
 selectedFile: ImageSnippet;
   ngOnInit() {
   }
@@ -57,22 +57,33 @@ selectedFile: ImageSnippet;
     this.noticia.postNoticias(noticia);
   }
   processFile(imageInput: any) {
-    /*Object.defineProperty(imageInput.files[0], 'name', {
-      writable: true,
-      value: `${this.titulo}-icnoticia`
-    });*/
-    this.imagename =`http://localhost:3000/api/images/images/download/${imageInput.files[0].name}`;
+   let img:any;
+   let ext:string =imageInput.files[0].name;
+   ext = ext.slice((ext.lastIndexOf(".") - 1 >>> 0) + 2);
+   console.log(ext);
     console.log(imageInput.files[0].name)
-    var file: File = imageInput.files[0];
-    let nombreIcono:string = `${this.titulo}Img`;
-    var reader = new FileReader();
-
+    //
+    let me = this;
+    let file = imageInput.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      //me.modelvalue = reader.result;
+      console.log(reader.result);
+      img = reader.result;
+      img = img.replace('data:image/png;base64,','');
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+    //
+    let nombreIcono:string = `${this.titulo.trim()}Img`+'.'+ext;
+    
     reader.addEventListener('load', (event: any) => {
-
       this.selectedFile = new ImageSnippet(event.target.result, file,`${this.titulo}-icnoticia`);
-      this.imageService.uploadImage(this.selectedFile.file,nombreIcono).subscribe(
+      this.imageService.uploadImage(img, nombreIcono).subscribe(
         (res) => {
-        
+          this.imagename =`http://localhost:3000/api/images/images/download/${nombreIcono}.`+ext;
         },
         (err) => {
         

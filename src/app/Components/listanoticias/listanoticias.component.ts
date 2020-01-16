@@ -28,7 +28,7 @@ export class ListanoticiasComponent implements OnInit {
   }
 
   iranoticia(id){
-    console.log(this.noticias[1].id)
+    console.log(this.noticias[1]._id)
     console.log(id);
     this.noticia.saveId(id);
     this.router.navigate([`/Noticias/${id}`]);
@@ -41,7 +41,7 @@ export class ListanoticiasComponent implements OnInit {
     this.rol = JSON.parse(localStorage.getItem('rol'));
   }
   Eliminar(id){
-    let noticiaid = this.noticias[id].id;
+    let noticiaid = this.noticias[id]._id;
     console.log(this.noticias[id].titulo);
     console.log(noticiaid);
     this.noticia.deleteNoticia(noticiaid).subscribe((response)=>{

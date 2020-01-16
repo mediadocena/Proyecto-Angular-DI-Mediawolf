@@ -39,7 +39,10 @@
              <div class="row" class="text-white">
                  <p [innerHTML]="titulo | safe: 'html'"></p>
                  <p [innerHTML]="subtitulo | safe: 'html'"></p>
-                 <img [src]="imagename"/>
+                 <div *ngIf="imagename!=''">
+                   <img [src]="imagename"/>
+                </div>
+                 
                  <p [innerHTML]="cuerpo | safe: 'html'"></p>
              </div>
            </div>

@@ -81,19 +81,19 @@ selectedFile: ImageSnippet;
     this.imagename =`http://localhost:3000/api/images/images/download/${imageInput.files[0].name}`;
     console.log(imageInput.files[0].name)
     var file: File = imageInput.files[0];
-    
+    let nombreIcono:string = `${this.titulo}Img`;
     var reader = new FileReader();
 
     reader.addEventListener('load', (event: any) => {
 
       this.selectedFile = new ImageSnippet(event.target.result, file,`${this.titulo}-icnoticia`);
-      this.imageService.uploadImage(this.selectedFile.file).subscribe(
+     /* this.imageService.uploadImage(this.selectedFile.file,nombreIcono).subscribe(
         (res) => {
         
         },
         (err) => {
         
-        })
+        })*/
     });
 
     reader.readAsDataURL(file);
