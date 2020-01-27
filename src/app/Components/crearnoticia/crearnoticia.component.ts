@@ -83,7 +83,7 @@ selectedFile: ImageSnippet;
       this.selectedFile = new ImageSnippet(event.target.result, file,`${this.titulo}-icnoticia`);
       this.imageService.uploadImage(img, nombreIcono).subscribe(
         (res) => {
-          this.imagename =`http://localhost:3000/api/images/images/download/${nombreIcono}.`+ext;
+          this.imagename =`http://localhost:3000/api/images/images/download/${nombreIcono}`;
         },
         (err) => {
         
