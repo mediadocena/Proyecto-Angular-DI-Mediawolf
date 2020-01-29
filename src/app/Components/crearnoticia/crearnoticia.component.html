@@ -24,7 +24,7 @@
             <option>Offtopic</option>
           </select>
           <h2 class="text-white">Cuerpo</h2>
-            <div class="text-white"style="background-color:hsla(0, 0%, 0%, 0.40);">
+            <div class="text-white"style="background-color:hsla(255,255,255,255);">
                 <app-ngx-editor  [config]="config" style="background-color: white;" 
                 [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="cuerpo">
                 </app-ngx-editor>
@@ -34,9 +34,9 @@
           </div>
           <div class="col-5">
             <div class="container noticiascss">
-             <h1 class="text-white">Previsualizacion de Noticia</h1>
+             <h1>Previsualizacion de Noticia</h1>
              <br>
-             <div class="row" class="text-white">
+             <div class="row">
                  <p [innerHTML]="titulo | safe: 'html'"></p>
                  <p [innerHTML]="subtitulo | safe: 'html'"></p>
                  <div *ngIf="imagename!=''">

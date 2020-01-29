@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 html,body{
-    background-image: url("assets/fondo.png");
+    /*background-image: url("assets/fondo.png");*/
+    background-image: url("http://localhost:3000/api/images/images/download/fondo.png");
 }
 
 .capa{
-    background-color: hsla(0, 0%, 0%, 0.40);
+    background-color: hsla(0, 0%, 0%, 1);
 }
 .footer{
     position: fixed;
@@ -17,11 +18,22 @@ html,body{
     max-height:50px;
     max-width: 50px;
 }
-.iconoticias{
+/*.iconoticias{
     min-height: 196px;
     max-height:196px;
     min-width: 270px;
     max-width: 270px;
+    min-height: 96px;
+    max-height:96px;
+    min-width: 170px;
+    max-width: 170px;
+}*/
+.foto {
+    width: 170px;
+    height: 96px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
 }
 .iconocartas{
     min-height: 350px;
@@ -41,5 +53,6 @@ html,body{
     margin-right: auto;
   }
 .noticiascss{
-    background-color: rgba(0, 0, 0, 0.8);
+    /*background-color: rgba(0, 0, 0, 0.6);*/
+    background-color: rgba(255, 255, 255, 1);
 }
