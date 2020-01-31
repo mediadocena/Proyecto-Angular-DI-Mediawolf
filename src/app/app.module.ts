@@ -24,6 +24,7 @@ import { CrearnoticiaComponent } from './Components/crearnoticia/crearnoticia.co
 import { CrearpostComponent } from './Components/crearpost/crearpost.component';
 import { SafePipe } from './Pipes/safe.pipe';
 import { ModificarnoticiaComponent } from './Components/modificarnoticia/modificarnoticia.component';
+import { ReversePipe } from './Pipes/reverse.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { ModificarnoticiaComponent } from './Components/modificarnoticia/modific
     CrearnoticiaComponent,
     CrearpostComponent,
     SafePipe,
-    ModificarnoticiaComponent
+    ModificarnoticiaComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

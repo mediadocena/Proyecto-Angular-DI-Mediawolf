@@ -13,7 +13,7 @@ export class ListanoticiasComponent implements OnInit {
 
   constructor(private noticia:NoticiasService, private router:Router) { }
 
-  noticias:Noticia[]=[];
+  noticias:any[]=[];
   p:number=1;
   rol;
   tpp = 20;
@@ -41,7 +41,7 @@ export class ListanoticiasComponent implements OnInit {
     this.rol = JSON.parse(localStorage.getItem('rol'));
   }
   Eliminar(id){
-    let noticiaid = this.noticias[id]._id;
+    let noticiaid = this.noticias[id].id;
     console.log(this.noticias[id].titulo);
     console.log(noticiaid);
     this.noticia.deleteNoticia(noticiaid).subscribe((response)=>{
