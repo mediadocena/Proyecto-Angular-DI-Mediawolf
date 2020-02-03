@@ -13,12 +13,11 @@ export class SettingsComponent implements OnInit {
   img: string;
   nombreIcono:string;
   userid;
+  userObj;
   constructor(private imageService:ImagenesService,private user:UserServiceService) { }
   opcion = 'cuenta';
   ngOnInit() {
-    this.user.obtenerUsuario().subscribe((resp:any)=>{
-      this.userid = resp.id;
-    });
+    
   }
   cambiarOpcion(option){
     switch(option){
@@ -35,6 +34,25 @@ export class SettingsComponent implements OnInit {
         this.opcion = 'cuenta'
         break;
     }
+
+  }
+
+  cambiarImagen(){
+    this.user.obtenerUsuario().subscribe((resp:any)=>{
+      this.nombreIcono = resp.id;
+      this.userObj = {
+        "username":resp.username,
+        "password": JSON.parse(localStorage.getItem('pass')),
+        "realm":resp.realm,
+        "icono": "",
+        "email":resp.email,
+        "rol":resp.rol
+      };
+      this.subirImagen();
+      this.userObj.icono = `http://localhost:3000/api/images/images/download/${this.nombreIcono}`;
+      this.user.putUser(this.userObj);
+    });
+    
 
   }
   handleFileSelect(evt){
@@ -57,7 +75,7 @@ _handleReaderLoaded(readerEvt) {
           console.log(btoa(binaryString));
   }
   subirImagen(){
-    this.nombreIcono = this.nombreIcono+this.ext;
+    this.nombreIcono = this.nombreIcono+'.'+this.ext;
     this.imageService.uploadImage(this.img, this.nombreIcono).subscribe(
       (res) => {
         alert('Se ha actualizado el icono correctamente');
