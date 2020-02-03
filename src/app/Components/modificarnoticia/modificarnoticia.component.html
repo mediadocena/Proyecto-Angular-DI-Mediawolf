@@ -1,16 +1,16 @@
 <br>
 <div class="row">
   <div class="col">
-    <div class="row capa">
+    <div class="row ">
         <div class="col-1">
 
         </div>
-        <div class="col-5">
+        <div class="col-5 noticiascss">
           <div>
-            <h1 class="text-white">Titulo</h1>
+            <h1 class="">Titulo</h1>
           <input type="text" placeholder="Un titulo ..."[(ngModel)]="titulo"/>
           <br>
-          <h2 class="text-white">Subtitulo</h2>
+          <h2 class="">Subtitulo</h2>
           <input type="text" placeholder="Un subtitulo ..." [(ngModel)]="subtitulo">
           <br>
           <h2 class="text-white">Imagen</h2>
@@ -19,14 +19,14 @@
          accept="image/*"
          (change)="processFile(imageInput)">
           <br>
-          <h2 class="text-white">Categoría</h2>
+          <h2 class="">Categoría</h2>
           <select name="categoria"  id="cat" [(ngModel)]="categoria">
             <option selected>Videojuegos</option>
             <option>Tecnologia</option>
             <option>Offtopic</option>
           </select>
-          <h2 class="text-white">Cuerpo</h2>
-            <div class="text-white"style="background-color: hsla(0, 0%, 0%, 0.40);">
+          <h2 class="">Cuerpo</h2>
+            <div class="">
                 <app-ngx-editor  [config]="config" style="background-color: white;" 
                 [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="cuerpo">
                 </app-ngx-editor>
@@ -34,11 +34,11 @@
               <button class="btn btn-primary" (click)="publicar()"type="button">Modificar Noticia</button>
         </div>
           </div>
-          <div class="col-5">
+          <div class="col-5 noticiascss">
             <div class="container noticiascss">
-             <h1 class="text-white">Previsualizacion de Noticia</h1>
+             <h1 class="">Previsualizacion de Noticia</h1>
              <br>
-             <div class="row" class="text-white">
+             <div class="row" class="">
                  <p [innerHTML]="titulo | safe: 'html'"></p>
                  <p [innerHTML]="subtitulo | safe: 'html'"></p>
                  <img [src]="imagename"/>
