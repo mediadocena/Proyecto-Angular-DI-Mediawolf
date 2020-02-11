@@ -1,13 +1,13 @@
 <br>
-<div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-        <div *ngFor = "let noticia of noticias | reverse | paginate: { id: 'listaNoticias',
-        itemsPerPage: tpp,
-        currentPage: p
-        } let i = index;">
-            <div class="col">
-                <a routerLink="/Noticias/{{noticia.id}}">
+<div class="col">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div *ngFor = "let noticia of noticias | reverse | paginate: { id: 'listaNoticias',
+            itemsPerPage: tpp,
+            currentPage: p
+            } let i = index;">
+            <a routerLink="/Noticias/{{noticia.id}}">
                 <div class="row capa border border-dark rounded">
                     <div class="foto">
                         <img src="{{noticia.img}}" class="rounded float-left img-fluid iconoticias" alt="">
@@ -25,32 +25,32 @@
                 <button class="btn btn-danger" type="button" (click)="Eliminar(p*tpp+i-tpp)">X</button>
                 <button class="btn btn-danger" type="button" (click)="Modificar(noticia.id)">Modificar</button>
             </div>
+                <br>
             </div>
-            <br>
         </div>
+        <div class="col-2"></div>
+        
+        
     </div>
-    <div class="col-2"></div>
-    
-    
-</div>
-<div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-        <div class="capa">
-            <pagination-controls  id="listaNoticias"
-                                  (pageChange)="pageChanged($event)"
-                                  (pageBoundsCorrection)="pageChanged($event)"
-                                  maxSize="9"
-                                  directionLinks="true"
-                                  autoHide="true"
-                                  responsive="true"
-                                  previousLabel="Previous"
-                                  nextLabel="Next"
-                                  screenReaderPaginationLabel="Pagination"
-                                  screenReaderPageLabel="page"
-                                  screenReaderCurrentLabel="You're on page">
-            </pagination-controls>
-            </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="capa">
+                <pagination-controls  id="listaNoticias"
+                                      (pageChange)="pageChanged($event)"
+                                      (pageBoundsCorrection)="pageChanged($event)"
+                                      maxSize="9"
+                                      directionLinks="true"
+                                      autoHide="true"
+                                      responsive="true"
+                                      previousLabel="Previous"
+                                      nextLabel="Next"
+                                      screenReaderPaginationLabel="Pagination"
+                                      screenReaderPageLabel="page"
+                                      screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+                </div>
+        </div>
+        <div class="col-2"></div>
     </div>
-    <div class="col-2"></div>
 </div>
