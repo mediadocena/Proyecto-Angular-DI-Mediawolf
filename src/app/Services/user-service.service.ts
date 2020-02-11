@@ -12,6 +12,16 @@ export class UserServiceService {
       (response)=>{console.log('okay')},(error) =>
       alert('Error, por favor asegurese de que los datos introducidos son válidos'));
   }
+  putUser(data:{}){
+    let local = JSON.parse(localStorage.getItem('token'));
+    let id = local.userId;
+    let token = local.id;
+    this.http.put(`http://localhost:3000/api/users/${id}?access_token=${token}`,data).subscribe(
+      (response)=>{
+        console.log('usuario modificado: ',data);
+      }
+    );
+  }
   obtenerUsuario(){
     let local = JSON.parse(localStorage.getItem('token'));
     let id = local.userId;
@@ -23,6 +33,7 @@ export class UserServiceService {
     this.http.post('http://localhost:3000/api/users/login',user).subscribe(
       (response)=>{
         localStorage.setItem('token',JSON.stringify(response));
+        localStorage.setItem('pass',JSON.stringify(user.password));
         console.log('Correct login');
         this.guardarRol();
         window.location.reload();

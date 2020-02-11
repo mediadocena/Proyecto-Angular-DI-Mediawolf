@@ -13,7 +13,7 @@
                 </div>
                 <br>
                 <h2><b>{{noticia.subtitulo}}</b></h2>
-                <p class="text-white"[innerHTML]="noticia.cuerpo | safe: 'html'"></p>
+                <p [innerHTML]="noticia.cuerpo | safe: 'html'"></p>
             </div>
           </div>
     </div>

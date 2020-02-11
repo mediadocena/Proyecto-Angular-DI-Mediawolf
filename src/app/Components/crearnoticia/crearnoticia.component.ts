@@ -17,6 +17,8 @@ export class CrearnoticiaComponent implements OnInit {
 
   constructor(private imageService:ImagenesService,private sanitizer:DomSanitizer,private noticia:NoticiasService) { }
   cuerpo=""; 
+  img="blank";
+  ext;
   titulo="";
   subtitulo="";
   categoria="Videojuegos";
@@ -42,10 +44,14 @@ export class CrearnoticiaComponent implements OnInit {
     ]
 };
 imagename="";
-selectedFile: ImageSnippet;
+file;
+nombreIcono;
   ngOnInit() {
   }
   publicar(){
+    this.nombreIcono = `${this.titulo.trim()}Img`+'.'+this.ext;
+    this.imagename =`http://localhost:3000/api/images/images/download/${this.nombreIcono}`;
+    this.subirImagen();
     let noticia = {
       titulo:this.titulo,
       subtitulo:this.subtitulo,
@@ -56,41 +62,37 @@ selectedFile: ImageSnippet;
     }
     this.noticia.postNoticias(noticia);
   }
-  processFile(imageInput: any) {
-   let img:any;
-   let ext:string =imageInput.files[0].name;
-   ext = ext.slice((ext.lastIndexOf(".") - 1 >>> 0) + 2);
-   console.log(ext);
-    console.log(imageInput.files[0].name)
-    //
-    let me = this;
-    let file = imageInput.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      //me.modelvalue = reader.result;
-      console.log(reader.result);
-      img = reader.result;
-      img = img.replace('data:image/png;base64,','');
-    };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
-    //
-    let nombreIcono:string = `${this.titulo.trim()}Img`+'.'+ext;
-    
-    reader.addEventListener('load', (event: any) => {
-      this.selectedFile = new ImageSnippet(event.target.result, file,`${this.titulo}-icnoticia`);
-      this.imageService.uploadImage(img, nombreIcono).subscribe(
-        (res) => {
-          this.imagename =`http://localhost:3000/api/images/images/download/${nombreIcono}`;
-        },
-        (err) => {
-        
-        })
-    });
 
-    reader.readAsDataURL(file);
+  handleFileSelect(evt){
+    var files = evt.target.files;
+    this. file = files[0];
+    this.ext=this.file.name;
+    this.ext = this.ext.slice((this.ext.lastIndexOf(".") - 1 >>> 0) + 2);
+  if (files && this.file) {
+      var reader = new FileReader();
+
+      reader.onload =this._handleReaderLoaded.bind(this);
+
+      reader.readAsBinaryString(this.file);
   }
+}
+
+_handleReaderLoaded(readerEvt) {
+   var binaryString = readerEvt.target.result;
+          this.img= btoa(binaryString);
+          console.log(btoa(binaryString));
+  }
+
+  subirImagen(){
+    
+          this.imageService.uploadImage(this.img, this.nombreIcono).subscribe(
+            (res) => {
+              
+            },
+            (err) => {
+              alert('Ha ocurrido un error en la subida de la imagen:'+err.err);
+            })
+  }
+
 
 }

@@ -94,6 +94,7 @@ export class NoticiaComponent implements OnInit {
       comen.icono = icono;
       comen.id= datos.id;
       comen.cuerpo = this.comentarioW;
+      this.comentarios.push(comen);
       
       dummy={
         _id:this.id,

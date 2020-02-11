@@ -27,8 +27,23 @@
         </div>
         <div [ngSwitch]="opcion">
             <div *ngSwitchCase="'cuenta'">
-                <div class="col-10 capa text-white mx-auto">
+                <div class="col-10 noticiascss text-white mx-auto">
                     <h1>Opciones de la cuenta</h1>
+                    <div class="row">
+                        <div class="col-5">
+                            <h2>Cambiar Contraseña</h2>
+                            <input type="text" placeholder="Contraseña anterior"/>
+                            <input type="text" placeholder="Nueva Contraseña"/>
+                            <button>Cambiar Contraseña</button>
+                            <br>
+                            <h2>Cambiar Icono</h2>
+                            <input #imageInput
+                                type="file"
+                                accept="image/*"
+                                (change)="handleFileSelect($event)">
+                            <button class="btn" (click)="cambiarImagen()">Cambiar Imagen</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div *ngSwitchCase="'foro'">

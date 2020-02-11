@@ -1,30 +1,32 @@
 <br>
-<div class="row">
+
   <div class="col">
-    <div class="row capa">
-        <div class="col-1"></div>
-        <div class="col-5">
+    <div class="row">
+        <div class="col-1">
+
+        </div>
+        <div class="col-5 noticiascss">
           <div>
-            <h1 class="text-white">Titulo</h1>
+            <h1 class="">Titulo</h1>
           <input type="text" placeholder="Un titulo ..."[(ngModel)]="titulo"/>
           <br>
-          <h2 class="text-white">Subtitulo</h2>
+          <h2 class="">Subtitulo</h2>
           <input type="text" placeholder="Un subtitulo ..." [(ngModel)]="subtitulo">
           <br>
-          <h2 class="text-white">Imagen</h2>
+          <h2 class="">Imagen</h2>
            <input #imageInput
          type="file"
          accept="image/*"
-         (change)="processFile(imageInput)">
+         (change)="handleFileSelect($event)">
           <br>
-          <h2 class="text-white">Categoría</h2>
+          <h2 class="">Categoría</h2>
           <select name="categoria"  id="cat" [(ngModel)]="categoria">
             <option selected>Videojuegos</option>
             <option>Tecnologia</option>
             <option>Offtopic</option>
           </select>
           <h2 class="text-white">Cuerpo</h2>
-            <div class="text-white"style="background-color:hsla(255,255,255,255);">
+            <div class="">
                 <app-ngx-editor  [config]="config" style="background-color: white;" 
                 [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="cuerpo">
                 </app-ngx-editor>
@@ -32,25 +34,26 @@
               <button class="btn btn-primary" (click)="publicar()"type="button">Publicar Noticia</button>
         </div>
           </div>
-          <div class="col-5">
+          <div class="col-5 noticiascss">
             <div class="container noticiascss">
              <h1>Previsualizacion de Noticia</h1>
              <br>
              <div class="row">
                  <p [innerHTML]="titulo | safe: 'html'"></p>
                  <p [innerHTML]="subtitulo | safe: 'html'"></p>
-                 <div *ngIf="imagename!=''">
-                   <img [src]="imagename"/>
+                 <div *ngIf="this.img!='blank'">
+                   <img [src]="'data:image/png;base64, '+this.img"/>
                 </div>
                  
                  <p [innerHTML]="cuerpo | safe: 'html'"></p>
              </div>
            </div>
          </div>
-         <div class="col-1"></div>
+         <div class="col-1">
+           
+         </div>
     </div>
     </div>
-</div>
 <br>
 <br>
 <br>

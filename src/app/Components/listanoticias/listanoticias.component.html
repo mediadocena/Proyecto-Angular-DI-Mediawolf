@@ -1,13 +1,14 @@
 <br>
 <div class="col">
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <div *ngFor = "let noticia of noticias | reverse | paginate: { id: 'listaNoticias',
-            itemsPerPage: tpp,
-            currentPage: p
-            } let i = index;">
-            <a routerLink="/Noticias/{{noticia.id}}">
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div *ngFor = "let noticia of noticias | paginate: { id: 'listaNoticias',
+        itemsPerPage: tpp,
+        currentPage: p
+        } let i = index;">
+            <div class="col">
+                <a routerLink="/Noticias/{{noticia.id}}">
                 <div class="row capa border border-dark rounded">
                     <div class="foto">
                         <img src="{{noticia.img}}" class="rounded float-left img-fluid iconoticias" alt="">
@@ -53,4 +54,6 @@
         </div>
         <div class="col-2"></div>
     </div>
+    <div class="col-2"></div>
+</div>
 </div>
