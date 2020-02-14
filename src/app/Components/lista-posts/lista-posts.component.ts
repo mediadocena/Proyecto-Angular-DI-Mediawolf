@@ -11,8 +11,14 @@ import { PostService } from 'src/app/Services/post.service';
 export class ListaPostsComponent implements OnInit {
 
   constructor(private router:ActivatedRoute,private post:PostService) { }
+
   categoria;
   posts;
+  titulo;
+  rol;
+  p;
+  tpp;
+
   ngOnInit() {
     this.router.params.subscribe(event => {
       this.categoria = event.categoria;
@@ -32,31 +38,37 @@ export class ListaPostsComponent implements OnInit {
     switch (this.categoria) {
       case 'Videojuegos':
         this.post.getPosts().subscribe((res:any)=>{
-          let p:any;
-          for(p in res){
-            if(p.categoria =='Videojuegos'){
-              this.posts.titulo = p.titulo;
+          this.posts = res;
+          res.forEach(element => {
+            let tit = element.titulo
+            if(element.categoria == 'Videojuegos'){
+              this.titulo = tit;
             }
+          });{
           }
         })
         break;
       case 'Tecnologia':
         this.post.getPosts().subscribe((res:any)=>{
-          let p:any;
-          for(p in res){
-            if(p.categoria =='Tecnologia'){
-              this.posts.titulo = p.titulo;
+          this.posts = res;
+          res.forEach(element => {
+            let tit = element.titulo
+            if(element.categoria == 'Tecnologia'){
+              this.titulo = tit;
             }
+          });{
           }
         })
         break;
         case 'Offtopic':
           this.post.getPosts().subscribe((res:any)=>{
-            let p:any;
-            for(p in res){
-              if(p.categoria =='Offtopic'){
-                this.posts.titulo = p.titulo;
+            this.posts = res;
+            res.forEach(element => {
+              let tit = element.titulo
+              if(element.categoria == 'Offtopic'){
+                this.titulo = tit;
               }
+            });{
             }
           })
         break;
