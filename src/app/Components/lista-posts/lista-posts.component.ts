@@ -19,6 +19,15 @@ export class ListaPostsComponent implements OnInit {
      });
      this.mode();
   }
+  Eliminar(id){
+    this.posts.slice(id,1);
+  }
+  Modificar(){
+
+  }
+  pageChanged(){
+
+  }
   mode(){
     switch (this.categoria) {
       case 'Videojuegos':

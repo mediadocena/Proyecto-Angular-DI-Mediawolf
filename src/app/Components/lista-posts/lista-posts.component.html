@@ -1,1 +1,52 @@
-<p>lista-posts works!</p>
+<br>
+<div class="col">
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div *ngFor = "let post of posts | paginate: { id: 'listapost',
+        itemsPerPage: tpp,
+        currentPage: p
+        } let i = index;">
+            <div class="col">
+                <a routerLink="/Post/{{post.id}}">
+                <div class="row capa border border-dark rounded">
+                    <div class="col text-white responsive">
+                        <h2>{{post.titulo}}</h2>
+                    </div>
+                </div>
+            </a>
+            <div *ngIf='rol=="admin"'>
+                <button class="btn btn-danger" type="button" (click)="Eliminar(p*tpp+i-tpp)">X</button>
+                <button class="btn btn-danger" type="button" (click)="Modificar(post.id)">Modificar</button>
+            </div>
+                <br>
+            </div>
+        </div>
+        <div class="col-2"></div>
+        
+        
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="capa">
+                <pagination-controls  id="listaPost"
+                                      (pageChange)="pageChanged($event)"
+                                      (pageBoundsCorrection)="pageChanged($event)"
+                                      maxSize="9"
+                                      directionLinks="true"
+                                      autoHide="true"
+                                      responsive="true"
+                                      previousLabel="Previous"
+                                      nextLabel="Next"
+                                      screenReaderPaginationLabel="Pagination"
+                                      screenReaderPageLabel="page"
+                                      screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+                </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="col-2"></div>
+</div>
+</div>
