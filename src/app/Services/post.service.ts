@@ -15,7 +15,7 @@ export class PostService {
     return this.http.get('http://localhost:3000/api/posts');
   }
   getPostsById(id){
-    return this.http.get('http://localhost:3000/api/posts/',id);
+    return this.http.get('http://localhost:3000/api/posts/'+id);
   }
   putPostById(id,post){
     return this.http.put('http://localhost:3000/api/posts/'+id,post);

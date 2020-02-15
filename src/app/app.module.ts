@@ -26,6 +26,7 @@ import { SafePipe } from './Pipes/safe.pipe';
 import { ModificarnoticiaComponent } from './Components/modificarnoticia/modificarnoticia.component';
 import { ReversePipe } from './Pipes/reverse.pipe';
 import { ListaPostsComponent } from './Components/lista-posts/lista-posts.component';
+import { PostComponent } from './Components/post/post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { ListaPostsComponent } from './Components/lista-posts/lista-posts.compon
     SafePipe,
     ModificarnoticiaComponent,
     ReversePipe,
-    ListaPostsComponent
+    ListaPostsComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

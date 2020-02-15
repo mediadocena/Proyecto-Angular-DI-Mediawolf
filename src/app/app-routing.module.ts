@@ -17,6 +17,7 @@ import { CrearpostComponent } from './Components/crearpost/crearpost.component';
 import { CrearnoticiaComponent } from './Components/crearnoticia/crearnoticia.component';
 import { ModificarnoticiaComponent } from './Components/modificarnoticia/modificarnoticia.component';
 import { ListaPostsComponent } from './Components/lista-posts/lista-posts.component';
+import { PostComponent } from './Components/post/post.component';
 
 
 export const routes: Routes = [
@@ -41,6 +42,8 @@ export const routes: Routes = [
 } 
 },
 {path:'CrearPost',component:CrearpostComponent,canActivate:[AuthGuardService]
+},
+{path:'Post/:id',component:PostComponent,canActivate:[AuthGuardService]
 },
 {path:'Foro/:categoria',component:ListaPostsComponent,canActivate:[AuthGuardService]
 },

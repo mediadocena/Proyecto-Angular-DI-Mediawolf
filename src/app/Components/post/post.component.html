@@ -1,0 +1,94 @@
+<div class="container">
+    <br>
+      <div>
+          <div class="container noticiascss">
+              <div class="row">
+                  <div class="col-1"></div>
+                <div class="col-10">
+                  <br>
+                  <h1><b><strong>{{postPage.titulo}}</strong></b></h1>
+                  <br>
+                  <p [innerHTML]="postPage.cuerpo | safe: 'html'"></p>
+              </div>
+            </div>
+      </div>
+        <br>
+        <div class="container noticiascss">
+          <div class="row">
+          <div class="col-1">
+          </div>
+          <div class="col-7">
+            <h1>Comentarios</h1>
+            <br>
+          </div>
+          <div class="col-1"><button class="btn btn-success" type="button" (click)="this.isButtonVisible = !isButtonVisible">¡Comenta!</button></div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+            <div *ngIf="isButtonVisible">
+              <br>
+              <!--WISIWIG-->
+              <div *ngIf="auth == true">
+                <app-ngx-editor [config]="config" 
+                [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="comentarioDummy">
+                </app-ngx-editor>
+                <br>
+              <br>
+              <button class="btn btn-success" type="button" (click)="Publicar()">Publicar</button>
+              <br>
+              </div >
+              <div *ngIf="auth == false">
+                <h2>Oooops, parece que no estas logeado!</h2>
+                <br>
+              <br>
+              <a routerLink="/LogIn" routerLinkActive="active">
+                <button class="btn btn-primary" type="button">Logeate!</button>
+              </a>
+              <br>
+              </div >
+              
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+        <br>
+        <div>
+            <div class="container noticiascss" *ngFor="let comen of postPage.comentarios | paginate: { id: 'listaComentarios',
+            itemsPerPage: 5,
+            currentPage: p,
+            totalItems: total } let i = index; ">
+              <br>
+                <div class="row">
+                  <div class="col-1"><img src="{{comen.icono}}" class="rounded-circle z-depth-0"
+                    data-toggle="dropdown" alt="avatar image" height="35"></div>
+                  <div class="col-7">
+                    
+                    <div class="row">
+                      <div><h2>{{comen.nick}}</h2>
+                        <p [(innerHTML)]=comen.cuerpo></div></div>
+                    </div>
+                    <div class="col-1" *ngIf="comen.id == idu || comen.iduser == idu">
+                      <button class="btn btn-danger" type="button" (click)="Eliminar(i)">X</button>
+                    </div>
+                </div>
+              </div>
+              <div class="container noticiascss color-text">
+                <pagination-controls  id="listaComentarios"
+                        (pageChange)="pageChanged($event)"
+                        (pageBoundsCorrection)="pageChanged($event)"
+                        maxSize="9"
+                        directionLinks="true"
+                        autoHide="true"
+                        responsive="true"
+                        previousLabel="Previous"
+                        nextLabel="Next"
+                        screenReaderPaginationLabel="Pagination"
+                        screenReaderPageLabel="page"
+                        screenReaderCurrentLabel="You're on page">
+                  </pagination-controls>
+              </div>
+              <br>
+        </div>
+  </div>

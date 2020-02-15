@@ -26,7 +26,7 @@ export class CrearpostComponent implements OnInit {
       userId:this.userId,
       categoria:this.categoria,
       cuerpo:this.cuerpo,
-      comentarios:[{}]
+      comentarios:[]
     }
     this.post.postPost(postModel).subscribe((resp)=>{
       alert('Post creado');
