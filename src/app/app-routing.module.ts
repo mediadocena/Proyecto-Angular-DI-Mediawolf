@@ -18,6 +18,7 @@ import { CrearnoticiaComponent } from './Components/crearnoticia/crearnoticia.co
 import { ModificarnoticiaComponent } from './Components/modificarnoticia/modificarnoticia.component';
 import { ListaPostsComponent } from './Components/lista-posts/lista-posts.component';
 import { PostComponent } from './Components/post/post.component';
+import { WrongRouteComponent } from './Components/wrong-route/wrong-route.component';
 
 
 export const routes: Routes = [
@@ -51,7 +52,11 @@ export const routes: Routes = [
   expectedRole: 'admin'
 } 
 },
-  {path: '', redirectTo: '/Home',pathMatch: 'full'}
+  {path: '', redirectTo: '/Home',pathMatch: 'full'},
+  {
+    path        : '**',
+    pathMatch   : 'full',
+    component   : WrongRouteComponent}
 ];
 
 @NgModule({
