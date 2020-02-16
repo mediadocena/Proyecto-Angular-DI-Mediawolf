@@ -16,7 +16,8 @@ export class ListanoticiasComponent implements OnInit {
   noticias:any[]=[];
   p:number=1;
   rol;
-  tpp = 20;
+  idElim;
+  tpp = 5;
   ngOnInit() {
     this.noticia.getNoticias().subscribe((data)=>{
       this.noticias=data;
@@ -40,9 +41,9 @@ export class ListanoticiasComponent implements OnInit {
   role(){
     this.rol = JSON.parse(localStorage.getItem('rol'));
   }
-  Eliminar(id){
-    let noticiaid = this.noticias[id].id;
-    console.log(this.noticias[id].titulo);
+  Eliminar(){
+    let noticiaid = this.noticias[this.idElim].id;
+    console.log(this.noticias[this.idElim].titulo);
     console.log(noticiaid);
     this.noticia.deleteNoticia(noticiaid).subscribe((response)=>{
       alert('Noticia Eliminada');
@@ -52,5 +53,9 @@ export class ListanoticiasComponent implements OnInit {
 
   Modificar(id){
     this.router.navigate(['/ModificarNoticia/'+id]);
+  }
+  PreEliminar(idElim){
+    this.idElim = idElim;
+
   }
 }

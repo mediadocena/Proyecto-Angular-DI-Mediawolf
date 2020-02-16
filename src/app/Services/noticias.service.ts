@@ -27,8 +27,7 @@ export class NoticiasService {
       let data;
       this.http.post('http://127.0.0.1:5000/noticias',noticia).subscribe((response)=>{
         alert('Noticia Subida')
-        this.getNoticias().subscribe((data)=>{
-        })
+        window.location.reload()
       },(err)=>{
         alert('Error al subir la noticia')
       });

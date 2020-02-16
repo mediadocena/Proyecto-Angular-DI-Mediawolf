@@ -40,6 +40,7 @@ export class PostComponent implements OnInit {
   auth;
   id;
   idu;
+  isButtonVisible:boolean=false;
   p;
   postPage:PostModel;
   ngOnInit() {
