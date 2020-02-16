@@ -1,60 +1,58 @@
 <br>
-<div class="row">
   <div class="col">
-    <div class="row ">
-        <div class="col-1">
-
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8 noticiascss">
+        <h1>Previsualizacion de Noticia</h1>
+        <hr>
+        <h2 [innerHTML]="titulo | safe: 'html'"></h2>
+        <h3 [innerHTML]="subtitulo | safe: 'html'"></h3>
+        <div *ngIf="this.img!='blank'">
+        <img src="{{img}}"/>
         </div>
-        <div class="col-5 noticiascss">
-          <div>
-            <h1 class="">Titulo</h1>
-          <input type="text" placeholder="Un titulo ..."[(ngModel)]="titulo"/>
-          <br>
-          <h2 class="">Subtitulo</h2>
-          <input type="text" placeholder="Un subtitulo ..." [(ngModel)]="subtitulo">
-          <br>
-          <h2 class="text-white">Imagen</h2>
-           <input #imageInput
-         type="file"
-         accept="image/*"
-         (change)="processFile(imageInput)">
-          <br>
-          <h2 class="">Categoría</h2>
-          <select name="categoria"  id="cat" [(ngModel)]="categoria">
-            <option selected>Videojuegos</option>
-            <option>Tecnologia</option>
-            <option>Offtopic</option>
-          </select>
-          <h2 class="">Cuerpo</h2>
-            <div class="">
-                <app-ngx-editor  [config]="config" style="background-color: white;" 
-                [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="cuerpo">
-                </app-ngx-editor>
-              </div>
-              <button class="btn btn-primary" (click)="publicar()"type="button">Modificar Noticia</button>
-        </div>
-          </div>
-          <div class="col-5 noticiascss">
-            <div class="container noticiascss">
-             <h1 class="">Previsualizacion de Noticia</h1>
-             <br>
-             <div class="row" class="">
-                 <p [innerHTML]="titulo | safe: 'html'"></p>
-                 <p [innerHTML]="subtitulo | safe: 'html'"></p>
-                 <img [src]="imagename"/>
-                 <p [innerHTML]="cuerpo | safe: 'html'"></p>
-             </div>
-           </div>
-         </div>
-         <div class="col-1">
-
-         </div>
+        <p [innerHTML]="cuerpo | safe: 'html'"></p>
+        <br>
+        <br>
+      </div>
+      <div class="col-2"></div>
     </div>
+    <div class="row">
+      <div class="col-2"></div>
+    <div class="col-4 noticiascss">
+      <h1 class="">Titulo</h1>
+        <input type="text" placeholder="Un titulo ..."[(ngModel)]="titulo"/>
+        <br>
+        <h2 class="">Subtitulo</h2>
+        <input type="text" placeholder="Un subtitulo ..." [(ngModel)]="subtitulo">
+        <br>
     </div>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+    <div class="col-4 noticiascss">
+      <h2 class="">Imagen</h2>
+      <input #imageInput
+      type="file"
+      accept="image/*"
+      (change)="handleFileSelect($event)">
+      <br>
+      <h2 class="">Categoría</h2>
+      <select name="categoria"  id="cat" [(ngModel)]="categoria">
+        <option selected>Videojuegos</option>
+        <option>Tecnologia</option>
+        <option>Offtopic</option>
+      </select>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 noticiascss">
+      <h2>Cuerpo</h2>
+      <div class="">
+        <app-ngx-editor  [config]="config" style="background-color: white;" 
+        [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="cuerpo">
+        </app-ngx-editor>
+      </div>
+      <br>
+      <button class="btn btn-primary" (click)="publicar()"type="button">Publicar Noticia</button>
+    </div>
+    <div class="col-2"></div>
+  </div>

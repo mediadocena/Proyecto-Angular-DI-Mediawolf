@@ -45,6 +45,10 @@ id;
 comentarios:[Comentarios];
 imagename;
 selectedFile: ImageSnippet;
+file;
+ext;
+img;
+nombreIcono;
   ngOnInit() {
     this.router.params.subscribe(event => {
       this.id = event.id;
@@ -56,13 +60,14 @@ selectedFile: ImageSnippet;
       this.categoria=data.categoria;
       this.comentarios=data.comentarios;
       this.imagename=data.img;
+      this.img=data.img;
     })
     
 
   }
   publicar(){
     let noticia = {
-      _id:this.id,
+      id:this.id,
       titulo:this.titulo,
       subtitulo:this.subtitulo,
       img:`${this.imagename}`,
@@ -73,30 +78,36 @@ selectedFile: ImageSnippet;
     console.log(noticia);
     this.noticia.updateNoticia(noticia).subscribe();
   }
-  processFile(imageInput: any) {
-    /*Object.defineProperty(imageInput.files[0], 'name', {
-      writable: true,
-      value: `${this.titulo}-icnoticia`
-    });*/
-    this.imagename =`http://localhost:3000/api/images/images/download/${imageInput.files[0].name}`;
-    console.log(imageInput.files[0].name)
-    var file: File = imageInput.files[0];
-    let nombreIcono:string = `${this.titulo}Img`;
-    var reader = new FileReader();
 
-    reader.addEventListener('load', (event: any) => {
+  handleFileSelect(evt){
+    var files = evt.target.files;
+    this. file = files[0];
+    this.ext=this.file.name;
+    this.ext = this.ext.slice((this.ext.lastIndexOf(".") - 1 >>> 0) + 2);
+  if (files && this.file) {
+      var reader = new FileReader();
 
-      this.selectedFile = new ImageSnippet(event.target.result, file,`${this.titulo}-icnoticia`);
-     /* this.imageService.uploadImage(this.selectedFile.file,nombreIcono).subscribe(
-        (res) => {
-        
-        },
-        (err) => {
-        
-        })*/
-    });
+      reader.onload =this._handleReaderLoaded.bind(this);
 
-    reader.readAsDataURL(file);
+      reader.readAsBinaryString(this.file);
+  }
+}
+
+_handleReaderLoaded(readerEvt) {
+   var binaryString = readerEvt.target.result;
+          this.img= btoa(binaryString);
+          console.log(btoa(binaryString));
+  }
+
+  subirImagen(){
+    
+          this.imageService.uploadImage(this.img, this.nombreIcono).subscribe(
+            (res) => {
+              
+            },
+            (err) => {
+              alert('Ha ocurrido un error en la subida de la imagen:'+err.err);
+            })
   }
 
 }

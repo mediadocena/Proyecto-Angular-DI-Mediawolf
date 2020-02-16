@@ -42,6 +42,7 @@ export class PostComponent implements OnInit {
   idu;
   p;
   postPage:PostModel;
+  isButtonVisible;
   ngOnInit() {
     this.router.params.subscribe(event => {
       this.id = event.id;
