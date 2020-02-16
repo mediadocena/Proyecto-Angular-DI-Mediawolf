@@ -68,7 +68,12 @@ export class PostComponent implements OnInit {
     })
   }
   Publicar(){
-
+    this.postPage.comentarios.push(this.comentarioDummy);
+    this.post.putPostById(this.id,this.postPage).subscribe((res)=>{
+      alert('¡Comentario subido!');
+    },(err)=>{
+      alert('Error al subir comentario: \n'+err.err);
+    })
   }
   Eliminar(id){
 
