@@ -13,6 +13,8 @@ export class BodyComponent implements OnInit {
   constructor(private noticiasService:NoticiasService) { }
   noticias:Noticia[] = [];
   comentario:Comentarios[];
+  p;
+  tpp = 20;
   ngOnInit() {
     this.getNoticias();
     
@@ -29,7 +31,9 @@ export class BodyComponent implements OnInit {
     }
   )
   }
-
+  pageChanged($event){
+    this.p= $event;
+  }
   /*savenoticia(id){
     this.noticiasService.saveId(id);
   }*/

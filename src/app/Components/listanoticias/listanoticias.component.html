@@ -1,32 +1,54 @@
 <br>
 <div class="col">
 <div class="row">
-    <div class="col-2"></div>
+    <div class="col-2">
+
+    </div>
     <div class="col-8">
         <div *ngFor = "let noticia of noticias | paginate: { id: 'listaNoticias',
         itemsPerPage: tpp,
         currentPage: p
         } let i = index;">
             <div class="col">
-                <a routerLink="/Noticias/{{noticia.id}}">
+                
                 <div class="row capa border border-dark rounded">
                     <div class="foto">
                         <img src="{{noticia.img}}" class="rounded float-left img-fluid iconoticias" alt="">
                     </div>
-                    <div class="col text-white responsive">
-                        <!--<h1>{{noticia.titulo}}</h1>
-                        <h3>{{noticia.subtitulo}}</h3>-->
-                        <h2>{{noticia.titulo}}</h2>
-                        <h4>{{noticia.subtitulo}}</h4>
-                    </div>
                     
+                    <div class="col text-white responsive">
+                        <a style="color:white" routerLink="/Noticias/{{noticia.id}}">
+                            <h2>{{noticia.titulo}}</h2>
+                            <h4>{{noticia.subtitulo}}</h4>
+                        </a>
+                    </div>
+                    <div class="col-2">
+                        <div *ngIf='rol=="admin"'>
+                            <button class="btn btn-primary" type="button" (click)="Modificar(noticia.id)">Modificar</button>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#EliminarModal" (click)="PreEliminar(p*tpp+i-tpp)">Eliminar </button>
+                        </div>
+                        <div class="modal fade" id="EliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Eliminar Noticia</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                 ¿Desea eliminar la noticia?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-danger" (click)="Eliminar()">Eliminar</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                 </div>
-            </a>
-            <div *ngIf='rol=="admin"'>
-                <button class="btn btn-danger" type="button" (click)="Eliminar(p*tpp+i-tpp)">X</button>
-                <button class="btn btn-danger" type="button" (click)="Modificar(noticia.id)">Modificar</button>
             </div>
-                <br>
+            <br>
             </div>
         </div>
         <div class="col-2"></div>
