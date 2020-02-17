@@ -28,6 +28,7 @@ import { ReversePipe } from './Pipes/reverse.pipe';
 import { ListaPostsComponent } from './Components/lista-posts/lista-posts.component';
 import { PostComponent } from './Components/post/post.component';
 import { WrongRouteComponent } from './Components/wrong-route/wrong-route.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { WrongRouteComponent } from './Components/wrong-route/wrong-route.compon
     HttpClientModule,
     NgxPaginationModule,
     NgxEditorModule,
+    NgxSpinnerModule,
     TooltipModule.forRoot()
   ],
   schemas:[

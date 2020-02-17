@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImagenesService } from 'src/app/Services/imagenes.service';
 import { UserServiceService } from 'src/app/Services/user-service.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-settings',
@@ -11,10 +12,11 @@ export class SettingsComponent implements OnInit {
   file: any;
   ext: any;
   img: string;
+  showSpinner:boolean = false;
   nombreIcono:string;
   userid;
   userObj;
-  constructor(private imageService:ImagenesService,private user:UserServiceService) { }
+  constructor(private spinner: NgxSpinnerService,private imageService:ImagenesService,private user:UserServiceService) { }
   opcion = 'cuenta';
   ngOnInit() {
     
@@ -76,9 +78,12 @@ _handleReaderLoaded(readerEvt) {
   }
   subirImagen(){
     this.nombreIcono = this.nombreIcono+'.'+this.ext;
+      this.spinner.show();
     this.imageService.uploadImage(this.img, this.nombreIcono).subscribe(
       (res) => {
+        
         alert('Se ha actualizado el icono correctamente');
+        this.spinner.hide();
       },
       (err) => {
         alert('Ha ocurrido un error en la subida de la imagen:'+err.err);

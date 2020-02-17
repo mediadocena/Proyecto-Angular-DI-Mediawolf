@@ -47,7 +47,7 @@ export class PostComponent implements OnInit {
     this.router.params.subscribe(event => {
       this.id = event.id;
      });
-     this.obtenerPost()
+     this.obtenerPost();
   }
   isAuth(){
     console.log(this.idu)
