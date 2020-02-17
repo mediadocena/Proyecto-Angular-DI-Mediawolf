@@ -44,7 +44,8 @@ export class NoticiaComponent implements OnInit {
   tpp = 5;
   auth:boolean;
   p:number=1;
-  idu="";
+  idu=""; 
+  rol="";
   isButtonVisible:boolean = false;
   noticia:Noticia; 
   total;
@@ -57,6 +58,7 @@ export class NoticiaComponent implements OnInit {
     this.Obtener();
     this.isAuth();
    console.log(this.idu);
+   console.log(this.rol);
   }
   Obtener(){
     this.noticiaService.getNoticiaPorId(this.id).subscribe((data:Noticia)=>{
