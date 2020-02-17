@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { URL_API } from '../cons/constantes';
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +10,18 @@ export class PostService {
   constructor(private http:HttpClient) { }
 
   postPost(post){
-    return this.http.post('http://localhost:3000/api/posts',post);
+    return this.http.post(URL_API+'posts',post);
   }
   getPosts(){
-    return this.http.get('http://localhost:3000/api/posts');
+    return this.http.get(URL_API+'posts');
   }
   getPostsById(id){
-    return this.http.get('http://localhost:3000/api/posts/'+id);
+    return this.http.get(URL_API+'posts/'+id);
   }
   putPostById(id,post){
-    return this.http.put('http://localhost:3000/api/posts/'+id,post);
+    return this.http.put(URL_API+'posts/'+id,post);
   }
   deletePost(id){
-    return this.http.delete('http://localhost:3000/api/posts/'+id);
+    return this.http.delete(URL_API+'posts/'+id);
   }
 }
