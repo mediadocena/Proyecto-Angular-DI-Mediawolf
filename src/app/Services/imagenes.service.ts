@@ -12,7 +12,7 @@ export class ImagenesService {
 
   public uploadImage(image:any, name:string){ 
     console.log(image, name);
-    return this.http.post(URL_API+`FileUpload`,{file:image,name:name});
+    return this.http.post(`${URL_API}/images/FileUpload`,{file:image,name:name});
   }
 
 }

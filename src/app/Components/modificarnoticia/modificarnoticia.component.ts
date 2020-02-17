@@ -15,7 +15,8 @@ class ImageSnippet {
 })
 export class ModificarnoticiaComponent implements OnInit {
 
-  constructor(private router:ActivatedRoute,private imageService:ImagenesService,private sanitizer:DomSanitizer,private noticia:NoticiasService) { }
+  constructor(private router:ActivatedRoute,private imageService:ImagenesService,
+    private sanitizer:DomSanitizer,private noticia:NoticiasService) { }
   cuerpo=""; 
   titulo="";
   subtitulo="";
@@ -86,9 +87,7 @@ nombreIcono;
     this.ext = this.ext.slice((this.ext.lastIndexOf(".") - 1 >>> 0) + 2);
   if (files && this.file) {
       var reader = new FileReader();
-
       reader.onload =this._handleReaderLoaded.bind(this);
-
       reader.readAsBinaryString(this.file);
   }
 }
