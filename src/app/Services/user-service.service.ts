@@ -5,10 +5,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserServiceService {
-  constructor(private http:HttpClient) { }
+  constructor(private URL:URL,private http:HttpClient) { }
 
   postUser(data:{}){
-    this.http.post('http://localhost:3000/api/users',data).subscribe(
+    this.http.post(`${this.URL}users`,data).subscribe(
       (response)=>{console.log('okay')},(error) =>
       alert('Error, por favor asegurese de que los datos introducidos son válidos'));
   }
@@ -16,7 +16,7 @@ export class UserServiceService {
     let local = JSON.parse(localStorage.getItem('token'));
     let id = local.userId;
     let token = local.id;
-    this.http.put(`http://localhost:3000/api/users/${id}?access_token=${token}`,data).subscribe(
+    this.http.put(`${this.URL}users/${id}?access_token=${token}`,data).subscribe(
       (response)=>{
         console.log('usuario modificado: ',data);
       }
@@ -27,10 +27,10 @@ export class UserServiceService {
     let id = local.userId;
     let token = local.id;
     console.log(token);
-    return this.http.get(`http://localhost:3000/api/users/${id}?access_token=${token}`)
+    return this.http.get(`${this.URL}users/${id}?access_token=${token}`)
   }
   loginUser(user){
-    this.http.post('http://localhost:3000/api/users/login',user).subscribe(
+    this.http.post(`${this.URL}users/login`,user).subscribe(
       (response)=>{
         localStorage.setItem('token',JSON.stringify(response));
         localStorage.setItem('pass',JSON.stringify(user.password));
@@ -49,14 +49,14 @@ export class UserServiceService {
     let id = local.userId;
     let token = local.id;
     let datos;
-    this.http.get(`http://localhost:3000/api/users/${id}?access_token=${token}`).subscribe((data)=>{
+    this.http.get(`${this.URL}users/${id}?access_token=${token}`).subscribe((data)=>{
        datos = data;
        localStorage.setItem('rol',JSON.stringify(datos.rol));
     });
   }
   logoutUser(alcachofa:any){
     console.log(JSON.parse(alcachofa).id);
-    this.http.post(`http://localhost:3000/api/users/logout?access_token=`+JSON.parse(alcachofa).id, null).subscribe(
+    this.http.post(`${this.URL}users/logout?access_token=`+JSON.parse(alcachofa).id, null).subscribe(
       (response)=>{
        
         localStorage.removeItem('token');

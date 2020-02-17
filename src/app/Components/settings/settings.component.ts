@@ -16,7 +16,7 @@ export class SettingsComponent implements OnInit {
   nombreIcono:string;
   userid;
   userObj;
-  constructor(private spinner: NgxSpinnerService,private imageService:ImagenesService,private user:UserServiceService) { }
+  constructor(private imageService:ImagenesService,private user:UserServiceService) { }
   opcion = 'cuenta';
   ngOnInit() {
     
@@ -51,7 +51,7 @@ export class SettingsComponent implements OnInit {
         "rol":resp.rol
       };
       this.subirImagen();
-      this.userObj.icono = `http://localhost:3000/api/images/images/download/${this.nombreIcono}`;
+      this.userObj.icono = `${this.URL}images/images/download/${this.nombreIcono}`;
       this.user.putUser(this.userObj);
     });
     
@@ -78,12 +78,10 @@ _handleReaderLoaded(readerEvt) {
   }
   subirImagen(){
     this.nombreIcono = this.nombreIcono+'.'+this.ext;
-      this.spinner.show();
+    
     this.imageService.uploadImage(this.img, this.nombreIcono).subscribe(
       (res) => {
-        
         alert('Se ha actualizado el icono correctamente');
-        this.spinner.hide();
       },
       (err) => {
         alert('Ha ocurrido un error en la subida de la imagen:'+err.err);
