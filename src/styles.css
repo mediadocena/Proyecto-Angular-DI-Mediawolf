@@ -18,16 +18,17 @@ html,body{
     max-height:50px;
     max-width: 50px;
 }
-/*.iconoticias{
-    min-height: 196px;
+.iconoticias{
+   /* min-height: 196px;
     max-height:196px;
     min-width: 270px;
     max-width: 270px;
     min-height: 96px;
     max-height:96px;
     min-width: 170px;
-    max-width: 170px;
-}*/
+    max-width: 170px;*/
+    vertical-align: middle ;
+}
 .foto {
     width: 170px;
     height: 96px;

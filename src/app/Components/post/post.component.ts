@@ -43,12 +43,11 @@ export class PostComponent implements OnInit {
   isButtonVisible:boolean=false;
   p;
   postPage:PostModel;
-  isButtonVisible;
   ngOnInit() {
     this.router.params.subscribe(event => {
       this.id = event.id;
      });
-     this.obtenerPost()
+     this.obtenerPost();
   }
   isAuth(){
     console.log(this.idu)

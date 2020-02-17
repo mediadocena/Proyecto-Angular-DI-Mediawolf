@@ -18,8 +18,8 @@
                     
                     <div class="col text-white responsive">
                         <a style="color:white" routerLink="/Noticias/{{noticia.id}}">
-                            <h2>{{noticia.titulo}}</h2>
-                            <h4>{{noticia.subtitulo}}</h4>
+                            <h5>{{noticia.titulo}}</h5>
+                            <p>{{noticia.subtitulo}}</p>
                         </a>
                     </div>
                     <div class="col-2">
@@ -50,32 +50,37 @@
             </div>
             <br>
             </div>
+            <div *ngIf="i==tpp-1 || (i==tpp-1 && p>1)">
+                <pagination-controls  id="listaNoticias"
+                (pageChange)="pageChanged($event)"
+                (pageBoundsCorrection)="pageChanged($event)"
+                maxSize="9"
+                directionLinks="true"
+                autoHide="true"
+                responsive="true"
+                previousLabel="Previous"
+                nextLabel="Next"
+                screenReaderPaginationLabel="Pagination"
+                screenReaderPageLabel="page"
+                screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+            </div>
         </div>
+    
         <div class="col-2"></div>
-        
-        
     </div>
     <div class="row">
-        <div class="col-2"></div>
+        <div class="col">
+        <div class="col-2">
+        </div>
         <div class="col-8">
             <div class="capa">
-                <pagination-controls  id="listaNoticias"
-                                      (pageChange)="pageChanged($event)"
-                                      (pageBoundsCorrection)="pageChanged($event)"
-                                      maxSize="9"
-                                      directionLinks="true"
-                                      autoHide="true"
-                                      responsive="true"
-                                      previousLabel="Previous"
-                                      nextLabel="Next"
-                                      screenReaderPaginationLabel="Pagination"
-                                      screenReaderPageLabel="page"
-                                      screenReaderCurrentLabel="You're on page">
-                </pagination-controls>
+       
                 </div>
         </div>
-        <div class="col-2"></div>
+        <div class="col-2">
+        </div>
     </div>
-    <div class="col-2"></div>
+</div>
 </div>
 </div>
