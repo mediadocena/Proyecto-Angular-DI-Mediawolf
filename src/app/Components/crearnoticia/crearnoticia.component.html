@@ -8,7 +8,7 @@
         <h2 [innerHTML]="titulo | safe: 'html'"></h2>
         <h3 [innerHTML]="subtitulo | safe: 'html'"></h3>
         <div *ngIf="this.img!='blank'">
-          <img [src]="'data:image/png;base64, '+this.img"/>
+          <img [src]="'data:image/png;base64, '+this.img | safe: 'url'"/>
         </div>
         <p [innerHTML]="cuerpo | safe: 'html'"></p>
         <br>

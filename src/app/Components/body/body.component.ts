@@ -14,7 +14,7 @@ export class BodyComponent implements OnInit {
   noticias:Noticia[] = [];
   comentario:Comentarios[];
   p;
-  tpp = 20;
+  tpp = 3;
   ngOnInit() {
     this.getNoticias();
     
