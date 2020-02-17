@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ImagenesService } from 'src/app/Services/imagenes.service';
 import { UserServiceService } from 'src/app/Services/user-service.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { URL_API } from 'src/app/cons/constantes';
 
 @Component({
   selector: 'app-settings',
@@ -51,7 +52,7 @@ export class SettingsComponent implements OnInit {
         "rol":resp.rol
       };
       this.subirImagen();
-      this.userObj.icono = `${this.URL}images/images/download/${this.nombreIcono}`;
+      this.userObj.icono = `${URL_API}images/images/download/${this.nombreIcono}`;
       this.user.putUser(this.userObj);
     });
     
