@@ -97,7 +97,7 @@ export class NoticiaComponent implements OnInit {
       this.comentarios.push(comen);
       
       dummy={
-        _id:this.id,
+        id:this.id,
         categoria:this.noticia.categoria,
         titulo:this.noticia.titulo,
         subtitulo:this.noticia.subtitulo,
