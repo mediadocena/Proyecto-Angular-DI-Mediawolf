@@ -71,6 +71,14 @@ export class UserServiceService {
     window.location.reload();
   });
   }
+
+  changePassword(newpass,oldpass){
+    let local = JSON.parse(localStorage.getItem('token'));
+    let token = local.id;
+    return this.http.post(`${URL_API}users/change-password?access_token=${token}`,{
+      'newPassword':newpass,
+      'oldPassword':oldpass});
+  }
   /*tokenCaducado(){
     var token = localStorage.getItem('token');
     var isExpiredToken = false;

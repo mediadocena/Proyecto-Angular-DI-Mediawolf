@@ -98,8 +98,7 @@ _handleReaderLoaded(readerEvt) {
           console.log(btoa(binaryString));
   }
 
-  subirImagen(){
-    
+  subirImagen(){ 
           this.imageService.uploadImage(this.img, this.nombreIcono).subscribe(
             (res) => {
               
@@ -108,5 +107,4 @@ _handleReaderLoaded(readerEvt) {
               alert('Ha ocurrido un error en la subida de la imagen:'+err.err);
             })
   }
-
 }
