@@ -13,6 +13,9 @@ export class SettingsComponent implements OnInit {
   file: any;
   ext: any;
   img: string;
+  antpass:string;
+  newpass1:string;
+  newpass2:string;
   showSpinner:boolean = false;
   nombreIcono:string;
   userid;
@@ -36,6 +39,18 @@ export class SettingsComponent implements OnInit {
       default:
         this.opcion = 'cuenta'
         break;
+    }
+
+  }
+  cambiarPassword(){
+    if(this.newpass1==this.newpass2){
+      this.user.changePassword(this.newpass1,this.antpass).subscribe((res)=>{
+        alert('Contraseña cambiada');
+        window.location.reload();
+      },(err)=>{
+        alert('Ha ocurrido un error al cambiar la contraseña: \n'+err);
+        window.location.reload();
+      })
     }
 
   }

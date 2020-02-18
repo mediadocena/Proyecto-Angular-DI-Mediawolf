@@ -88,20 +88,20 @@
             <!-- Material input -->
             <div class="md-form">
                 <i class="fas fa-lock prefix"></i>
-                <input type="password" id="inputValidationEx2" class="form-control validate">
+                <input [(ngModel)]="antpass" type="password" id="inputValidationEx2" class="form-control validate">
                 <label for="inputValidationEx2" data-error="wrong" data-success="right">Tu contraseña</label>
             </div>
             <div class="md-form">
                 <i class="fas fa-lock prefix"></i>
-                <input type="password" id="inputValidationEx2" class="form-control validate">
+                <input [(ngModel)]="newpass1" type="password" id="inputValidationEx2" class="form-control validate">
                 <label for="inputValidationEx2" data-error="wrong" data-success="right">Nueva contraseña</label>
             </div>
             <div class="md-form">
                 <i class="fas fa-lock prefix"></i>
-                <input type="password" id="inputValidationEx2" class="form-control validate">
+                <input [(ngModel)]="newpass2" type="password" id="inputValidationEx2" class="form-control validate">
                 <label for="inputValidationEx2" data-error="wrong" data-success="right">Repita la contraseña</label>
             </div>
-            <button type="button" class="btn btn-elegant">Cambiar!</button>
+            <button type="button" (click)="cambiarPassword()" class="btn btn-elegant">Cambiar!</button>
             <br>
             <br>
         </div>
