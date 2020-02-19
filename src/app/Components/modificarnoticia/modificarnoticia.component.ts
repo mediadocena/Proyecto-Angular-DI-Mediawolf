@@ -5,6 +5,7 @@ import { Comentarios } from 'src/app/Models/ComentariosModel';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ImagenesService } from 'src/app/Services/imagenes.service';
 import { Noticia } from 'src/app/Models/NoticiasModel';
+import { URL_API } from 'src/app/cons/constantes';
 class ImageSnippet {
   constructor(public src: string, public file: File,public name) {}
 }
@@ -63,18 +64,19 @@ nombreIcono;
       this.imagename=data.img;
       this.img=data.img;
     })
-    
-
   }
   publicar(){
+    this.nombreIcono = `${this.titulo.trim()}Img`+'.'+this.ext;
+    this.imagename =URL_API+`images/images/download/${this.nombreIcono}`;
+    this.subirImagen();
     let noticia = {
       id:this.id,
       titulo:this.titulo,
       subtitulo:this.subtitulo,
       img:`${this.imagename}`,
-      categoria:this.categoria,
+      categoria: this.categoria,
       cuerpo:this.cuerpo,
-      comentarios:this.comentarios
+      comentarios:[]
     }
     console.log(noticia);
     this.noticia.updateNoticia(noticia).subscribe();
