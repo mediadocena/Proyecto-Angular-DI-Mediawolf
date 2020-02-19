@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/Services/post.service';
 import { PostModel } from 'src/app/Models/PostModel';
+import { UserServiceService } from 'src/app/Services/user-service.service';
 
 @Component({
   selector: 'app-post',
@@ -10,7 +11,7 @@ import { PostModel } from 'src/app/Models/PostModel';
 })
 export class PostComponent implements OnInit {
 
-  constructor(private router:ActivatedRoute,private post:PostService) {
+  constructor(private router:ActivatedRoute,private post:PostService,private user:UserServiceService) {
     if(JSON.parse(localStorage.getItem('token'))!=null){
       this.idu = JSON.parse(localStorage.getItem('token')).userId;
       }
@@ -69,15 +70,37 @@ export class PostComponent implements OnInit {
     })
   }
   Publicar(){
-    this.postPage.comentarios.push(this.comentarioDummy);
+    let datos;
+    let nick;
+    let icono;
+    let cuerpo;
+    this.user.obtenerUsuario().subscribe((data)=>{
+      datos = data;
+      icono = datos.icono;
+      console.log(icono)
+      nick = datos.username;
+      let dummy = {
+        'iduser':this.idu,
+        'nick': nick,
+        'icono':icono,
+        'cuerpo':this.comentarioDummy
+      }
+      this.postPage.comentarios.push(dummy);
     this.post.putPostById(this.id,this.postPage).subscribe((res)=>{
       alert('¡Comentario subido!');
     },(err)=>{
       alert('Error al subir comentario: \n'+err.err);
     })
+    }); 
   }
   Eliminar(id){
-
+    this.postPage.comentarios.splice(id,1);
+    this.post.putPostById(this.postPage.id,this.postPage).subscribe((response)=>{
+      //window.location.reload();
+    },(error)=>{
+      console.log(`error al actualizar noticia`),
+      console.log(this.postPage);
+    });
   }
   pageChanged($event){
     console.log($event)

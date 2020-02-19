@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     let dato;
     this.userService.obtenerUsuario().subscribe((data)=>{
       dato = data;
-      this.icono=dato.icono;
+      this.icono = dato.icono;
     },(error)=>{
       console.log('ha ocurrido un error al obtener datos')
     });
