@@ -1,4 +1,5 @@
-<br>
+<!--
+>br>
 
   <div class="col">
     <div class="row">
@@ -34,3 +35,37 @@
 <br>
 <br>
 <br>
+  -->
+  <br>
+  <div class="col">
+    <div class="row">
+      <div class="col-2"></div>
+    <div class="col-4 noticiascss">
+      <h1><b>Crear post</b></h1>
+      <h3 class="">Titulo</h3>
+        <input type="text" placeholder="Un titulo ..."[(ngModel)]="titulo"/>
+        <br>
+        <h3 class="">Categoría</h3>
+        <select name="categoria"  id="cat" [(ngModel)]="categoria">
+        <option selected>Videojuegos</option>
+        <option>Tecnologia</option>
+        <option>Offtopic</option>
+      </select>
+    </div>
+    <div class="col-4 noticiascss">
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 noticiascss">
+      <h3>Cuerpo</h3>
+        <div class="">
+          <app-ngx-editor  style="background-color: white;" 
+            [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="cuerpo">
+          </app-ngx-editor>
+        </div>
+        <button class="btn btn-primary" (click)="subirPost()"type="button">Publicar post</button>
+    </div>
+    <div class="col-2"></div>
+  </div>
