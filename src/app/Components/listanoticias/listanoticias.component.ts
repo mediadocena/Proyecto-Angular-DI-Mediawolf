@@ -17,7 +17,7 @@ export class ListanoticiasComponent implements OnInit {
   p:number=1;
   rol;
   idElim;
-  tpp = 5;
+  tpp = 15;
   ngOnInit() {
     this.noticia.getNoticias().subscribe((data)=>{
       this.noticias=data;

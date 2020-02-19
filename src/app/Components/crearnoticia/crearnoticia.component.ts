@@ -4,6 +4,7 @@ import { NoticiasService } from 'src/app/Services/noticias.service';
 import { Comentarios } from 'src/app/Models/ComentariosModel';
 import { Router } from '@angular/router';
 import { ImagenesService } from 'src/app/Services/imagenes.service';
+import { URL_API } from 'src/app/cons/constantes';
 class ImageSnippet {
   constructor(public src: string, public file: File,public name) {}
 }
@@ -50,7 +51,7 @@ nombreIcono;
   }
   publicar(){
     this.nombreIcono = `${this.titulo.trim()}Img`+'.'+this.ext;
-    this.imagename =`http://localhost:3000/api/images/images/download/${this.nombreIcono}`;
+    this.imagename =URL_API+`images/images/download/${this.nombreIcono}`;
     this.subirImagen();
     let noticia = {
       titulo:this.titulo,
@@ -78,20 +79,20 @@ nombreIcono;
 }
 
 _handleReaderLoaded(readerEvt) {
-   var binaryString = readerEvt.target.result;
-          this.img= btoa(binaryString);
-          console.log(btoa(binaryString));
+    var binaryString = readerEvt.target.result;
+    this.img= btoa(binaryString);
+    console.log(btoa(binaryString));
   }
 
   subirImagen(){
     
-          this.imageService.uploadImage(this.img, this.nombreIcono).subscribe(
-            (res) => {
-              
-            },
-            (err) => {
-              alert('Ha ocurrido un error en la subida de la imagen:'+err.err);
-            })
+    this.imageService.uploadImage(this.img, this.nombreIcono).subscribe(
+      (res) => {
+        
+      },
+      (err) => {
+        alert('Ha ocurrido un error en la subida de la imagen:'+err.err);
+      })
   }
 
 

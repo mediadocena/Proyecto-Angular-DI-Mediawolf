@@ -11,21 +11,23 @@
         } let i = index;">
             <div class="col">
                 
-                <div class="row capa border border-dark rounded">
+                <!--<div class="row capa border border-dark rounded">-->
+                <div class="row noticiascss">
                     <div class="foto">
                         <img src="{{noticia.img}}" class="rounded float-left img-fluid iconoticias" alt="">
                     </div>
                     
-                    <div class="col text-white responsive">
-                        <a style="color:white" routerLink="/Noticias/{{noticia.id}}">
-                            <h5>{{noticia.titulo}}</h5>
+                    <div class="col responsive">
+                        <a style="color:black" routerLink="/Noticias/{{noticia.id}}">
+                            <br>
+                            <h5><b>{{noticia.titulo}}</b></h5>
                             <p>{{noticia.subtitulo}}</p>
                         </a>
                     </div>
                     <div class="col-2">
-                        <div *ngIf='rol=="admin"'>
-                            <button class="btn btn-primary" type="button" (click)="Modificar(noticia.id)">Modificar</button>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#EliminarModal" (click)="PreEliminar(p*tpp+i-tpp)">Eliminar </button>
+                        <div *ngIf='rol=="admin"' class="fluid">
+                            <button class="btn btn-primary float-right" type="button" (click)="Modificar(noticia.id)">Modificar</button>
+                            <button class="btn btn-danger float-right" data-toggle="modal" data-target="#EliminarModal" (click)="PreEliminar(p*tpp+i-tpp)">Eliminar</button>
                         </div>
                         <div class="modal fade" id="EliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -50,7 +52,7 @@
             </div>
             <br>
             </div>
-            <div *ngIf="i==tpp-1 || p > 1 && (p*tpp+i-tpp) == noticias.length-1">
+            <div class="noticiascss" *ngIf="i==tpp-1 || p > 1 && (p*tpp+i-tpp) == noticias.length-1">
                 <pagination-controls  id="listaNoticias"
                 (pageChange)="pageChanged($event)"
                 (pageBoundsCorrection)="pageChanged($event)"
