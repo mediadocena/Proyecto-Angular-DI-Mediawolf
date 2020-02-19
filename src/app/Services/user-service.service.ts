@@ -9,8 +9,15 @@ export class UserServiceService {
   constructor(private http:HttpClient) { }
 
   postUser(data:{}){
+    let a:any = data;
     this.http.post(`${URL_API}users`,data).subscribe(
-      (response)=>{console.log('okay')},(error) =>
+      (response)=>{
+        if(a.rol == 'user'){
+        this.loginUser(data);
+        }
+        console.log('okay');
+        alert('¡Usuario Creado!')
+    },(error) =>
       alert('Error, por favor asegurese de que los datos introducidos son válidos'));
   }
   putUser(data:{}){

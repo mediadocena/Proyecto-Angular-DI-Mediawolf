@@ -28,6 +28,7 @@ import { ReversePipe } from './Pipes/reverse.pipe';
 import { ListaPostsComponent } from './Components/lista-posts/lista-posts.component';
 import { PostComponent } from './Components/post/post.component';
 import { WrongRouteComponent } from './Components/wrong-route/wrong-route.component';
+import { CrearadminComponent } from './Components/crearadmin/crearadmin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { WrongRouteComponent } from './Components/wrong-route/wrong-route.compon
     ReversePipe,
     ListaPostsComponent,
     PostComponent,
-    WrongRouteComponent
+    WrongRouteComponent,
+    CrearadminComponent
   ],
   imports: [
     BrowserModule,

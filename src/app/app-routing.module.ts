@@ -19,6 +19,7 @@ import { ModificarnoticiaComponent } from './Components/modificarnoticia/modific
 import { ListaPostsComponent } from './Components/lista-posts/lista-posts.component';
 import { PostComponent } from './Components/post/post.component';
 import { WrongRouteComponent } from './Components/wrong-route/wrong-route.component';
+import { CrearadminComponent } from './Components/crearadmin/crearadmin.component';
 
 
 export const routes: Routes = [
@@ -32,7 +33,7 @@ export const routes: Routes = [
 },
   {path:'Noticias/:id',component:NoticiaComponent
 },
-  {path:'ListaNoticias',component:ListanoticiasComponent
+  {path:'ListaNoticias/:categoria',component:ListanoticiasComponent
 },
   {path:'Settings',component:SettingsComponent,canActivate:[AuthGuardService]
 },
@@ -47,6 +48,10 @@ export const routes: Routes = [
 {path:'Post/:id',component:PostComponent,canActivate:[AuthGuardService]
 },
 {path:'Foro/:categoria',component:ListaPostsComponent,canActivate:[AuthGuardService]
+},
+{path:'CrearAdmin',component:CrearadminComponent,canActivate:[RoleGuardService],data:{
+  expectedRole: 'admin'
+}
 },
 {path:'ModificarNoticia/:id',component:ModificarnoticiaComponent,canActivate:[RoleGuardService],data: { 
   expectedRole: 'admin'

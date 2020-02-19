@@ -13,7 +13,7 @@
           <a class="nav-link" href="">Home<span class="sr-only">(current)</span></a>
         </li>-->
         <li class="nav-item">
-          <a class="nav-link" href="/ListaNoticias">Noticias</a>
+          <a class="nav-link" href="/ListaNoticias/UltimasNoticias">Noticias</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/ForoCategorias">Foro</a>
@@ -47,6 +47,7 @@
                 <a class="dropdown-item" (click)='delogin()'>Log out</a>
                   <div *ngIf='rol == "admin"'>
                     <a class="dropdown-item" href="CrearNoticia" >Publicar noticia</a>
+                    <a class="dropdown-item" href="CrearAdmin" >Crear admin</a>
                   </div>
                     <a class="dropdown-item" href="CrearPost" >Crear Post</a>
               </div>

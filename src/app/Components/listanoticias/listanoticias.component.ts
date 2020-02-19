@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from 'src/app/Services/noticias.service';
 import { Noticia } from 'src/app/Models/NoticiasModel';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 @Component({
@@ -11,21 +11,80 @@ import {NgxPaginationModule} from 'ngx-pagination';
 })
 export class ListanoticiasComponent implements OnInit {
 
-  constructor(private noticia:NoticiasService, private router:Router) { }
+  constructor(private noticia:NoticiasService, private router:Router,private param:ActivatedRoute) { }
 
   noticias:any[]=[];
   p:number=1;
   rol;
   idElim;
+  categoria:string;
   tpp = 5;
   ngOnInit() {
-    this.noticia.getNoticias().subscribe((data)=>{
-      this.noticias=data;
-      console.log(this.noticias)
-    },(error)=>{
-      console.log('algo ha fallado')
-    })
-    this.role();
+    this.param.params.subscribe(event => {
+      this.categoria = event.categoria;
+     });
+    this.ObtenerNoticias()
+  }
+
+  ObtenerNoticias(){
+    switch (this.categoria) {
+      case 'Videojuegos':
+        this.noticia.getNoticias().subscribe((data:any)=>{
+        
+          for(let da of data){
+            if(da.categoria=='Videojuegos'){
+              this.noticias.push(da);
+            }
+          }
+          console.log(this.noticias)
+        },(error)=>{
+          console.log('algo ha fallado')
+        })
+        this.role();
+        break;
+        case 'Tecnologia':
+        this.noticia.getNoticias().subscribe((data:any)=>{
+          console.log(data);
+          for(let da of data){
+            console.log(da);
+            if(da.categoria=='Tecnologia'){
+              console.log(da);
+              this.noticias.push(da);
+            }
+          }
+          console.log(this.noticias)
+        },(error)=>{
+          console.log('algo ha fallado')
+        })
+        this.role();
+        break;
+        case 'Offtopic':
+        this.noticia.getNoticias().subscribe((data:any)=>{
+          for(let da of data){
+            if(da.categoria=='Offtopic'){
+              this.noticias.push(da);
+            }
+          }
+          console.log(this.noticias)
+        },(error)=>{
+          console.log('algo ha fallado')
+        })
+        this.role();
+        break;
+        case 'UltimasNoticias':
+        this.noticia.getNoticias().subscribe((data:any)=>{
+              this.noticias = data;
+              this.noticias.reverse();
+          console.log(this.noticias)
+        },(error)=>{
+          console.log('algo ha fallado')
+        })
+        this.role();
+        break;
+      default:
+        break;
+    }
+    
   }
 
   iranoticia(id){

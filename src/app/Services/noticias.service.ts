@@ -43,11 +43,11 @@ export class NoticiasService {
        
       private crearArreglo( noticiaOBJ: object ) {
 
-        const noticias:Noticia[] = [];
+        const noticias:any[] = [];
     
         Object.keys( noticiaOBJ ).forEach( key => {
     
-          const noticia:Noticia = noticiaOBJ[key];
+          const noticia:any = noticiaOBJ[key];
     
           noticias.push( noticia );
         });
