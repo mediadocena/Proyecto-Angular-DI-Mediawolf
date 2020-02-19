@@ -55,10 +55,11 @@ export class NoticiaComponent implements OnInit {
     this.router.params.subscribe(event => {
       this.id = event.id;
      });
+     this.rol = JSON.parse(localStorage.getItem('rol'));
     this.Obtener();
     this.isAuth();
    console.log(this.idu);
-   console.log(this.rol);
+   console.log('rol',this.rol);
   }
   Obtener(){
     this.noticiaService.getNoticiaPorId(this.id).subscribe((data:Noticia)=>{

@@ -43,11 +43,13 @@ export class PostComponent implements OnInit {
   idu;
   isButtonVisible:boolean=false;
   p;
+  rol;
   postPage:PostModel;
   ngOnInit() {
     this.router.params.subscribe(event => {
       this.id = event.id;
      });
+     this.rol = JSON.parse(localStorage.getItem('rol'));
      this.obtenerPost();
   }
   isAuth(){
