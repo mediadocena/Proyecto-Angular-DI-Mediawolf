@@ -26,8 +26,8 @@
         </div>
       </div>
       <br>
-      <div *ngIf="i==tpp-1 || p > 1 && (p*tpp+i-tpp) == noticias.length-1">
-        <pagination-controls style="background-color: white" id="listaNoticias"
+      <div class="noticiascss" *ngIf="i==tpp-1 || p > 1 && (p*tpp+i-tpp) == noticias.length-1">
+        <pagination-controls id="listaNoticias"
           (pageChange)="pageChanged($event)"
           (pageBoundsCorrection)="pageChanged($event)"
           maxSize="9"
