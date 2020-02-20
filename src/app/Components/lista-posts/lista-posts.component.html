@@ -8,12 +8,19 @@
         currentPage: p
         } let i = index;">
             <div class="col">
-                <a routerLink="/Post/{{post.id}}">
+               <!-- <a routerLink="/Post/{{post.id}}">
                 <div class="row capa border border-dark rounded">
                     <div class="col text-white responsive">
                         <h2>{{post.titulo}}</h2>
                     </div>
                 </div>
+            </a>-->
+            <a routerLink="/Post/{{post.id}}">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 style="color:black" class="card-title"><b>{{post.titulo}}</b></h5>
+                    </div>
+                  </div>
             </a>
             <div *ngIf='rol=="admin"'>
                 <button class="btn btn-danger" type="button" (click)="Eliminar(p*tpp+i-tpp)">X</button>
