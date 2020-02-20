@@ -4,7 +4,7 @@
         <div class="col-2">
         </div>
         <div class="col-8">
-            <input type="text" class="input" [(ngModel)]="searchArgs"/>
+            <input type="text" class="input" (keyup)="Busqueda(searchArgs)" [(ngModel)]="searchArgs"/>
             <button class="btn btn-primary" (click)="Busqueda(searchArgs)">Buscar</button>
         </div>
         <div class="col-2">
@@ -20,7 +20,6 @@
         currentPage: p
         } let i = index;">
             <div class="col">
-                
                 <!--<div class="row capa border border-dark rounded">-->
                 <div class="row noticiascss">
                     <div class="foto">

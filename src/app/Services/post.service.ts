@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { URL_API } from '../cons/constantes';
+import { URL_API, URL_API_PY } from '../cons/constantes';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,8 @@ export class PostService {
   }
   deletePost(id){
     return this.http.delete(URL_API+'posts/'+id);
+  }
+  searchPost(args:string){
+    return this.http.get(`${URL_API_PY}BusquedaPost/`+args);
   }
 }
