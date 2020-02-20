@@ -18,6 +18,7 @@ export class ListanoticiasComponent implements OnInit {
   rol;
   idElim;
   categoria:string;
+  searchArgs:string;
   tpp = 5;
   ngOnInit() {
     this.param.params.subscribe(event => {
@@ -86,7 +87,24 @@ export class ListanoticiasComponent implements OnInit {
     }
     
   }
-
+  Busqueda(args:string){
+    if(args == ''){
+      this.ObtenerNoticias();
+      this.tpp = 5;
+      this.p = 1;
+    }else{
+    this.noticia.search(args).subscribe((res:any)=>{
+      this.noticias = res;
+      this.tpp = this.noticias.length
+      this.p = 1;
+      if(res == '')
+      alert('¡Vaya!, no hemos podido obtener noticias')
+    },(err)=>{
+      this.noticias = []
+      alert('¡Vaya!, parece que hemos tenido un problema')
+    })
+  }
+  }
   iranoticia(id){
     console.log(this.noticias[1]._id)
     console.log(id);

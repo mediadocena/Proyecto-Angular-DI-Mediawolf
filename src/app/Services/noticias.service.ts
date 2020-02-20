@@ -67,4 +67,7 @@ export class NoticiasService {
     deleteNoticia(id){
       return this.http.delete(`${URL_API}noticias/${id}?access_token=${this.token}`,id);
     }
+    search(param:string){
+      return this.http.get(`${URL_API_PY}Busqueda/${param}`)
+    }
 }
