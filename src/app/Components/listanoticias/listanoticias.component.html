@@ -1,27 +1,30 @@
 <br>
 <div class="col">
-    <div class="row">
-        <div class="col-2">
-        </div>
-        <div class="col-8">
-            <input type="text" class="input" (keyup)="Busqueda(searchArgs)" [(ngModel)]="searchArgs"/>
-            <button class="btn btn-primary" (click)="Busqueda(searchArgs)">Buscar</button>
-        </div>
-        <div class="col-2">
-        </div>
-    </div>
 <div class="row">
     <div class="col-2">
 
     </div>
     <div class="col-8">
+        <div class="container">
+            <form class="form-inline my-2 my-lg-0">
+            
+        </form>
+        <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchArgs" (keyup)="Busqueda(searchArgs)">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="Busqueda(searchArgs)">Search</button>
+        </div>
+            <!--<input type="text" class="input" [(ngModel)]="searchArgs"/>
+            <button class="btn btn-primary" (click)="Busqueda(searchArgs)">Buscar</button>-->
+        </div>
+        <br>
         <div *ngFor = "let noticia of noticias | paginate: { id: 'listaNoticias',
         itemsPerPage: tpp,
         currentPage: p
         } let i = index;">
             <div class="col">
                 <!--<div class="row capa border border-dark rounded">-->
-                <div class="row noticiascss card-horizontal">
+                <div class="container">
+                    <div class="row noticiascss card-horizontal">
                     <div class="foto">
                         <img src="{{noticia.img}}" class="rounded float-left img-fluid iconoticias" alt="">
                     </div>
@@ -33,7 +36,7 @@
                             <p>{{noticia.subtitulo}}</p>
                         </a>
                     </div>
-                    <div class="col-2">
+                    <div style="background-color: #211E1E;" class="container">
                         <div *ngIf='rol=="admin"' class="fluid">
                             <button class="btn btn-primary float-right" type="button" (click)="Modificar(noticia.id)">Modificar</button>
                             <button class="btn btn-danger float-right" data-toggle="modal" data-target="#EliminarModal" (click)="PreEliminar(p*tpp+i-tpp)">Eliminar</button>
@@ -57,6 +60,8 @@
                               </div>
                             </div>
                           </div>
+                    </div>
+                    <div class="col-2"></div>
                 </div>
             </div>
             <br>

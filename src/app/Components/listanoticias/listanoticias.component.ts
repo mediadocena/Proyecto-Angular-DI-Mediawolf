@@ -19,7 +19,7 @@ export class ListanoticiasComponent implements OnInit {
   idElim;
   categoria:string;
   searchArgs:string;
-  tpp = 5;
+  tpp = 15;
   ngOnInit() {
     this.param.params.subscribe(event => {
       this.categoria = event.categoria;
@@ -119,7 +119,7 @@ export class ListanoticiasComponent implements OnInit {
     console.log(this.noticias[this.idElim].titulo);
     console.log(noticiaid);
     this.noticia.deleteNoticia(noticiaid).subscribe((response)=>{
-      alert('Noticia Eliminada');
+      //alert('Noticia Eliminada');
       window.location.reload();
     },(err)=>alert('error al eliminar la noticia'));
   }
