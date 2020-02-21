@@ -70,4 +70,18 @@ export class NoticiasService {
     search(param:string){
       return this.http.get(`${URL_API_PY}Busqueda/${param}`)
     }
+
+    PostTwitter(){
+      this.getNoticias().subscribe((res)=>{
+        let data:any[] = res;
+        data.reverse()
+        let title = data[1].titulo;
+        let ide = data[1].id
+        this.http.post(`${URL_API}noticias/PostTwitter`,{titulo:title,id:ide}).subscribe();
+      },(err)=>{
+
+      })
+      
+
+    }
 }

@@ -62,8 +62,8 @@ nombreIcono;
       comentarios:[]
     }
     this.noticia.postNoticias(noticia);
+    this.noticia.PostTwitter();
   }
-
   handleFileSelect(evt){
     var files = evt.target.files;
     this. file = files[0];
