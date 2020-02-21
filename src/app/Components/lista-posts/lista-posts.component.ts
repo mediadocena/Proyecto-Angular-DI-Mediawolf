@@ -18,6 +18,7 @@ export class ListaPostsComponent implements OnInit {
   titulo;
   rol;
   p;
+  searchArgs:string;
   tpp;
 
   ngOnInit() {
@@ -35,6 +36,24 @@ export class ListaPostsComponent implements OnInit {
   pageChanged($event){
     console.log($event)
     this.p= $event;
+  }
+  Busqueda(args:string){
+    if(args == ''){
+      this.mode();
+      this.tpp = 5;
+      this.p = 1;
+    }else{
+    this.post.searchPost(args).subscribe((res:any)=>{
+      this.posts = res;
+      this.tpp = this.posts.length
+      this.p = 1;
+      if(res == '')
+      alert('¡Vaya!, no hemos podido obtener noticias')
+    },(err)=>{
+      this.posts = []
+      alert('¡Vaya!, parece que hemos tenido un problema')
+    })
+  }
   }
   mode(){
     switch (this.categoria) {
