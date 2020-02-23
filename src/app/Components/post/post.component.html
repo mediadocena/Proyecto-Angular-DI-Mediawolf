@@ -17,19 +17,22 @@
           <div class="row">
           <div class="col-1">
           </div>
-          <div class="col-7">
-            <h1>Comentarios</h1>
+          <div class="col-4">
+            <br>
+            <h3>Comentarios</h3>
             <br>
           </div>
-          <div class="col-1"><button class="btn btn-success" type="button" (click)="this.isButtonVisible = !isButtonVisible">¡Comenta!</button></div>
+          <div class="col-7">
+            <br>
+            <button class="btn btn-success" type="button" (click)="this.isButtonVisible = !this.isButtonVisible">¡Comenta!</button>
+          </div>
         </div>
         <div class="row">
-          <div class="col-1"></div>
-          <div class="col-10">
-            <div *ngIf="isButtonVisible">
+          <div class="col-12">
+            <div *ngIf="this.isButtonVisible">
               <br>
-              <!--WISIWIG
-              <div *ngIf="auth == true">-->
+              <!--WISIWIG-->
+              <div *ngIf="auth == true">
                 <app-ngx-editor [config]="config" 
                 [placeholder]="'Añade un mensaje aquí...'" [spellcheck]="true" [(ngModel)]="comentarioDummy">
                 </app-ngx-editor>
@@ -37,7 +40,7 @@
               <br>
               <button class="btn btn-success" type="button" (click)="Publicar()">Publicar</button>
               <br>
-              <!--</div>-->
+              </div >
               <div *ngIf="auth == false">
                 <h2>Oooops, parece que no estas logeado!</h2>
                 <br>
@@ -50,7 +53,6 @@
               
             </div>
           </div>
-          <div class="col-1"></div>
         </div>
       </div>
         <br>
@@ -61,18 +63,17 @@
             totalItems: total } let i = index; ">
               <br>
                 <div class="row">
-                  <div class="col-1"><img src="{{comen.icono}}" class="rounded-circle z-depth-0"
-                    data-toggle="dropdown" alt="avatar image" height="35"></div>
-                  <div class="col-7">
-                    
-                    <div class="row">
-                      <div><h2>{{comen.nick}}</h2>
-                        <p [(innerHTML)]=comen.cuerpo></div></div>
-                    </div>
-                    <div class="col-1" *ngIf="comen.id == idu || comen.iduser == idu || rol =='admin'">
-                      <button class="btn btn-danger" type="button" (click)="Eliminar(i)">X</button>
-                    </div>
+                <div class="col-2"><img src="{{comen.icono}}" class="rounded-circle z-depth-0"
+                  data-toggle="dropdown" alt="avatar image" height="35">
                 </div>
+                <div class="col-6">
+                  <h2>{{comen.nick}}</h2>
+                  <p [(innerHTML)]=comen.cuerpo>
+                </div>
+                <div class="col-4" *ngIf="comen.id == idu || comen.iduser == idu || rol == 'admin'">
+                  <button class="btn btn-danger" type="button" (click)="Eliminar(i)">X</button>
+                </div>
+              </div>
               </div>
               <div class="container noticiascss color-text">
                 <pagination-controls  id="listaComentarios"

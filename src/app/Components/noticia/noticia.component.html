@@ -22,15 +22,18 @@
         <div class="row">
         <div class="col-1">
         </div>
-        <div class="col-7">
-          <h1>Comentarios</h1>
+        <div class="col-4">
+          <br>
+          <h3>Comentarios</h3>
           <br>
         </div>
-        <div class="col-1"><button class="btn btn-success" type="button" (click)="this.isButtonVisible = !this.isButtonVisible">¡Comenta!</button></div>
+        <div class="col-7">
+          <br>
+          <button class="btn btn-success" type="button" (click)="this.isButtonVisible = !this.isButtonVisible">¡Comenta!</button>
+        </div>
       </div>
       <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
+        <div class="col-12">
           <div *ngIf="this.isButtonVisible">
             <br>
             <!--WISIWIG-->
@@ -55,7 +58,6 @@
             
           </div>
         </div>
-        <div class="col-1"></div>
       </div>
     </div>
       <br>
@@ -65,7 +67,7 @@
           currentPage: p,
           totalItems: total } let i = index; ">
             <br>
-              <div class="row">
+              <!--<div class="row">
                 <div class="col-1"><img src="{{comen.icono}}" class="rounded-circle z-depth-0"
                   data-toggle="dropdown" alt="avatar image" height="35"></div>
                 <div class="col-7">
@@ -77,6 +79,18 @@
                   <div class="col-1" *ngIf="comen.id == idu || comen.iduser == idu || rol == 'admin'">
                     <button class="btn btn-danger" type="button" (click)="Eliminar(i)">X</button>
                   </div>
+              </div>-->
+              <div class="row">
+                <div class="col-2"><img src="{{comen.icono}}" class="rounded-circle z-depth-0"
+                  data-toggle="dropdown" alt="avatar image" height="35">
+                </div>
+                <div class="col-6">
+                  <h2>{{comen.nick}}</h2>
+                  <p [(innerHTML)]=comen.cuerpo>
+                </div>
+                <div class="col-4" *ngIf="comen.id == idu || comen.iduser == idu || rol == 'admin'">
+                  <button class="btn btn-danger" type="button" (click)="Eliminar(i)">X</button>
+                </div>
               </div>
             </div>
             <div class="container noticiascss color-text">
