@@ -45,9 +45,9 @@ export const routes: Routes = [
 },
 {path:'CrearPost',component:CrearpostComponent,canActivate:[AuthGuardService]
 },
-{path:'Post/:id',component:PostComponent,canActivate:[AuthGuardService]
+{path:'Post/:id',component:PostComponent
 },
-{path:'Foro/:categoria',component:ListaPostsComponent,canActivate:[AuthGuardService]
+{path:'Foro/:categoria',component:ListaPostsComponent
 },
 {path:'CrearAdmin',component:CrearadminComponent,canActivate:[RoleGuardService],data:{
   expectedRole: 'admin'

@@ -65,4 +65,7 @@ html,body{
     .mobile {
         display:none
     }
+    .derecha{
+        padding-right: 150px;
+    }
 }

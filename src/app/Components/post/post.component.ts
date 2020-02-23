@@ -40,7 +40,7 @@ export class PostComponent implements OnInit {
   comentarioDummy;
   auth;
   id;
-  idu;
+  idu = "";
   isButtonVisible:boolean=false;
   p;
   rol;
@@ -51,6 +51,8 @@ export class PostComponent implements OnInit {
      });
      this.rol = JSON.parse(localStorage.getItem('rol'));
      this.obtenerPost();
+     console.log('aaaa'+this.idu);
+     this.isAuth();
   }
   isAuth(){
     console.log(this.idu)

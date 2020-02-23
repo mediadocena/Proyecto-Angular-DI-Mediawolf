@@ -17,7 +17,7 @@ class ImageSnippet {
 export class ModificarnoticiaComponent implements OnInit {
 
   constructor(private router:ActivatedRoute,private imageService:ImagenesService,
-    private sanitizer:DomSanitizer,private noticia:NoticiasService) { }
+    private sanitizer:DomSanitizer,private noticia:NoticiasService, private pagina:Router) { }
   cuerpo=""; 
   titulo="";
   subtitulo="";
@@ -79,7 +79,10 @@ nombreIcono;
       comentarios:[]
     }
     console.log(noticia);
-    this.noticia.updateNoticia(noticia).subscribe();
+    this.noticia.updateNoticia(noticia).subscribe(res=>{
+      alert("La noticia se ha actualizado correctamente");
+      this.pagina.navigate(['/ListaNoticias/UltimasNoticias']);
+    });
   }
 
   handleFileSelect(evt){
