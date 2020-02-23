@@ -19,7 +19,7 @@ export class ListanoticiasComponent implements OnInit {
   idElim;
   categoria:string;
   searchArgs:string;
-  tpp = 15;
+  tpp = 10;
   ngOnInit() {
     this.param.params.subscribe(event => {
       this.categoria = event.categoria;
@@ -129,6 +129,5 @@ export class ListanoticiasComponent implements OnInit {
   }
   PreEliminar(idElim){
     this.idElim = idElim;
-
   }
 }

@@ -13,22 +13,32 @@ export class ListaPostsComponent implements OnInit {
 
   constructor(private router:ActivatedRoute,private post:PostService) { }
 
+  idElim: any;
   categoria;
   posts:PostModel[]=[];
   titulo;
   rol;
-  p;
+  p:number=1;
   searchArgs:string;
-  tpp;
+  tpp = 10;
 
   ngOnInit() {
     this.router.params.subscribe(event => {
       this.categoria = event.categoria;
      });
+     this.obtenerRol();
      this.mode();
   }
-  Eliminar(id){
-    this.posts.slice(id,1);
+  Eliminar(){
+    let ide = this.posts[this.idElim].id;
+    this.post.deletePost(ide).subscribe(res=>{
+      window.location.reload();
+    });
+    //this.posts.slice(id,1);
+  }
+  PreEliminar(idElim){
+    this.idElim = idElim;
+    console.log(idElim);
   }
   Modificar(){
 
@@ -87,6 +97,10 @@ export class ListaPostsComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  obtenerRol(){
+    this.rol = JSON.parse(localStorage.getItem('rol'));
   }
 
 }

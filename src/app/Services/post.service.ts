@@ -22,7 +22,8 @@ export class PostService {
     return this.http.put(URL_API+'posts/'+id,post);
   }
   deletePost(id){
-    return this.http.delete(URL_API+'posts/'+id);
+    let token = JSON.parse(localStorage.getItem('token')).id;
+    return this.http.delete(URL_API+'Posts/'+id);
   }
   searchPost(args:string){
     return this.http.get(`${URL_API_PY}BusquedaPost/`+args);

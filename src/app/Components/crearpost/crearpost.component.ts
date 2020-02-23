@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/Services/post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crearpost',
@@ -8,7 +9,7 @@ import { PostService } from 'src/app/Services/post.service';
 })
 export class CrearpostComponent implements OnInit {
 
-  constructor(private post:PostService) { }
+  constructor(private post:PostService, private router:Router) { }
   cuerpoPost="Algo de texto...";
   titulo;
   categoria;
@@ -51,6 +52,7 @@ export class CrearpostComponent implements OnInit {
     }
     this.post.postPost(postModel).subscribe((resp)=>{
       alert('Post creado');
+      this.router.navigate(['/Foro/'+this.categoria]);
     },(err)=>{
       alert('Error al crear post: \n'+err);
     });
