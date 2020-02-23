@@ -1,88 +1,19 @@
-<!--
-    <div class="row">
-        <div class="col-1">
 
-        </div>
-        <div class="col-10 capa text-white">
-            <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link active" (click)="cambiarOpcion('cuenta')">Cuenta</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" (click)="cambiarOpcion('foro')">Foro</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" (click)="cambiarOpcion('ayuda')">Ayuda</a>
-                </li>
-            </ul>
-
-        </div>
-        <div class="col-1">
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-1">
-
-        </div>
-        <div [ngSwitch]="opcion">
-            <div *ngSwitchCase="'cuenta'">
-                <div class="col-10 noticiascss text-white mx-auto">
-                    <h1>Opciones de la cuenta</h1>
-                    <div class="row">
-                        <div class="col-5">
-                            <h2>Cambiar Contraseña</h2>
-                            <input type="text" placeholder="Contraseña anterior"/>
-                            <input type="text" placeholder="Nueva Contraseña"/>
-                            <button>Cambiar Contraseña</button>
-                            <br>
-                            <h2>Cambiar Icono</h2>
-                            <input #imageInput
-                                type="file"
-                                accept="image/*"
-                                (change)="handleFileSelect($event)">
-                            <button class="btn" (click)="cambiarImagen()">Cambiar Imagen</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div *ngSwitchCase="'foro'">
-                <div class="col-10 capa text-white mx-auto">
-                    <h1>Opciones del foro</h1>
-                </div>
-            </div>
-            <div *ngSwitchCase="'ayuda'">
-                <div class="col-10 capa text-white mx-auto noticiascss">
-                    <h1>Ayuda</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-1">
-
-        </div>
-    </div>
-    <ngx-spinner   bdColor="rgba(51,51,51,0.8)"
-    size="medium"
-    color="#fff"
-    type="ball-scale-multiple">
-    <p>Subiendo imagen...</p>
-</ngx-spinner>
--->
 <br>
 <div class="col">
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8 noticiascss">
-            <h1>Ajustes de usuario</h1>
+        <div class="col-1"></div>
+        <div class="col-10 noticiascss">
+            <h1><b>Ajustes de usuario</b></h1>
             <h4>¡Modifica el perfil a tu gusto!</h4>
             <br>
             <br>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
     </div>
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4 noticiascss">
+        <div class="col-1"></div>
+        <div class="col-5 noticiascss">
             <h5><b>Cambia tu contraseña</b></h5>
             <h6>¿Tan jakiado? ¡Cambia tu contraseña y aumenta tu seguridad!</h6>
             <!-- Material input -->
@@ -105,7 +36,7 @@
             <br>
             <br>
         </div>
-        <div class="col-4 noticiascss">
+        <div class="col-5 noticiascss">
             <h5><b>Cambiar Icono</b></h5>
             <h6>¿Cambia tu foto para estar más guapo que nunca!</h6>
             <br>
@@ -120,17 +51,17 @@
                 <div class="custom-file">
                     <input #imageInput accept="image/*" type="file" class="custom-file-input" id="inputGroupFile01"
                     aria-describedby="inputGroupFileAddon01" (change)="handleFileSelect($event)">
-                    <label class="custom-file-label" for="inputGroupFile01">Elije tu foto</label>
+                    <label class="custom-file-label" for="inputGroupFile01"></label>
                 </div>
             </div>
             <br>
             <br>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
     </div>
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8 noticiascss">
+        <div class="col-1"></div>
+        <div class="col-10 noticiascss">
             <h5><b>Contáctanos</b></h5>
             <h6><b>Ubicación:</b></h6>
             <h6><b>Teléfono:</b></h6>
@@ -138,6 +69,6 @@
             <br>
             <br>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
     </div>
 </div>

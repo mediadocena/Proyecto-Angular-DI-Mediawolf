@@ -1,8 +1,9 @@
 <br>
 <div class="col">
 <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <h1 class="text-white"><b>Foro-{{categoria}}</b></h1>
         <div *ngFor = "let post of posts | paginate: { id: 'listapost',
         itemsPerPage: tpp,
         currentPage: p
@@ -29,13 +30,13 @@
                 <br>
             </div>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
         
         
     </div>
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
+        <div class="col-1"></div>
+        <div class="col-10">
             <div class="capa">
                 <pagination-controls  id="listaPost"
                                       (pageChange)="pageChanged($event)"
@@ -52,8 +53,8 @@
                 </pagination-controls>
                 </div>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
     </div>
-    <div class="col-2"></div>
+    <div class="col-1"></div>
 </div>
 </div>

@@ -1,24 +1,25 @@
 <br>
   <div class="col">
     <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8 noticiascss">
-        <h1>Previsualizacion de Noticia</h1>
+      <div class="col-1"></div>
+      <div class="col-10 noticiascss">
+        <h1><b>Publicar Noticia</b></h1>
+        <h2>Previsualizacion de Noticia</h2>
         <hr>
         <h2 [innerHTML]="titulo | safe: 'html'"></h2>
         <h3 [innerHTML]="subtitulo | safe: 'html'"></h3>
         <div *ngIf="this.img!='blank'">
-          <img [src]="'data:image/png;base64, '+this.img | safe: 'url'"/>
+          <img [src]="'data:image/png;base64, '+this.img | safe: 'url'" class="wi100"/>
         </div>
         <p [innerHTML]="cuerpo | safe: 'html'"></p>
         <br>
         <br>
       </div>
-      <div class="col-2"></div>
+      <div class="col-1"></div>
     </div>
     <div class="row">
-      <div class="col-2"></div>
-    <div class="col-4 noticiascss">
+      <div class="col-1"></div>
+    <div class="col-5 noticiascss">
       <h1 class="">Titulo</h1>
         <input type="text" placeholder="Un titulo ..."[(ngModel)]="titulo"/>
         <br>
@@ -26,12 +27,21 @@
         <input type="text" placeholder="Un subtitulo ..." [(ngModel)]="subtitulo">
         <br>
     </div>
-    <div class="col-4 noticiascss">
+    <div class="col-5 noticiascss">
       <h2 class="">Imagen</h2>
-      <input #imageInput
+      <!--<input #imageInput
       type="file"
       accept="image/*"
-      (change)="handleFileSelect($event)">
+      (change)="handleFileSelect($event)">-->
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input type="file" accept="image/*" class="custom-file-input" id="inputGroupFile02" (change)="handleFileSelect($event)">>
+          <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02"></label>
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text" id="inputGroupFileAddon02">Subir</span>
+        </div>
+      </div>
       <br>
       <h2 class="">Categoría</h2>
       <select name="categoria"  id="cat" [(ngModel)]="categoria">
@@ -40,11 +50,11 @@
         <option>Offtopic</option>
       </select>
     </div>
-    <div class="col-2"></div>
+    <div class="col-1"></div>
   </div>
   <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8 noticiascss">
+    <div class="col-1"></div>
+    <div class="col-10 noticiascss">
       <h2>Cuerpo</h2>
       <div class="">
         <app-ngx-editor  [config]="config" style="background-color: white;" 
@@ -54,5 +64,5 @@
       <br>
       <button class="btn btn-primary" (click)="publicar()"type="button">Publicar Noticia</button>
     </div>
-    <div class="col-2"></div>
+    <div class="col-1"></div>
   </div>
