@@ -64,8 +64,9 @@ export class NoticiasService {
     getId(){
       return this.id;
     }
-    deleteNoticia(id){
-      return this.http.delete(`${URL_API}noticias/${id}?access_token=${this.token}`,id);
+    deleteNoticia(id:string){
+      /*return this.http.delete(`${URL_API}noticias/${id}?access_token=${this.token}`,id);*/
+      return this.http.delete(`${URL_API_PY}noticias?id=${id}`);
     }
     search(param:string){
       return this.http.get(`${URL_API_PY}Busqueda/${param}`)
