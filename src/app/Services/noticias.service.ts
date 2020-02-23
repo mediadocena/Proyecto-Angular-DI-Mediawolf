@@ -28,6 +28,7 @@ export class NoticiasService {
       let data;
       this.http.post(`${URL_API_PY}noticias`,noticia).subscribe((response)=>{
         alert('Noticia Subida')
+        this.PostTwitter();
         window.location.reload()
       },(err)=>{
         alert('Error al subir la noticia')
@@ -74,9 +75,9 @@ export class NoticiasService {
     PostTwitter(){
       this.getNoticias().subscribe((res)=>{
         let data:any[] = res;
-        data.reverse()
-        let title = data[1].titulo;
-        let ide = data[1].id
+        data = data.reverse() 
+        let title = data[0].titulo;
+        let ide = data[0].id
         this.http.post(`${URL_API}noticias/PostTwitter`,{titulo:title,id:ide}).subscribe();
       },(err)=>{
 
