@@ -29,7 +29,7 @@ export class NoticiasService {
       this.http.post(`${URL_API_PY}noticias`,noticia).subscribe((response)=>{
         alert('Noticia Subida')
         this.PostTwitter();
-        window.location.reload()
+        this.router.navigate(['/ListaNoticias/UltimasNoticias']);
       },(err)=>{
         alert('Error al subir la noticia')
       });
