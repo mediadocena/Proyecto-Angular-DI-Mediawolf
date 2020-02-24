@@ -52,6 +52,7 @@ ext;
 cambioImg:boolean = false;
 img;
 nombreIcono;
+select:boolean=false;
   ngOnInit() {
     this.router.params.subscribe(event => {
       this.id = event.id;
@@ -68,12 +69,13 @@ nombreIcono;
   }
   publicar(){
     if(this.cambioImg == true){
-    this.nombreIcono = `${this.titulo.trim()}Img`+'.'+this.ext;
+    this.nombreIcono = `${this.titulo.trim().replace('?','').replace('<','').replace('>','')}Img`+'.'+this.ext;
+    console.log(this.nombreIcono);
     this.imagename =URL_API+`images/images/download/${this.nombreIcono}`;
     this.subirImagen();
     let noticia = {
       id:this.id,
-      titulo:this.titulo,
+      titulo:this.titulo.replace('<','').replace('>',''),
       subtitulo:this.subtitulo,
       img:`${this.imagename}`,
       categoria: this.categoria,
@@ -105,6 +107,7 @@ nombreIcono;
   }
 
   handleFileSelect(evt){
+    this.select=true;
     var files = evt.target.files;
     this. file = files[0];
     this.ext=this.file.name;

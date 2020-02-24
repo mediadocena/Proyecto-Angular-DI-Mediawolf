@@ -7,8 +7,11 @@
         <hr>
         <h2 [innerHTML]="titulo | safe: 'html'"></h2>
         <h3 [innerHTML]="subtitulo | safe: 'html'"></h3>
-        <div *ngIf="this.img!='blank'">
+        <div *ngIf="this.img!='blank' && this.select==false">
         <img src="{{img}}"/>
+        </div>
+        <div *ngIf="this.select==true">
+          <img [src]="'data:image/png;base64, '+this.img | safe: 'url'" class="wi100"/>
         </div>
         <p [innerHTML]="cuerpo | safe: 'html'"></p>
         <br>
@@ -28,10 +31,15 @@
     </div>
     <div class="col-4 noticiascss">
       <h2 class="">Imagen</h2>
-      <input #imageInput
-      type="file"
-      accept="image/*"
-      (change)="handleFileSelect($event)">
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input type="file" accept="image/*" class="custom-file-input" id="inputGroupFile02" (change)="handleFileSelect($event)">>
+          <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02"></label>
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text" id="inputGroupFileAddon02">Subir</span>
+        </div>
+      </div>
       <br>
       <h2 class="">Categoría</h2>
       <select name="categoria"  id="cat" [(ngModel)]="categoria">
