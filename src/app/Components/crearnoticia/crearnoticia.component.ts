@@ -50,18 +50,22 @@ nombreIcono;
   ngOnInit() {
   }
   publicar(){
-    this.nombreIcono = `${this.titulo.trim().replace('?','').replace('<','').replace('>','')}Img`+'.'+this.ext;
-    this.imagename =URL_API+`images/images/download/${this.nombreIcono}`;
-    this.subirImagen();
-    let noticia = {
-      titulo:this.titulo.replace('<','').replace('>',''),
-      subtitulo:this.subtitulo,
-      img:`${this.imagename}`,
-      categoria: this.categoria,
-      cuerpo:this.cuerpo,
-      comentarios:[]
+    if(this.titulo!=''){
+      this.nombreIcono = `${this.titulo.trim().replace('?','').replace('<','').replace('>','')}Img`+'.'+this.ext;
+      this.imagename =URL_API+`images/images/download/${this.nombreIcono}`;
+      this.subirImagen();
+      let noticia = {
+        titulo:this.titulo.replace('<','').replace('>',''),
+        subtitulo:this.subtitulo,
+        img:`${this.imagename}`,
+        categoria: this.categoria,
+        cuerpo:this.cuerpo,
+        comentarios:[]
     }
     this.noticia.postNoticias(noticia);
+    }else {
+      alert('Título obligatorio');
+    }
   }
   handleFileSelect(evt){
     var files = evt.target.files;

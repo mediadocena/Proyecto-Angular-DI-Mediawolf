@@ -6,13 +6,13 @@
         <h1>Previsualizacion de Noticia</h1>
         <hr>
         <h2 [innerHTML]="titulo | safe: 'html'"></h2>
-        <h3 [innerHTML]="subtitulo | safe: 'html'"></h3>
         <div *ngIf="this.img!='blank' && this.select==false">
         <img src="{{img}}"/>
         </div>
         <div *ngIf="this.select==true">
           <img [src]="'data:image/png;base64, '+this.img | safe: 'url'" class="wi100"/>
         </div>
+        <h3 [innerHTML]="subtitulo | safe: 'html'"></h3>
         <p [innerHTML]="cuerpo | safe: 'html'"></p>
         <br>
         <br>

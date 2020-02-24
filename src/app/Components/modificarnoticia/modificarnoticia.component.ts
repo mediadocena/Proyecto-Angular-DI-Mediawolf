@@ -69,7 +69,7 @@ select:boolean=false;
   }
   publicar(){
     if(this.cambioImg == true){
-    this.nombreIcono = `${this.titulo.trim().replace('?','').replace('<','').replace('>','')}Img`+'.'+this.ext;
+    this.nombreIcono = `${this.titulo.trim().replace('?','').replace('<','').replace('>','').replace('"','').replace('"','')}Img`+'.'+this.ext;
     console.log(this.nombreIcono);
     this.imagename =URL_API+`images/images/download/${this.nombreIcono}`;
     this.subirImagen();

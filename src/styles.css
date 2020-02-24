@@ -18,11 +18,7 @@ html,body{
     max-height:50px;
     max-width: 50px;
 }
-.wi100{
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-}
+
 
 .iconoticias{
    /* min-height: 196px;
@@ -73,5 +69,10 @@ html,body{
     }
     .derecha{
         padding-right: 150px;
+    }
+    .wi100{
+        width: 100%;
+        max-width: 250px;
+        height: auto;
     }
 }

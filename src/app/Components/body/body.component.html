@@ -19,12 +19,14 @@
       itemsPerPage: tpp,
       currentPage: p
       } let i = index;">
-      <div class="card" routerLink="/Noticias/{{noticia.id}}">
-        <div class="card-body">
-          <h5 class="card-title">{{noticia.titulo}}</h5>
-        <p class="card-text">{{noticia.subtitulo}}</p>
+      <a routerLink="/Noticias/{{noticia.id}}" style="color:black">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{noticia.titulo}}</h5>
+          <p class="card-text">{{noticia.subtitulo}}</p>
+          </div>
         </div>
-      </div>
+      </a>
       <br>
       <div class="noticiascss" *ngIf="i==tpp-1 || p > 1 && (p*tpp+i-tpp) == noticias.length-1">
         <pagination-controls id="listaNoticias"
@@ -47,21 +49,31 @@
     <div class="col-3">
       <div class="container">
         <ul class="list-group">
-          <li class="list-group-item" routerLink="/ListaNoticias/UltimasNoticias">
-            <div class="md-v-line"></div><i class="fas fa-newspaper mr-5"></i><b class="mobile">Últimas Noticias</b>
-          </li>
-          <li class="list-group-item" routerLink="/ListaNoticias/Videojuegos">
-            <div class="md-v-line"></div><i class="fas fa-gamepad mr-5"></i><b class="mobile">Videojuegos</b>
-          </li>
-          <li class="list-group-item" routerLink="/ListaNoticias/Tecnologia">
-            <div class="md-v-line"></div><i class="fas fa-memory mr-5"></i><b class="mobile">Tecnología</b>
-          </li>
-          <li class="list-group-item" routerLink="/ListaNoticias/Offtopic">
-            <div class="md-v-line"></div><i class="fas fa-mug-hot mr-5"></i><b class="mobile">OffTopic</b>
-          </li>
-          <li class="list-group-item" routerLink="/ForoCategorias">
-            <div class="md-v-line"></div><i class="fas fa-comments mr-5"></i><b class="mobile">Foro</b>
-          </li>
+          <a routerLink="/ListaNoticias/UltimasNoticias" style="color:black">
+            <li class="list-group-item">
+              <div class="md-v-line"></div><i class="fas fa-newspaper mr-5"></i><b class="mobile">Últimas Noticias</b>
+            </li>
+          </a>
+          <a routerLink="/ListaNoticias/Videojuegos" style="color:black">
+            <li class="list-group-item">
+              <div class="md-v-line"></div><i class="fas fa-gamepad mr-5"></i><b class="mobile">Videojuegos</b>
+            </li>
+          </a>
+          <a routerLink="/ListaNoticias/Tecnologia" style="color:black">
+            <li class="list-group-item">
+              <div class="md-v-line"></div><i class="fas fa-memory mr-5"></i><b class="mobile">Tecnología</b>
+            </li>
+          </a>
+          <a routerLink="/ListaNoticias/Offtopic" style="color:black">
+            <li class="list-group-item">
+              <div class="md-v-line"></div><i class="fas fa-mug-hot mr-5"></i><b class="mobile">OffTopic</b>
+            </li>
+          </a>
+          <a routerLink="/ForoCategorias" style="color:black">
+            <li class="list-group-item">
+              <div class="md-v-line"></div><i class="fas fa-comments mr-5"></i><b class="mobile">Foro</b>
+            </li>
+          </a>
         </ul>
       </div>
     </div>
