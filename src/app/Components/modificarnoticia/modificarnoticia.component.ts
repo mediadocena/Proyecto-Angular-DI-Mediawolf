@@ -49,6 +49,7 @@ imagename;
 selectedFile: ImageSnippet;
 file;
 ext;
+cambioImg:boolean = false;
 img;
 nombreIcono;
   ngOnInit() {
@@ -66,6 +67,7 @@ nombreIcono;
     })
   }
   publicar(){
+    if(this.cambioImg == true){
     this.nombreIcono = `${this.titulo.trim()}Img`+'.'+this.ext;
     this.imagename =URL_API+`images/images/download/${this.nombreIcono}`;
     this.subirImagen();
@@ -83,6 +85,23 @@ nombreIcono;
       alert("La noticia se ha actualizado correctamente");
       this.pagina.navigate(['/ListaNoticias/UltimasNoticias']);
     });
+    }else{
+    let noticia = {
+      id:this.id,
+      titulo:this.titulo,
+      subtitulo:this.subtitulo,
+      img:`${this.img}`,
+      categoria: this.categoria,
+      cuerpo:this.cuerpo,
+      comentarios:[]
+    }
+    console.log(noticia);
+    this.noticia.updateNoticia(noticia).subscribe(res=>{
+      alert("La noticia se ha actualizado correctamente");
+      this.pagina.navigate(['/ListaNoticias/UltimasNoticias']);
+    });
+    }
+    
   }
 
   handleFileSelect(evt){
@@ -91,9 +110,11 @@ nombreIcono;
     this.ext=this.file.name;
     this.ext = this.ext.slice((this.ext.lastIndexOf(".") - 1 >>> 0) + 2);
   if (files && this.file) {
+      this.cambioImg = true;
       var reader = new FileReader();
       reader.onload =this._handleReaderLoaded.bind(this);
       reader.readAsBinaryString(this.file);
+      
   }
 }
 
